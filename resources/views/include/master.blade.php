@@ -11,6 +11,15 @@
     <link rel="stylesheet" href="{{url('fonts/font-awesome/css/font-awesome.min.css')}}">
    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.css">
+<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+
+
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
        <div class="wrapper">

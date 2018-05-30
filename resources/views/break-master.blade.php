@@ -64,7 +64,7 @@
 
          <div class="box-body">
 
-          <div class="container">
+           
 <div class="table-responsive">
   
    <table id="example" class="table table-bordered table-striped">
@@ -90,7 +90,7 @@
     </table>
   </div>
 </div>
-  </div>
+ 
 </div>
   </div>
 </div>
