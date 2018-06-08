@@ -29,6 +29,7 @@
           @yield('content')
           </div>
           @include('include.footer')
+          @include('include.script')
       </div>
      <script type="text/javascript"   src="{{url('js/adminlte.min.js')}}" async  ></script>
      <script type="text/javascript"  src="{{url('js/bootstrap.min.js')}}" async  ></script>

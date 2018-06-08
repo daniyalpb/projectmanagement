@@ -16,7 +16,7 @@
        <div class="row">
         <div class="col-xs-12">
             
-                      
+              <form action="{{url('asp-insert')}}" method="post" id="pas_from_id">{{csrf_field()}}            
             <div class="box">
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover" id="append_id">
@@ -176,18 +176,27 @@ var total_value=0;
   Sum_Insured_Table_other($tr);
 }).trigger('input'); 
  function Sum_Insured_Table_other($tr){
-   var tot = 1;  
-   $('input', $tr).each(function(index,c) { 
-    if($(this).val()!=0){
-      tot *= Number(nancheck($(this).val())) || 0; 
-    }
+   var tot=1 ;  
+   $('td input', $tr).each(function(index,c) { 
+            
+    // if($(this).val()!=0){
+    //   tot += Number(nancheck($(this).val())) || 0; 
+    // } 
        //$('td:nth-last-child(2)', $tr).text(tot);
-
-        $('td:nth-last-child(2)', $tr).find('input').val(tot);
-      // $;('td:nth-last-child(2)', $tr).val(tot);
+     // $('input:text:eq(2)', $tr).val(tot);
+  
+        if(index<2){ 
+          tot *= Number(nancheck($(this).val())); 
+         
+        }
+          $('input:text:eq(2)', $tr).val(tot);
+       
+        
+      //  x='<input class="text_style1" type="text" name="score[]" onkeypress="return Numeric(event)" readonly="" value='+tot+'>';
+        //$('td:nth-last-child(2)', $tr).html(x);
  
 
-  }); }
+  });     }
  </script>
  
  
