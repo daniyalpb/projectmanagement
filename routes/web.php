@@ -116,10 +116,16 @@ Route::get('registration-report','ActivityController@registrationreport');
 Route::get('menu-list','MenuController@menulist');
 Route::post('menu-list-add','MenuController@menulist_add');
 Route::get('menu-mapping','MenuController@menu_mapping');
-//<<<<<<< HEAD
-Route::post('grouprights-add','MenuController@grouprights_add');
-//=======
 Route::post('grouprights-add','MenuController@grouprights_add');
 
+ /************
+//  Performance Appraisal System 
+******************/
+Route::get('emp-details','pas\PasController@emp_details');
+Route::get('pms-details','pas\PasController@pms_details');
+Route::post('asp-insert','pas\PasController@asp_insert');
+ 
+
+
 });
-//>>>>>>> e2e06bbd6d7273506087447956dd0c509834ec5b
+ 
