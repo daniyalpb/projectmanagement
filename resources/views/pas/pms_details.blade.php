@@ -31,84 +31,40 @@
                 </tr>
              </thead>
 
-           <tbody  id="append_alltext">
-           <!--  <tr><td width="60%">
-             <p> <h4>Job Knowledge</h4> </p>
-             Awareness of various producsts Timely update in ERP - Sales discipline.
-            </td>
-            <td width="8%"><input type="text"  id="num_text" name="weightage[0]" value="10" onkeypress="return Numeric(event)" readonly > </td>
-            <td width="8%" ><input type="text"  id="num_text" name="points[0]" onkeypress="return Numeric(event)" > </td>
-            <td width="8%"><input type="text" id="num_text" name="score[0]"  onkeypress="return Numeric(event)"> </td>
-              <td><select  class="form-control" id="rating" name="rating[0]" >
-                          <option   selected  value="0" >Rating</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option></select>
-              </td></tr>
+           <tbody  >
+         
 
+            @foreach($query as $val)
 
-            <tr><td width="60%">
-             <p> <h4>Business Acumen</h4> </p>
-             Understands impact of our services on  prospects & customers Decides in best interest of the company.
-            </td>
-            <td width="8%"><input type="text"  id="num_text" name="weightage[0]" onkeypress="return Numeric(event)" value="10" readonly> </td>
-            <td width="8%" ><input type="text"  id="num_text" name="points[0]" onkeypress="return Numeric(event)" > </td>
-            <td width="8%"><input type="text" id="num_text" name="score[0]"  onkeypress="return Numeric(event)"> </td>
-              <td >
-                  <select  class="form-control" id="rating" name="rating[0]" >
-                          <option   selected  value="0" >Rating</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option></select>
-              </td>
-            </tr>
-
-
-           
             <tr>
-            <td width="60%">
-             <p> <h4>Customer Orientation</h4> </p>
-                  Demonstrates a sense of urgency around meeting customer needs  
-                  Responds quickly & appropriately  
-                  Takes ownership/accountability of issues . 
+             <td width="60%">
+                 <p><h4>{{$val->title}}</h4></p> {{$val->description}}<p> </p> 
+
+                  
+             </td>
+              <td width="8%">
+              <input class="text_style1" type="text" name="weightage[]" onkeypress="return Numeric(event)" value="{{$val->pas_val}}" readonly>
             </td>
-            <td width="8%"><input type="text"  id="num_text" name="weightage[0]" onkeypress="return Numeric(event)"  value="10" readonly> </td>
-            <td width="8%" ><input type="text"  id="num_text" name="points[0]" onkeypress="return Numeric(event)" > </td>
-            <td width="8%"><input type="text" id="num_text" name="score[0]"  onkeypress="return Numeric(event)"> </td>
-              <td >
-                  <select  class="form-control" id="rating" name="rating[0]" >
-                          <option   selected  value="0" >Rating</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option> </select>
-                          </td>
+            <td width="8%">
+              <input class="text_style1" type="text" name="points[]" autocomplete="off" onkeypress="return Numeric(event)">
+            </td>
+            <td width="8%">
+              <input class="text_style1" type="text" name="score[]" onkeypress="return Numeric(event)" readonly>
+            </td>
+            <td width="8%">
+              <select class="form-control text_style1" id="rating" name="rating[]">
+                <option selected value="0">Rating</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </td>
+            <input class="text_style1" type="hidden" name="aps_id[]"   value="{{$val->pas_id}}"  >
             </tr>
-    
-         <tr>
-            <td width="60%">
-             <p> <h4>Business</h4> </p>
-              
-            </td>
-            <td width="8%"><input type="text"  id="num_text" name="weightage[0]" onkeypress="return Numeric(event)"  value="70" readonly> </td>
-            <td width="8%" ><input type="text"  id="num_text" name="points[0]" onkeypress="return Numeric(event)" > </td>
-            <td width="8%"><input type="text" id="num_text" name="score[0]"  onkeypress="return Numeric(event)"> </td>
-              <td >
-                  <select  class="form-control" id="rating" name="rating[0]" >
-                          <option   selected  value="0" >Rating</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                  </select>
-              </td>
-            </tr> -->
+
+            @endforeach
 
 
 
