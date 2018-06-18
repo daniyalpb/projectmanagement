@@ -3,162 +3,103 @@
 @section('content')
 
   <div class="content">
-  <div class="box box-default">
+ <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Performance Appraisal System - 2018</h3>
+          <h3 class="box-title"></h3>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
           </div>
         </div>
 
+         <div class="box-body">
 
-        <div class="box-body">
-       <div class="row">
-        <div class="col-xs-12">
-            
-              <form action="{{url('asp-insert')}}" method="post" id="pas_from_id">{{csrf_field()}}            
-            <div class="box">
-            <div class="box-body table-responsive no-padding">
-              <table class="table table-hover" id="append_id">
+           
+<div class="table-responsive">
+  
+   <table id="example" class="table table-bordered table-striped">
+     <thead>
+         <tr>
+              <th>ID</th>
+                <th>Employee ID</th>
+               
+                <th>Created On</th>
+            </tr>
 
-              <thead>
-                <tr>
+            </thead>
+            <tbody>
+              @foreach($query as $val)
+              <tr>
+                <td>{{$val->ap_id}}</td>
+                <td><a href="#" onclick="get_emp_details(' {{$val->ap_id}}');" > {{$val->emp_id}}  </a></td>
+                 
+                <td>{{$val->create_on}}</td>
+              </tr>
+        @endforeach
+      </tbody>
+    </table>
+  </div>
+</div>
+ 
+</div>
+</div>
+
+
+<div id="myModal_id" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg" style="width: 80%">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Show PAS</h4>
+      </div>
+      <div class="modal-body">
+       
+        <table class="table table-bordered table-striped">
+          <thead>
+               <tr>
                   <th>PAS - 2018</th>
                   <th>Weightage (A)</th>
                   <th>Points out of 100 (B)</th>
                   <th>Self Score (A X B)</th>
                   <th>Manager's Rating</th>
                 </tr>
-             </thead>
+          </thead>
+          <tbody id="append_tbale">
+          </tbody>
+        </table>
 
-           <tbody  >
-         
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
 
-            @foreach($query as $val)
-
-            <tr>
-             <td width="60%">
-                 <p><h4>{{$val->title}}</h4></p> {{$val->description}}<p> </p> 
-
-                  
-             </td>
-              <td width="8%">
-              <input class="text_style1" type="text" name="weightage[]" onkeypress="return Numeric(event)" value="{{$val->pas_val}}" readonly>
-            </td>
-            <td width="8%">
-              <input class="text_style1" type="text" name="points[]" autocomplete="off" onkeypress="return Numeric(event)">
-            </td>
-            <td width="8%">
-              <input class="text_style1" type="text" name="score[]" onkeypress="return Numeric(event)" readonly>
-            </td>
-            <td width="8%">
-              <select class="form-control text_style1" id="rating" name="rating[]">
-                <option selected value="0">Rating</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </td>
-            <input class="text_style1" type="hidden" name="aps_id[]"   value="{{$val->pas_id}}"  >
-            </tr>
-
-            @endforeach
-
-
-
-      </tbody>
-           
-
-            </table>
-            </div>
-             <center>
-               
-            
-             
-               <button class="btn btn-primary textfiledpasbtn">Submit</button>
-             </center>
-            </div>
-             
-            </form>
-           </div>
-         </div>
-     </div>
   </div>
 </div>
- 
- <script type="text/javascript">
 
-var Job_Knowledge='<p><h4>Job Knowledge</h4></p>Awareness of various producsts Timely update in ERP - Sales discipline.';
-var Business_Acumen='<p><h4>Business Acumen</h4></p>Understands impact of our services on  prospects & customers Decides in best interest of the company.';
-var Customer_Orientation='<p><h4>Customer Orientation</h4></p> Demonstrates a sense of urgency around meeting customer needs  Responds quickly & appropriately  Takes ownership/accountability of issues  .';
-var People_Handling='<p> <h4>People Handling</h4></p>Resolving conflict with positivity  Ability to work in Team (Cross geography / Cross Functional)   .';
-var Productivity_Decision_Making='<p><h4>Productivity & Decision Making</h4></p> Sees bigger picture, Takes initiatives, Proactive & Accountable Focusses on overall team productivity.';
-var Team_Management='<p><h4>Team Management </h4></p>Encourages information sharing, constructive criticism and cooperation    Respects his subordinates, Nurtures & Develops non performers  .';
-var Business='<p> </p> .';
+                 
 
-
-var inputtyp='<td width="8%"><input class="text_style1" type="text"  name="weightage[]" onkeypress="return Numeric(event)"  value="10" readonly> </td><td width="8%"><input class="text_style1" type="text"  name="points[]" onkeypress="return Numeric(event)" > </td><td width="8%"><input class="text_style1" type="text"  name="score[]" onkeypress="return Numeric(event)" readonly> </td><td width="8%"><select  class="form-control text_style1" id="rating" name="rating[0]" > <option   selected  value="0" >Rating</option><option value="1">1</option> <option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>';
- id=3;
- var arr;
-  if(id==1){
-     arr=Array(Job_Knowledge,Business_Acumen,Customer_Orientation,Business);
-  }else if(id==2){
-      arr=Array(Job_Knowledge,Business_Acumen,People_Handling,Customer_Orientation,Business);
-  }else if(id==3){
-    arr=Array(Productivity_Decision_Making,Business_Acumen,Team_Management,Customer_Orientation,Business);
-  }
-
- var append_arr=Array();
- for(i=0;i<arr.length;i++){
-      //console.log();
-     append_arr.push('<tr>'+'<td width="60%">'+arr[i]+inputtyp+'</tr>');
-      
- }
-
- $('#append_alltext').append(append_arr);
-
-
-
-
- function nancheck(rows) {
-    rows=parseInt(rows);
-    return a= isNaN(rows)==true ? 0 : rows;}
-var total_value=0;
-
-    $(document).on("input", "#append_id input",function(e){
-  var $tr = $(this).closest('tr'); 
-  Sum_Insured_Table_other($tr);
-}).trigger('input'); 
- function Sum_Insured_Table_other($tr){
-   var tot=1 ;  
-   $('td input', $tr).each(function(index,c) { 
-            
-    // if($(this).val()!=0){
-    //   tot += Number(nancheck($(this).val())) || 0; 
-    // } 
-       //$('td:nth-last-child(2)', $tr).text(tot);
-     // $('input:text:eq(2)', $tr).val(tot);
   
-        if(index<2){ 
-          tot *= Number(nancheck($(this).val())); 
-         
-        }
-          $('input:text:eq(2)', $tr).val(tot);
-       
-        
-      //  x='<input class="text_style1" type="text" name="score[]" onkeypress="return Numeric(event)" readonly="" value='+tot+'>';
-        //$('td:nth-last-child(2)', $tr).html(x);
- 
+  <script type="text/javascript">
 
-  });     }
- </script>
- 
- 
+
+  
+     function get_emp_details(id){
+         $('#append_tbale').empty();
+         $.get("{{url('pas-data')}}",{ap_id:id}).done(function(data){ 
+         $('#myModal_id').modal();arr=Array();
+         $(data).each(function(index,val){   
+           arr.push('<tr> <td width="60%"> <p><h4>'+val.title+'</h4></p>'+val.description+'<p> </p>  </td><td width="8%"><input type="text" id="num_text" name="weightage[0]" onkeypress="return Numeric(event)" value="'+val.weightage+'" > </td><td width="8%" ><input type="text" id="num_text" name="points[0]" onkeypress="return Numeric(event)" value="'+val.points+'"  > </td><td width="8%"><input type="text" id="num_text" name="score[0]" onkeypress="return Numeric(event)" value="'+val.Score+'"> </td><td width="8%"> <select class="form-control" id="rating" name="rating[0]" > <option selected value="0" >Rating</option> <option value="1" '+canDrinkAlcohol(val.rating,1)+'  >1</option> <option value="2" '+canDrinkAlcohol(val.rating,2)+'>2</option> <option value="3" '+canDrinkAlcohol(val.rating,3)+'>3</option> <option value="4" '+canDrinkAlcohol(val.rating,4)+'>4</option> <option value="5" '+canDrinkAlcohol(val.rating,5)+'>5</option> </select> </td></tr>');
+         });      
+         $('#append_tbale').append(arr);
+         }).fail(function(s,status,error){
+         });
+     }
+     function canDrinkAlcohol(selected,val) {return (selected==val) ? "selected" : "";}
+  </script>
  
 @endsection
 <style type="text/css">
-.text_style1 {width:100%; padding:5px;border-radius:5px; border:1px solid #ccc;}
-
+   #num_text {width:100%; padding:5px;border-radius:5px; border:1px solid #ccc;}
 </style>

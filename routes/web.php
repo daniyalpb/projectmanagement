@@ -121,11 +121,11 @@ Route::post('grouprights-add','MenuController@grouprights_add');
  /************
 //  Performance Appraisal System 
 ******************/
-Route::get('emp-details','pas\PasController@emp_details');
-Route::get('pms-details','pas\PasController@pms_details');
-Route::post('asp-insert','pas\PasController@asp_insert');
+Route::get('eap-details','pas\PasController@emp_details');
+Route::get('pas-details','pas\PasController@pms_details');
+Route::post('asp-insert','pas\PasController@pas_insert');
+Route::get('pas-registrar','pas\PasController@pas_registrar'); 
+Route::get('pas-data','pas\PasController@pas_data'); 
  
-
-
 });
  
