@@ -3,7 +3,7 @@
   <div class="content">
   <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title"></h3>
+          <h3 class="box-title">Lead Status Master</h3>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
           </div>
@@ -12,7 +12,7 @@
         
 
  <div class="box-body">
-  <center><h3 style="color: #0099FF;">Lead Status Master</h3></center><hr>
+  <!-- <center><h3 style="color: #0099FF;">Lead Status Master</h3></center><hr> -->
           <div class="row">  <!-- for center -->
               <div class="Absolute-Center is-Responsive">
                 <div id="logo-container"></div>
@@ -34,7 +34,7 @@
                        <div class="form-group row">
                         <label for="Is_Active" class="col-sm-2 col-form-label">Is&nbsp;Active:</label>
                         <div class="col-sm-10">
-                         <label><input type="checkbox"  id="Is_Active" name="Is_Active" value="1" style="zoom:1.5;"></label>
+                         <label><input type="checkbox"  id="Is_Active" name="Is_Active" value="Yes" style="zoom:1.5;"></label>
                         </div>
                       </div>
 
@@ -60,14 +60,12 @@
         </div>
 
          <div class="box-body">
-
-          <div class="container">
 <div class="table-responsive">
   
    <table id="example" class="table table-bordered table-striped">
     <thead>
           
-          <tr style="background-color: #87CEFA;border: 1px solid black;">
+          <tr style="background-color: #87CEEB;border: 1px solid black;">
             <th style=" border: 1px solid black;">Lead Status Id</th>
             <th style=" border: 1px solid black;">Lead Status</th>
             <th style=" border: 1px solid black;">Is Active</th>
@@ -87,7 +85,6 @@
        </tbody>
      </table>
      </div>
-    </div>
   </form>
  </div>
 </div>

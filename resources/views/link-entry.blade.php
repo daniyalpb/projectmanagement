@@ -22,26 +22,26 @@
           
 
                    <div class="form-group row">
-                        <label for="state_name" class="col-sm-3 col-form-label">Enter&nbsp;Link&nbsp;Name:</label>
+                        <label for="link" class="col-sm-3 col-form-label">Enter&nbsp;Link&nbsp;Name:</label>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" id="Profession_Name" name="Profession_Name"  value="" placeholder="Enter a Profession Name"  required>
+                          <input type="text" class="form-control" id="link" name="link"  value="" placeholder="Enter a Link Name"  required>
                         </div>
                       </div>
 
 
 
                       <div class="form-group row">
-                        <label for="state_name" class="col-sm-3 col-form-label">Enter&nbsp;Message&nbsp;Body:</label>
+                        <label for="MsgBody" class="col-sm-3 col-form-label">Enter&nbsp;Message&nbsp;Body:</label>
                         <div class="col-sm-8">
-                          <textarea type="text" class="form-control" id="Profession_Name" name="Profession_Name"  value="" placeholder="Enter a Profession Name"  required></textarea>
+                          <textarea type="text" class="form-control" id="MsgBody" name="MsgBody"  value="" placeholder="Enter a Message Body"  required></textarea>
                         </div>
                       </div>
 
 
                        <div class="form-group row">
-                        <label for="state_name" class="col-sm-3 col-form-label">Enter&nbsp;Title:</label>
+                        <label for="title" class="col-sm-3 col-form-label">Enter&nbsp;Title:</label>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" id="Profession_Name" name="Profession_Name"  value="" placeholder="Enter a Profession Name"  required>
+                          <input type="text" class="form-control" id="title" name="title"  value="" placeholder="Enter a Title"  required>
                         </div>
                       </div>
 

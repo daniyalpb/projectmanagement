@@ -3,15 +3,14 @@
   <div class="content">
     <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title"></h3>
+         <center><h3 class="box-title">Employee list</h3></center> 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
           </div>
         </div>
 
          <div class="box-body">
-   <center><h3 style="color: #0099FF;">Employee list</h3></center><hr>
-          <div class="container">
+   <!-- <center><h3 style="color: #0099FF;">Employee list</h3></center><hr> -->
 <div class="table-responsive">
   
    <table id="example" class="table table-bordered table-striped">
@@ -48,7 +47,6 @@
         </tbody>
     </table>
   </div>
-</div>
   </div>
 </div>
 </div>

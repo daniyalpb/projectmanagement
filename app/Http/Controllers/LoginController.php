@@ -42,7 +42,8 @@ if(!$request->session()->exists('empcode')){
 
                 $query=DB::select('call sp_user_login(?,?)',array($request->email,$request->password));
                
-               
+                   
+
              if($query){
              	$val=$query[0];
 				$request->session()->flush();
@@ -52,9 +53,6 @@ if(!$request->session()->exists('empcode')){
 				$request->session()->put('groupid',$val->groupid);
 				$request->session()->put('Is_Active',$val->Is_Active);
 				$request->session()->put('email',$val->email);
-				$request->session()->put('designation_Id',$val->Designation_Id);
-				$request->session()->put('department_Id',$val->Department_Id);
-				
 				                         
                return redirect()->intended('dashboard');
                }else{   Session::flash('msg', "Invalid email or password. Please Try again! ");

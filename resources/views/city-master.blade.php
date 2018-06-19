@@ -3,16 +3,16 @@
   <div class="content">
   <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title"></h3>
+        <h3 class="box-title">City Master</h3>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
           </div>
         </div>
-
+            
         
 
  <div class="box-body">
-  <center><h3 style="color: #0099FF;">City Master</h3></center><hr>
+  <!-- <center><h3 style="color: #0099FF;">City Master</h3></center><hr> -->
           <div class="row">  <!-- for center -->
               <div class="Absolute-Center is-Responsive">
                 <div id="logo-container"></div>
@@ -31,7 +31,7 @@
 
 
                       <div class="form-group row">
-                        <label for="state_id" class="col-sm-2 col-form-label">Time:</label>
+                        <label for="state_id" class="col-sm-2 col-form-label">State:</label>
                         <div class="col-sm-10">
                           <select  class="form-control" id="state_id" name="state_id" >
                     <option disabled selected  value="0">Select One</option>
@@ -45,7 +45,7 @@
                        <div class="form-group row">
                         <label for="city_name" class="col-sm-2 col-form-label">Is&nbsp;Active:</label>
                         <div class="col-sm-10">
-                         <label><input type="checkbox"  id="is_active" name="is_active" value="1" style="zoom:1.5;"></label>
+                         <label><input type="checkbox"  id="is_active" name="is_active" value="Yes" style="zoom:1.5;"></label>
                         </div>
                       </div>
 
@@ -71,8 +71,6 @@
         </div>
 
          <div class="box-body">
-
-          <div class="container">
 <div class="table-responsive">
   
    <table id="example" class="table table-bordered table-striped">
@@ -94,8 +92,9 @@
       </tbody>
     </table>
   </div>
+
 </div>
-</form>
+</div>
 </div>
 </div>
     <script>

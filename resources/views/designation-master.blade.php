@@ -17,7 +17,7 @@
               <div class="Absolute-Center is-Responsive">
                 <div id="logo-container"></div>
                 <div class="col-sm-6 col-sm-offset-2">
-           <form id="demo_form" name="demo_form" method="POST" action="{{url('update_view_templete')}}"> 
+           <form id="demo_form" name="demo_form" method="POST" action="{{url('update_designation_master')}}"> 
                 {{csrf_field()}} 
           
 
@@ -56,33 +56,29 @@
         </div>
 
          <div class="box-body">
-
-          <div class="container">
 <div class="table-responsive">
   
    <table id="example" class="table table-bordered table-striped">
     <thead>
-    <tr style="background-color: #87CEFA;border: 1px ridge black;">
-				        <th style="border:1px ridge black;">Select</th>
-				     
-				        <th style="border:1px ridge black;">Desg ID</th>
-				        <th style="border:1px ridge black;">designation</th>
-              </tr>
+    <tr>
+				<th>Select</th>
+        <th>Desg ID</th>
+				<th>designation</th>
+      </tr>
             </thead>
             <tbody>
 
              @foreach($smsdata as $val)
            <tr>
-            <td style="border:1px ridge black;"><button type="button" onclick="demo('{{$val->Designation}}','{{$val->Designation_Id}}')" class="btn btn-link">Select</button></td>
+            <td><button type="button" onclick="demo('{{$val->Designation}}','{{$val->Designation_Id}}')" class="btn btn-link">Select</button></td>
             
-            <td style="border:1px ridge black;">{{$val->Designation_Id}}</td>
-            <td style="border:1px ridge black;">{{$val->Designation}}</td>
+            <td>{{$val->Designation_Id}}</td>
+            <td>{{$val->Designation}}</td>
           </tr>
 			  @endforeach
       </tbody>
     </table>
   </div>
-</div>
   </form>
 </div>
 </div>

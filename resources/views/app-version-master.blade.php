@@ -60,15 +60,15 @@
         <div class="container">
          <div class="table-responsive">
            
-           <table id="example" class="table table-striped table-bordered" role="grid" aria-describedby="         otp-details-id_info" style=" border: 1px black font-size: normal;">
+           <table id="example" class="table table-striped table-bordered" role="grid" aria-describedby="         otp-details-id_info">
              <thead>
-               <tr style="background-color: #87CEFA;border: 1px ridge black;">
-                      <th style="border:1px ridge black;">Sr No</th>
-                      <th style="border:1px ridge black;">Id</th>
-                      <th style="border:1px ridge black;">App Type</th>
-                      <th style="border:1px ridge black;">Version Code</th>
-                      <th style="border:1px ridge black;">Created-Datetime</th>
-                      <th style="border:1px ridge black;">Version History</th>
+               <tr>
+                      <th>Sr No</th>
+                      <th>Id</th>
+                      <th>App Type</th>
+                      <th>Version Code</th>
+                      <th>Created-Datetime</th>
+                      <th>Version History</th>
 
                   </tr>
       
@@ -78,12 +78,12 @@
                     @foreach($users as $val)
           
                     <tr>
-                        <td style="border:1px ridge black;">{{ $no++ }}</td>
-                        <td style="border:1px ridge black;">{{$val->Id }}</td>
-                        <td style="border:1px ridge black;">{{$val->App_Type_Name}}</td>
-                        <td style="border:1px ridge black;">{{$val->Version_Code}}</td>
-                        <td style="border:1px ridge black;">{{$val->Created_Datetime}}</td>
-        <td style="border:1px ridge black;"><a href="{{URL::to('app-version-master-history')}}">History</a></td>
+                        <td>{{ $no++ }}</td>
+                        <td>{{$val->Id }}</td>
+                        <td>{{$val->App_Type_Name}}</td>
+                        <td>{{$val->Version_Code}}</td>
+                        <td>{{$val->Created_Datetime}}</td>
+                        <td><a href="{{URL::to('app-version-master-history')}}">History</a></td>
                     </tr>
                    @endforeach
            

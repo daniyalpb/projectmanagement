@@ -3,13 +3,13 @@
   <div class="content">
   <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title"></h3>
+         <center><h3 class="box-title">Broker Invoice Register</h3></center> 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
           </div>
         </div>
         <div class="box-body">
-          <center><h3 style="color: #0099FF;">Broker Invoice Register</h3></center><hr>
+          <!-- <center><h3 style="color: #0099FF;">Broker Invoice Register</h3></center><hr> -->
           <div class="row">  <!-- for center -->
             <div class="Absolute-Center is-Responsive">
               <div id="logo-container"></div>
