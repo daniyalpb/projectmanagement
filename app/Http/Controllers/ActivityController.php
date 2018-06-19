@@ -33,7 +33,7 @@ class ActivityController extends Controller
 	public function daily_planning_edit(Request $req)
 	{
 		//print_r($req->all());exit();
-		$data = DB::select("call daily_planinning_update(?,?,?,?,?,?)",array($req->Pop_Id,$req->Pop_Plan_Date,$req->Pop_StartTime,$req->Pop_EndTime,$req->Pop_User_Remark,$req->Pop_User_Achieve));
+		$data = DB::select("call Update_daily_planinning(?,?,?,?,?,?)",array($req->Pop_Id,$req->Pop_Plan_Date,$req->Pop_StartTime,$req->Pop_EndTime,$req->Pop_User_Remark,$req->Pop_User_Achieve));
 		 return $data;
 		}
 
@@ -45,13 +45,29 @@ class ActivityController extends Controller
 		$users=DB::select("call usp_get_professionmaster()");
 		$selects=DB::select("call usp_vertical_master()");
 		$lead=DB::select("call usp_get_leadcity_master()");
-		return view('lead-capture',['users'=>$users,'selects'=>$selects,'lead'=>$lead]);
+		$assign=DB::select("call usp_get_assign_master()");
+		return view('lead-capture',['users'=>$users,'selects'=>$selects,'lead'=>$lead,'assign'=>$assign]);
 	}
 
 	public function registrationreport()
 	{
 		$users=DB::select("call usp_get_company_master()");
 		return view('registration-report',['users'=>$users]);
+	}
+
+	public function campaignwisereport()
+	{
+		$users=DB::select("call usp_get_source_master()");
+		return view('campaign-wise-report',['users'=>$users]);
+	}
+	public function creditcardentry()
+	{   
+		$bank=DB::select("call usp_get_bankmaster()");
+		$product=DB::select("call usp_get_product_master()");
+		$city=DB::select("call usp_get_citymaster()");
+		$profession=DB::select("call usp_get_professionmaster()");
+				
+		return view('credit-card-entry',['bank'=>$bank,'product'=>$product,'city'=>$city,'profession'=>$profession]);
 	}
 
 

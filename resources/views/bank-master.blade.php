@@ -1,18 +1,19 @@
 @extends('include.master')
 @section('content')
   <div class="content">
-  <div class="box box-default">
-        <div class="box-header with-border">
-          <h3 class="box-title"></h3>
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-          </div>
-        </div>
+   <div class="box box-default">
+    <div class="box-header with-border">
+      <h3 class="box-title">Bank Master</h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+      </div>
+    </div>
 
         
 
  <div class="box-body">
-  <center><h3 style="color: #0099FF;">Bank Master</h3></center><hr>
+  <!-- <center><h3 style="color: #0099FF;">Bank Master</h3></center><hr> -->
           <div class="row">  <!-- for center -->
               <div class="Absolute-Center is-Responsive">
                 <div id="logo-container"></div>
@@ -80,7 +81,8 @@
     </div>
   </div>
 </div>
-</div>
+
+
 
     <div class="box box-default">
         <div class="box-header with-border">
@@ -91,8 +93,6 @@
         </div>
 
          <div class="box-body">
-
-          <div class="container">
           <div class="table-responsive">
   
    <table id="example" class="table table-bordered table-striped">
@@ -123,20 +123,19 @@
             <td>{{$val->Created_on}}</td>
             <td>{{$val->Document1}}</td>
             <td>{{$val->Document2}}</td>
-            <td><a id="GridView1_lblEdit_4" href="javascript:__doPostBack('GridView1$ctl06$lblEdit','' )"  onclick="demo('{{$val->Bank_Name}}','{{$val->Bank_Code}}','{{$val->Bank_Id}}','{{$val->Bank_Address}}','{{$val->Document1}}','{{$val->Document2}}')"  data-toggle="modal" data-target="#myModal">Edit</a></td>
+            <td><i  class="fa fa-edit" id="GridView1_lblEdit_4" href="javascript:__doPostBack('GridView1$ctl06$lblEdit','' )"  onclick="demo('{{$val->Bank_Name}}','{{$val->Bank_Code}}','{{$val->Bank_Id}}','{{$val->Bank_Address}}','{{$val->Document1}}','{{$val->Document2}}')"  data-toggle="modal" data-target="#myModal"></i></td>
         
  
         </tr>
           @endforeach
         </tbody>
       </table>
-     </div>
-  </div>
- 
+     </div> 
 </div>
 </div>
+</div>
+</div>  
 
-</div>
 
 
  
@@ -198,7 +197,9 @@
                         <label for="Pop_Document1" class="col-sm-2 col-form-label">Select&nbsp;File:</label>
                         <div class="col-sm-10">
                           <input type="file" class="form-control" id="Pop_Document1" name="Pop_Document1"  value="" placeholder="Enter a Product Name">
-                          <span id="lblfile" style="color:Red;">Already file exist</span>
+                            
+                            <input type="hidden" name="Pop_Documentold" id="Pop_Document1old">
+                          <span id="lblfile"  > </span>
                         </div>
                       </div>
 
@@ -243,14 +244,15 @@
    document.getElementById('Pop_Bank_Address').value="";
    document.getElementById('Pop_Document1').value="";
    document.getElementById('Pop_Document2').value="";
-    
+    $('#lblfile').text('');
 
    document.getElementById("Pop_Bank_Id").value += Bank_Id;
    document.getElementById("Pop_Bank_Name").value += Bank_Name;
    document.getElementById("Pop_Bank_Code").value += Bank_Code;
    document.getElementById("Pop_Bank_Address").value += Bank_Address;
-   document.getElementById("Pop_Document1").value += Document1;
+    document.getElementById("Pop_Document1old").value += Document1;
    document.getElementById("Pop_Document2").value += Document2;
+   $('#lblfile').text(Document1);
 
   }
 </script>

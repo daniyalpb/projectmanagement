@@ -41,15 +41,12 @@ Route::get('city-master','MastersController@citymaster');
 Route::post('city-master','MastersController@city_master');
 
 Route::get('designation-master','MastersController@designationmaster');
-Route::POST('update_view_templete','MastersController@designation_master');
+Route::POST('update_designation_master','MastersController@designation_master');
 
 Route::get('employe-list','MastersController@employelistmaster');
-
 Route::get('edit-employe-list','MastersController@edit_employelist_master');
 Route::get('edit-employe-list/{id}','MastersController@table_edit');
 Route::post('update_employe_list','MastersController@employe_master_editlist');
-
-
 
 Route::get('leadstatus-master','MastersController@leadstatusmaster');
 Route::post('leadstatus-master','MastersController@leadstatus_master');
@@ -69,10 +66,44 @@ Route::post('link-entry','MastersController@message_link_detail');
 Route::get('app-version-master','MastersController@appversionmaster');
 Route::POST('app-version-master','MastersController@app_version_master');
 Route::get('app-version-master-history','MastersController@appversionmaster_history');
+Route::get('app-version-master-history/{$id}','MastersController@history');
 
 Route::get('loan-disbursement','MastersController@loandisbursement');
+Route::get('bank-product-web','MastersController@bankproductweb');
 
-Route::get('app-version-master-history/{$id}','MastersController@history');
+Route::get('bank-payout-master','MastersController@bankpayout');
+Route::post('bank-payout-master','MastersController@bank_payout_master');
+
+Route::get('edit-bank-payout-master/{id}','MastersController@editbankpayout');
+Route::POST('update_bank_payout','MastersController@bank_payout');
+
+Route::get('source-master','MastersController@sourcemaster');
+Route::POST('source-master','MastersController@source_master');
+Route::post('update_source_master','MastersController@source_master_edit');
+
+Route::get('city-wise-employee','MastersController@citywiseemployee');
+Route::post('city-wise-employee','MastersController@city_wise_employee');
+
+Route::get('message-master','MastersController@messagemaster');
+Route::post('message-master','MastersController@message_master');
+Route::post('update_message_master','MastersController@message_master_edit');
+
+Route::get('bank-contact-details','MastersController@bankcontactdetails');
+Route::POST('bank-contact-details','MastersController@bank_contact_details');
+
+Route::get('bank_contact_details-new','bank_contact_detailsController@bankdetails');
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -89,15 +120,11 @@ Route::get('menu-master','UsersController@menumaster');
 Route::get('group-rights','UsersController@grouprights');
 Route::get('monthly-target','UsersController@monthlytarget');
 
-
-
            //**BillingController***********************
 
 Route::get('create-invoice','BillingController@createinvoice');
 Route::get('create-broker-invoice','BillingController@brokerinvoice');
 Route::get('broker-invoice-register','BillingController@brokerinvoiceregister');
-
-
 
          //**ActivityController***********************
 
@@ -107,6 +134,46 @@ Route::post('update_daily','ActivityController@daily_planning_edit');
 
 Route::get('lead-capture','ActivityController@leadcapture');
 Route::get('registration-report','ActivityController@registrationreport');
+Route::get('campaign-wise-report','ActivityController@campaignwisereport');
+Route::get('credit-card-entry','ActivityController@creditcardentry');
+
+
+
+
+                 //***LeadsController************************
+
+Route::get('manage-leads','LeadsController@manageleads');
+
+Route::get('manage-leads-get/{fdate}/{tdate}','LeadsController@getleaddata');
+
+
+
+
+Route::get('searchajax',array('as'=>'searchajax','uses'=>'LeadsController@autoComplete'));
+Route::get('searchajax-Emp-Name',array('as'=>'searchajax-Emp-Name','uses'=>'LeadsController@autoComplete_employee'));
+Route::get('searchajax-vertical',array('as'=>'searchajax-vertical','uses'=>'LeadsController@autoComplete_vertical'));
+Route::get('searchajax-source-name',array('as'=>'searchajax-source-name','uses'=>'LeadsController@autoComplete_Source'));
+Route::get('searchajax-status',array('as'=>'searchajax-status','uses'=>'LeadsController@autoComplete_Status'));
+
+Route::get('lead-reassign-telecaller','LeadsController@leadreassigntelecaller');
+Route::get('lead-lead-capture','LeadsController@leadleadcapture');
+Route::POST('lead-lead-capture','LeadsController@lead_lead_capture');
+
+Route::get('priority-manage-leads','LeadsController@prioritymanageleads');
+Route::get('PB-payout-master','LeadsController@pbpayoutmaster');
+Route::get('push-sms-entry','LeadsController@pushsmsentry');  
+//Route::get('lead-status-update-flow','LeadsController@leadstatusupdateflow'); 
+Route::get('lead-status-update-flow/{id}','LeadsController@leadstatusupdateflow');
+
+
+
+         //*** ReportingController***********************
+
+Route::get('lead-assign-report','ReportingController@leadassignreport');
+Route::get('call-tracking-report','ReportingController@calltrackingreport');
+Route::get('sms-link-report','ReportingController@smslinkreport');
+Route::get('daily-followup-report','ReportingController@dailyfollowupreport');
+Route::get('lead-report','ReportingController@leadreport');
 
 
 
@@ -116,7 +183,11 @@ Route::get('registration-report','ActivityController@registrationreport');
 Route::get('menu-list','MenuController@menulist');
 Route::post('menu-list-add','MenuController@menulist_add');
 Route::get('menu-mapping','MenuController@menu_mapping');
+
 Route::post('grouprights-add','MenuController@grouprights_add');
+
+
+
 
  /************
 //  Performance Appraisal System 
@@ -126,9 +197,10 @@ Route::get('pas-details','pas\PasController@pms_details');
 Route::post('asp-insert','pas\PasController@pas_insert');
 Route::get('pas-registrar','pas\PasController@pas_registrar'); 
 Route::get('pas-data','pas\PasController@pas_data'); 
- 
+
+
+
+
+
+
 });
- 
-
-
- 

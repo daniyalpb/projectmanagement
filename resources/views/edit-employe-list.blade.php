@@ -3,7 +3,7 @@
   <div class="content">
   <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title"></h3>
+         <center><h3 class="box-title">Edit Employee List</h3></center> 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
           </div>
@@ -12,7 +12,7 @@
         
 
  <div class="box-body">
-  <center><h3 style="color: #0099FF;">Edit Employee List</h3></center><hr>
+  <!-- <center><h3 style="color: #0099FF;">Edit Employee List</h3></center><hr> -->
           <div class="row">  <!-- for center -->
               <div class="Absolute-Center is-Responsive">
                 <div id="logo-container"></div>
@@ -24,8 +24,8 @@
               <input type="hidden" name="u_EmpId" id="u_EmpId" value="{{ $user->EmpId}}">
           
 
-            <div class="col-md-6">
-                   <div class="form-group row">
+                 <div class="col-md-6">
+                    <div class="form-group row">
                         <label for="u_empcode" class="col-sm-4 col-form-label">Employee Code:</label>
                         <div class="col-sm-8">
                           <input type="text" class="form-control" id="u_empcode" name="u_empcode" placeholder="Enter a Employee Code" disabled="true" readonly="readonly" value="{{ $user->Emp_Code}}">
@@ -35,8 +35,8 @@
 
 
 
-                       <div class="col-md-6">
-                   <div class="form-group row">
+                    <div class="col-md-6">
+                     <div class="form-group row">
                         <label for="u_empname" class="col-sm-4 col-form-label">Employee Name:</label>
                         <div class="col-sm-8">
                           <input type="p_u_empname" class="form-control" id="u_empname" name="u_empname" placeholder="Enter a Employee Name" value="{{ $user->Emp_Name}}">
@@ -47,7 +47,7 @@
 
 
 
-                      <div class="col-md-6">
+                  <div class="col-md-6">
                    <div class="form-group row">
                         <label for="u_companyname" class="col-sm-4 col-form-label">Company Name:</label>
                         <div class="col-sm-8">
@@ -62,8 +62,8 @@
 
 
 
-                       <div class="col-md-6">
-                   <div class="form-group row">
+                 <div class="col-md-6">
+                     <div class="form-group row">
                         <label for="u_address" class="col-sm-4 col-form-label">Address:</label>
                         <div class="col-sm-8">
                           <input type="text" class="form-control" id="u_address" name="u_address"   placeholder="Enter a Address" value="{{ $user->Address}}" >
@@ -72,8 +72,8 @@
                     </div>
 
 
-                         <div class="col-md-6">
-                        <div class="form-group row">
+                    <div class="col-md-6">
+                      <div class="form-group row">
                         <label for="u_email" class="col-sm-4 col-form-label">Email Id:</label>
                         <div class="col-sm-8">
                           <input type="text" class="form-control" id="u_email" name="u_email"   placeholder="Enter a Email Id" oninput="mail('email')" value="{{ $user->Email_Id}}">
@@ -84,7 +84,7 @@
 
 
 
-                       <div class="col-md-6">
+                 <div class="col-md-6">
                    <div class="form-group row">
                         <label for="u_dob" class="col-sm-4 col-form-label">Date&nbsp;Of&nbsp;birth:</label>
                         <div class="col-sm-8">
@@ -105,7 +105,7 @@
 
 
 
-                       <div class="col-md-6">
+                  <div class="col-md-6">
                    <div class="form-group row">
                         <label for="u_department" class="col-sm-4 col-form-label">Department:</label>
                         <div class="col-sm-8">
@@ -124,11 +124,8 @@
                     </div>
 
 
-
-
-
-                  <div class="col-md-6">
-                   <div class="form-group row">
+                    <div class="col-md-6">
+                    <div class="form-group row">
                         <label for="u_designation" class="col-sm-4 col-form-label">Designation:</label>
                         <div class="col-sm-8">
                           <select type="text" class="form-control" id="u_designation" name="u_designation" value="">
@@ -154,7 +151,7 @@
                           <select type="text" class="form-control" id="u_reporting_authority" name="u_reporting_authority" value="{{ $user->Reporting_emp}}">
                       <option selected value="">{{ $user->Emp_Name}}</option>
                        @foreach($updates as $update)
-                       <option value="{{$update->Emp_Code}}">{{$update->Emp_Name}}</option>
+                       <option value="{{$update->EmpId}}">{{$update->Emp_Name}}</option>
                        @endforeach 
                        </select>
                         </div>
@@ -182,31 +179,28 @@
                           <select  class="form-control" id="u_band" name="u_band" value="{{ $user->Band}}">
                       <option  selected value="0">{{$user->Band}}</option>
                       @foreach($band as $band)
-      
-                       <option value="">{{$band->Band}}</option>
+                      <option value="">{{$band->Band}}</option>
                        @endforeach 
-                      
-<!--      <option disabled selected  value="0">Select One</option>        -->            
+                    
                      </select>
                         </div>
                       </div>
                     </div>
 
 
-
-                      <div class="col-md-6">
-                   <div class="form-group row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
                         <label for="u_Is_Active" class="col-sm-4 col-form-label">Is&nbsp;Active::</label>
                         <div class="col-sm-8">
-                         <label><input id="u_Is_Active" name="u_Is_Active" type="checkbox" value="Yes" style="zoom:1.5;"></label>
+                        <input type="checkbox" id="u_Is_Active" name="u_Is_Active" value="{{$user->Is_Active}}">
                         </div>
                       </div>
                     </div>
 
 
 
-                      <div class="col-md-6">
-                   <div class="form-ctc row">
+                    <div class="col-md-6">
+                       <div class="form-ctc row">
                         <label for="inputPassword" class="col-sm-4 col-form-label">CTC:</label>
                         <div class="col-sm-8">
                           <input type="text" class="form-control" id="u_ctc" name="u_ctc"  placeholder="Enter a CTC" value="{{$user->CTC}}">
@@ -217,8 +211,8 @@
 
 
 
-                      <div class="col-md-12">
-                   <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="form-group row">
                         <label for="inputPassword" class="col-sm-2 col-form-label">Variable:</label>
                         <div class="col-sm-4">
                           <input type="text" class="form-control" id="u_variable" name="u_variable"  placeholder="Enter a Variable Name" value="{{ $user->Variable}}">
@@ -233,27 +227,9 @@
             <button type="reset" value="Reset">Reset</button>
           </div></center>
         </form>
-
-
-          <!-- <div class="col-sm-12"><br>
-            <center><table cellspacing="0" cellpadding="4" rules="all" border="1" id="dgstatelist" style="color:#333333;font-family:Verdana;font-size:9pt;width:532px;border-collapse:collapse;">
-            <tbody><tr style="color:White;background-color:#5D7B9D;font-weight:bold;">
-              <th scope="col">UserName</th>
-              <th align="center" scope="col">Pass</th>
-              <th align="center" scope="col">LoginStatus</th>
-              <th align="center" scope="col">Password</th>
-              <th align="center" scope="col">Sysdate</th>
-              <th align="center" scope="col">IP</th>
-            </tr>
-          </tbody>
-        </table>
-      </center>
-    </div> -->
   </div>
 </div>
 </div>
 </div>
-</div>
-        
-  
+</div>  
 @endsection

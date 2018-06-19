@@ -18,53 +18,35 @@ class MastersController extends Controller
 	public function aspxdata()
 
 	{
-
 		$shows=DB::select("call usp_get_company_master()");
 		$users=DB::select("call usp_get_Reporting_master()");
 		$selects=DB::select("call usp_get_designation_master()");
 		$insert=DB::select("call usp_get_department_master()");
 		return view ('employee-master',['shows'=>$shows,'users'=>$users,'selects'=>$selects,'insert'=>$insert]);
-
-
-
 	}
 
 	public function employ_master(Request $req)
 	{
-		DB::statement("call usp_empolyeemaster_insert(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",array($req->empname,$req->empcode,$req->companyname,$req->email,$req->address,$req->dob,$req->mobile,$req->department,$req->reporting_authority,$req->date_of_joining,$req->designation,$req->band,$req->Is_Active,$req->ctc,$req->variable));
+		DB::statement("call Insert_empolyee_master(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",array($req->empname,$req->empcode,$req->companyname,$req->email,$req->address,$req->dob,$req->mobile,$req->department,$req->reporting_authority,$req->date_of_joining,$req->designation,$req->band,$req->Is_Active,$req->ctc,$req->variable));
 		return Redirect('employe-master');
 	}
-
-
-
-    //**bank-master** 
-
+//**bank-master*-*-----------*********** 
     public function bankmaster()
 	{
 		$smsdata=DB::select("call usp_get_bankmaster()");
-		return view('bank-master',['smsdata'=>$smsdata])->with('no', 1);
-		
+		return view('bank-master',['smsdata'=>$smsdata])->with('no', 1);	
 	} 
-
-
 	public function bank_master(Request $req)
 	{
 
-		//print_r($req->all()); exit();
-
-		 DB::statement("call Bank_Master_Insert(?,?,?,?,?)",array($req->Bank_Name,$req->Bank_Address,$req->Bank_Code,$req->Document1,$req->Document2));
+	    DB::statement("call Insert_Bank_Master(?,?,?,?,?)",array($req->Bank_Name,$req->Bank_Address,$req->Bank_Code,$req->Document1,$req->Document2));
 		 return Redirect('bank-master');
-
 	}
-
-
-
 	public function bank_master_edit(Request $req)
 	{
 		//print_r($req->all());exit();
-		 DB::select("call bank_Master_edit(?,?,?,?,?,?)",array($req->Pop_Bank_Id,$req->Pop_Bank_Name,$req->Pop_Bank_Address,$req->Pop_Bank_Code,$req->Pop_Document1,$req->Pop_Document2));
+		 DB::select("call Update_bank_Master(?,?,?,?,?,?)",array($req->Pop_Bank_Id,$req->Pop_Bank_Name,$req->Pop_Bank_Address,$req->Pop_Bank_Code,$req->Pop_Document1,$req->Pop_Document2));
 		 return Redirect('bank-master');
-
 	}
 
      //**break-master** 
@@ -75,10 +57,9 @@ class MastersController extends Controller
 
 		return view('break-master',['smsdata'=>$smsdata]);
 	}
-
 	public function break_master(Request $req)
 	{
-		 DB::statement("call break_time_master_Insert(?,?,?)",array($req->Break_Type,$req->Time,$req->Is_Active));
+		 DB::statement("call Insert_break_timemaster(?,?,?)",array($req->Break_Type,$req->Time,$req->Is_Active));
 		return Redirect('break-master');
 	}
 
@@ -87,109 +68,87 @@ class MastersController extends Controller
 
 	public function statemaster()
 	{
-
 		$smsdata=DB::select("call usp_state_master()");
-
-
 		return view('state-master',['smsdata'=>$smsdata]);
 	}
-
-
 	public function state_master(Request $req)
 	{
-		DB::statement("call state_masterstate_Insert(?,?)",array($req->state_name,$req->Is_active));
+		DB::statement("call Insert_state_master(?,?)",array($req->state_name,$req->Is_active));
 		return Redirect('state-master');
 	}
-
-
-     //**city-master**
+//**city-master**------------*****************
 	public function citymaster()
 	{
 		$users=DB::select("call usp_get_statemaster()");
 		$smsdata=DB::select("call usp_get_citymaster()");
 		return view('city-master',['users'=>$users,'smsdata'=>$smsdata])->with('no', 1);
 	}
-
 	public function city_master(Request $req)
 	{
-		DB::statement("call city_master_city_Insert(?,?,?)",array($req->city_name,$req->state_id,$req->is_active));
+		DB::statement("call Insert_city_master(?,?,?)",array($req->city_name,$req->state_id,$req->is_active));
 		return Redirect('city-master');
 	}
-
-
-       //**designation-master**
+//**designation-master****-------************
 	public function designationmaster()
 	{
 	   	$smsdata=DB::select("call usp_get_designation_master()");
 		return view('designation-master',['smsdata'=>$smsdata])->with('no', 1);
 	}
-
 	public function designation_master(Request $req)
 	{
 	//print_r($req->Designation_Id); exit();
-		DB::statement("call designation_Master_edit(?,?)",array($req->Designation_Id,$req->Designation));
+		DB::statement("call Update_designation_Master(?,?)",array($req->Designation_Id,$req->Designation));
 		return Redirect('designation-master');
 	}
-
-
-	  //**employe-list**
-
+//**employe-list*******************-***-
 	public function employelistmaster()
 	{
 		$smsdata=DB::select("call usp_get_emplistmaster()");
 		return view('employe-list',['smsdata'=>$smsdata])->with('no', 1);
 	}
-
-
-
-
-
-       //**edit-employe-list**
+//***-*-*-*-*-*-*-*-*-*-*-*edit-employe-list**
 	public function edit_employelist_master()
 	{	
 		return view('edit-employe-list');
 	}
-
 	public function table_edit($id)
 	{
+		//print_r($id); 
 		$shows=DB::select("call usp_get_company_master()");
 		$updates=DB::select("call usp_get_Reporting_master()");
         $masters=DB::select("call usp_get_designation_master()");
         $insert=DB::select("call usp_get_department_master()");
         $band=DB::select("call usp_get_employee_masterband()");
-        $user= DB::select("call usp_show_empolyee_list(?)",array($id))[0];
-        //print_r($user); exit();
+        $user= DB::select('call usp_show_empolyee_list(?)',array($id))[0];
+       // print_r($user); exit();
         return view('edit-employe-list',['shows'=>$shows,'user'=>$user,'updates'=>$updates,'masters'=>$masters,'insert'=>$insert,'band'=>$band]);
     }
-
-
-
-
-
-
-	public function employe_master_editlist(Request $req)
+    public function employe_master_editlist(Request $req)
 	{
 		//print_r($req->all());exit();
-		 DB::select('call employee_Master_update(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',array($req->u_EmpId,$req->u_empname,$req->u_empcode,$req->u_companyname,$req->u_email,$req->u_address,$req->u_dob,$req->u_mobile,$req->u_department,$req->u_reporting_authority,$req->u_date_of_joining,$req->u_designation,$req->u_band,$req->u_Is_Active,$req->u_ctc,$req->u_variable));
+		//  $va=0;
+		// if(isset($req->u_Is_Active)){
+  //          $va=1;
+		// }else{
+		// 	 $va=0;
+		// }
+		 DB::select('call Update_employee_Master(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',array($req->u_EmpId,$req->u_empname,$req->u_empcode,$req->u_companyname,$req->u_email,$req->u_address,$req->u_dob,$req->u_mobile,$req->u_department,$req->u_reporting_authority,$req->u_date_of_joining,$req->u_designation,$req->u_band,$req->u_Is_Active,$req->u_ctc,$req->u_variable));
 		 return Redirect('employe-list');
-
 	}
 
 
 
-       //**lead status master
+//**-*-*-*-*-*-*-*-*-*lead status master
     public function leadstatusmaster()
     {
     	$users=DB::select("call usp_get_leadstatus_master()");
 		return view('leadstatus-master',['users'=>$users]);
 	}
-
 	public function leadstatus_master(Request $req)
 	{
-		DB::statement("call lead_statusmaster_Insert(?,?)",array($req->Lead_Status,$req->Is_Active));return Redirect('leadstatus-master');
+		DB::statement("call Insert_lead_statusmaster(?,?)",array($req->Lead_Status,$req->Is_Active));return Redirect('leadstatus-master');
 	}
-
-       //**product master
+//***-*-*-*-*-*-*-*-*-*-product master
 	public function productmaster()
 	{
 		$users=DB::select("call usp_get_product_master()");
@@ -197,11 +156,10 @@ class MastersController extends Controller
 	}
 	public function product_master(Request $req)
 	{
-		DB::statement("call product_master_Insert(?,?,?)",array($req->Product_Name,$req->Is_Active,$req->Document));
+		DB::statement("call Insert_product_master(?,?,?)",array($req->Product_Name,$req->Document,$req->Is_Active));
 		return Redirect('product-master');
 	}
-
-//**profession master
+//**-*-*-*-*-*-*-*-*-*-*profession master
 	public function professionmaster()
 	{
 		$users=DB::select("call usp_get_professionmaster()");
@@ -210,38 +168,34 @@ class MastersController extends Controller
 	public function profession_master(Request $req)
 	{
 	//print_r($req->all());exit();
-		DB::statement("call profession_master_Insert(?,?)",array($req->Profession_Name,$req->Is_Active));
+		DB::statement("call Insert_profession_master(?,?)",array($req->Profession_Name,$req->Is_Active));
 	   	return Redirect('profession-master');
 	}
-
-//**Role master
+//***-*-**--*-*-*-*-*-*-*-Role master
 	public function rolemaster()
 	{
 		return view('role-master');
 	}
-
-//**Associate-Master
+//**-*-*-*-*--**-*-Associate-Master
 	public function associatemaster()
 	{
 		$smsdata=DB::select("call usp_get_product_master()");
 		$lead=DB::select("call usp_get_leadcity_master()");
 		return view('associate-master',['smsdata'=>$smsdata,'lead'=>$lead])->with('no', 1);
 	}
-
-//**Link-Entry
+//**-*-*-*-*-*-*-*-*Link-Entry
 	public function messagelinkdetail()
 	{
 		return view('link-entry');
 	}
 	public function message_link_detail(Request $req)
 	{
-	//print_r($req->all());exit();
+	  //print_r($req->all());exit();
 		DB::statement("call msg_link_details_Insert(?,?,?)",array($req->link,$req->MsgBody,$req->title));
 	   	   Session::flash('message', 'City saved successfully');
 	   	return Redirect('link-entry');
 	}
-
-//**App-Version-Master
+//***-*-*-*-*-*-*-*-*-*-App-Version-Master
 	public function appversionmaster()
 	{
 		$users=DB::select("call usp_get_app_versionmaster()");
@@ -252,29 +206,126 @@ class MastersController extends Controller
 	//print_r($req->all()); exit();
 		DB::statement("call app_version_Master_edit(?,?)",array($req->App_Type_Name,$req->Version_Code));
 	   		return Redirect('app-version-master');
-	}
+	   	}
 	public function appversionmaster_history()
 	{
 		$users=DB::select("call usp_get_Version_History_Master()");
 	        return view('app-version-master-history',['users'=>$users]);
-	}
-
-
-	   // public function history($id)
-	   // {
-	   // 	//print_r($Id);exit();
-	   // 	// $users=DB::select("call usp_get_Version_Master_History_table()");
-	   // 	// return view('app-version-master-history',['users'=>$users])->with('no', 1);
-    //      echo $id;exit();	   	
-    //      $query = DB::table('app_version_master')->select('Id', 'App_Type_Name', 'Version_Code', 'Created_Datetime')->where('Id','=',$Id)->get();
-	   // 	// print_r($query);exit();
-    //      return view('app-version-master-history',['query'=>$query]);
-	   // }
-
-	   
-//**Loan-Disbursement
+	}	   
+//*********-*-*-*-**Loan-Disbursement
 	public function loandisbursement()
 	{
 		return view('loan-disbursement');
 	}
-}
+//************bank-payout************
+	public function bankpayout()
+	{
+		$smsdata=DB::select("call usp_get_bankpayout_master()");
+		$bank=DB::select("call usp_get_bankmaster()");
+		$select=DB::select("call usp_get_product_master()");
+		return view('bank-payout-master',['smsdata'=>$smsdata,'bank'=>$bank,'select'=>$select])->with('no', 1);
+	}
+	public function bank_payout_master(Request $req)
+	{
+	//print_r($req->all());exit();
+		DB::statement("call Insert_bankpayout_master(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",array($req->Bank_Id,$req->Product_Id,$req->Payoutfrom1,$req->Payoutfrom2,$req->Payoutfrom3,$req->Payoutfrom4,$req->Payoutfrom5,$req->Payoutto1,$req->Payoutto2,$req->Payoutto3,$req->Payoutto4,$req->Payoutto5,$req->Payoutper1,$req->Payoutper2,$req->Payoutper3,$req->Payoutper4,$req->Payoutper5,$req->Processing_Per,$req->Flat_Per));
+		return Redirect('bank-payout-master');
+	}
+	public function bank_payout(Request $req)
+	{
+		//print_r($req->all());exit();
+		 DB::select('call Update_bank_payoutMaster(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',array($req->m_Id,$req->m_Bank_Id,$req->m_Product_Id,$req->m_Payoutfrom1,$req->m_Payoutfrom2,$req->m_Payoutfrom3,$req->m_Payoutfrom4,$req->m_Payoutfrom5,$req->m_Payoutto1,$req->m_Payoutto2,$req->m_Payoutto3,$req->m_Payoutto4,$req->m_Payoutto5,$req->m_Payoutper1,$req->m_Payoutper2,$req->m_Payoutper3,$req->m_Payoutper4,$req->m_Payoutper5,$req->m_Processing_Per,$req->m_Flat_Per));
+		 return Redirect('bank-payout-master');
+	}	
+//******-*-*-**source-master
+	public function sourcemaster()
+	{
+		$smsdata=DB::select("call usp_get_source_master()");
+		return view('source-master',['smsdata'=>$smsdata])->with('no', 1);
+	}
+		public function source_master(Request $req)
+	{
+		DB::statement("call Insert_source_master(?,?)",array($req->p_source_name,$req->p_is_Active));
+		return Redirect('source-master');
+	}
+	public function source_master_edit(Request $req)
+	{ 
+         $va=0;
+		if(isset($req->Is_Active)){
+           $va=1;
+		}else{
+			 $va=0;
+			}
+		 
+		 DB::select("call Update_source_master(?,?,?)",array($req->source_id,$req->source_name,$va));
+		 return Redirect('source-master');
+		}
+//******bank-product-web
+	public function bankproductweb()
+	{
+		$select=DB::select("call usp_get_product_master()");
+			$bank=DB::select("call usp_get_bankmaster()");
+			return view('bank-product-web',['select'=>$select,'bank'=>$bank]);
+	}
+//******city-wise-employee
+	public function citywiseemployee()
+	{
+		$users=DB::select("call usp_get_citymaster()");
+		$name=DB::select("call usp_get_employee_Name()");
+		$smsdata=DB::select("call usp_get_city_wise_emp()");
+		
+		return view('city-wise-employee',['users'=>$users,'name'=>$name,'smsdata'=>$smsdata])->with('no', 1);
+	}
+	public function city_wise_employee(Request $req)
+	{
+	//print_r($req->all()); exit();
+		DB::statement("call Insert_citywise_emp_master(?,?)",array($req->City_Id,$req->Emp_Code));
+		return Redirect('city-wise-employee');
+	}
+//******message-master******-*-***-****
+	public function messagemaster()
+	{
+		$smsdata=DB::select("call usp_get_message_master()");
+		return view('message-master',['smsdata'=>$smsdata]);
+	}
+		public function message_master(Request $req)
+	{
+		DB::statement("call Insert_message_master(?,?,?)",array($req->messageTitle,$req->messageBody,$req->is_Active));
+		return Redirect('message-master');
+	}
+	public function message_master_edit(Request $req)
+	{ 
+		 $va=0;
+		if(isset($req->m_is_Active)){
+           $va=1;
+		}else{
+			 $va=0;
+		}
+		 DB::select("call Update_message_master(?,?,?,?)",array($req->m_message_id,$req->m_messageTitle,$req->m_messageBody,$va));
+		 return Redirect('message-master');
+	}
+	public function editbankpayout($id)
+	{
+		$m_users=DB::select("call usp_get_bankmaster()");
+		$m_select=DB::select("call usp_get_product_master()");
+		$user= DB::select("call usp_show_bankpayout(?)",array($id))[0];
+		return view('edit-bank-payout-master',['m_users'=>$m_users,'m_select'=>$m_select,'user'=>$user]);
+	}
+
+	public function bankcontactdetails()
+	{
+		$users=DB::select("call usp_get_bankmaster()");
+		$select=DB::select("call usp_get_product_master()");
+		$smsdata=DB::select("call usp_get_bankcontact_details()");
+
+		return view('bank-contact-details',['users'=>$users,'select'=>$select,'smsdata'=>$smsdata]);
+	}
+
+	public function bank_contact_details(Request $req)
+	{
+		print_r($req->all());exit(); 
+		DB::statement("call Insert_Bank_Contact_Details(?,?,?,?,?,?,?,?,?,?,?)",array($req->Bank_id,$req->Product_id,$req->Co_Ordinator_Name,$req->Co_Ordinator_ContactNo,$req->Co_Ordinator_Email,$req->Sales_Manager_Name,$req->Sales_Manager_ContactNo,$req->Sales_Manager_Email,$req->Other_Head_Name,$req->Other_Head_ContactNo,$req->Other_Head_Email));
+		return Redirect('bank-contact-details');
+
+	}
+} 	

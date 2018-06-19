@@ -150,14 +150,14 @@
 <div class="table-responsive">
   
   
-  <table id="example" class="table table-striped table-bordered" role="grid" aria-describedby="otp-details-id_info" style=" border: 1px black font-size: normal;">
+  <table id="example" class="table table-striped table-bordered" role="grid" aria-describedby="otp-details-id_info">
     <thead>
-         <tr style="background-color: #87CEFA;border: 1px ridge black;">
-                <th style="border:1px ridge black;">Sr No</th>
-                <th style="border:1px ridge black;">Product Id</th>
-                <th style="border:1px ridge black;">Product Name</th>
-                <th style="border:1px ridge black;">Payout %</th>
-                 <th style="border:1px ridge black;"><input type="checkbox"  id="checkAll" name="check" style="width: auto; float: left; display: inline-block; margin-right: 16px;"></th>
+         <tr>
+                <th>Sr No</th>
+                <th>Product Id</th>
+                <th>Product Name</th>
+                <th>Payout %</th>
+                <th><input type="checkbox"  id="checkAll" name="check" style="width: auto; float: left; display: inline-block; margin-right: 16px;"></th>
             </tr>
 
 
@@ -165,11 +165,11 @@
             <tbody>
              @foreach($smsdata as $val)
               <tr>
-                <td style="border:1px ridge black;">{{ $no++ }}</td>
-                <td style="border:1px ridge black;">{{$val->Product_Id}}</td>
-                <td style="border:1px ridge black;">{{$val->Product_Name}}</td>
-                <td style="border:1px ridge black;"> <input type="text" name=""></td>
-                <td style="border:1px ridge black;"><input name="check" id="checkAll" type="checkbox" value="yes"></td>
+                <td>{{ $no++ }}</td>
+                <td>{{$val->Product_Id}}</td>
+                <td>{{$val->Product_Name}}</td>
+                <td> <input type="text" name=""></td>
+                <td><input name="check" id="checkAll" type="checkbox" value="yes"></td>
             </tr>
 
          @endforeach

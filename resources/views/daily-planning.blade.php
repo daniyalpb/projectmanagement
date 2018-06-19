@@ -3,7 +3,7 @@
   <div class="content">
   <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title"></h3>
+          <h3 class="box-title">Daily Planning</h3>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
           </div>
@@ -12,7 +12,7 @@
         
 
  <div class="box-body">
-  <center><h3 style="color: #0099FF;">Daily Planning</h3></center><hr>
+  <!-- <center><h3 style="color: #0099FF;">Daily Planning</h3></center><hr> -->
           <div class="row">  <!-- for center -->
               <div class="Absolute-Center is-Responsive">
                 <div id="logo-container"></div>
@@ -209,31 +209,30 @@
           	<div class="table-responsive">
           		<table id="example" class="table table-bordered table-striped">
         <thead>
-         <tr style="background-color: #87CEFA;border: 1px ridge black;">
-            <th style="border:1px ridge black;">Sr No</th>
-            <th style="border:1px ridge black;">ID</th>
-            <th style="border:1px ridge black;">Plan Date</th>
-            <th style="border:1px ridge black;">Start Time</th>
-            <th style="border:1px ridge black;">End Time</th>
-            <th style="border:1px ridge black;">User Remark	</th>
-            <th style="border:1px ridge black;">Achievement	</th>
+         <tr>
+            <th>Sr No</th>
+            <th>ID</th>
+            <th>Plan Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>User Remark	</th>
+            <th>Achievement	</th>
            
-            <th style="border:1px ridge black;" >Edit</th>
+            <th>Edit</th>
           </tr> 
       </thead>
 
         <tbody>
            @foreach($smsdata as $val)
         <tr>
-            <td style="border:1px ridge black;">{{ $no++ }}</td>
-            <td style="border:1px ridge black;">{{$val->Id}}</td>
-            <td style="border:1px ridge black;">{{$val->Plan_Date}}</td>
-            <td style="border:1px ridge black;">{{$val->StartTime}}</td>
-            <td style="border:1px ridge black;">{{$val->EndTime}}</td>
-            <td style="border:1px ridge black;">{{$val->User_Remark}}</td>
-            <td style="border:1px ridge black;">{{$val->User_Achieve}}</td>
-         
-            <td style="border:1px ridge black;"><a id="GridView1_lblEdit_4" onclick="demo('{{$val->Id}}','{{$val->Plan_Date}}','{{$val->StartTime}}','{{$val->EndTime}}','{{$val->User_Remark}}','{{$val->User_Achieve}}')"  data-toggle="modal" data-target="#myModal">Edit</a></td>
+            <td>{{ $no++ }}</td>
+            <td>{{$val->Id}}</td>
+            <td>{{$val->Plan_Date}}</td>
+            <td>{{$val->StartTime}}</td>
+            <td>{{$val->EndTime}}</td>
+            <td>{{$val->User_Remark}}</td>
+            <td>{{$val->User_Achieve}}</td>         
+            <td><a id="GridView1_lblEdit_4" onclick="demo('{{$val->Id}}','{{$val->Plan_Date}}','{{$val->StartTime}}','{{$val->EndTime}}','{{$val->User_Remark}}','{{$val->User_Achieve}}')"  data-toggle="modal" data-target="#myModal">Edit</a></td>
         
  
         </tr>

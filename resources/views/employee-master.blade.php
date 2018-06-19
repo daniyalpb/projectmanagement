@@ -3,7 +3,7 @@
   <div class="content">
   <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title"></h3>
+         <h3 class="box-title">Employee Master</h3>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
           </div>
@@ -12,7 +12,7 @@
         
 
  <div class="box-body">
-  <center><h3 style="color: #0099FF;">Employee Master</h3></center><hr>
+  <!-- <center><h3 style="color: #0099FF;">Employee Master</h3></center><hr> -->
           <div class="row">  <!-- for center -->
               <div class="Absolute-Center is-Responsive">
                 <div id="logo-container"></div>
@@ -84,7 +84,7 @@
 
                     <div class="col-md-6">
                    <div class="form-group row">
-                        <label for="dob" class="col-sm-4 col-form-label">Date Of&nbsp;irth:</label>
+                        <label for="dob" class="col-sm-4 col-form-label">Date Of&nbsp;Birth:</label>
                         <div class="col-sm-8">
                           <input type="Date" class="form-control" id="dob" name="dob"  placeholder="Enter a DOB"  required>
                         </div>
@@ -92,11 +92,11 @@
                     </div>
 
 
-  <div class="col-md-6">
+                <div class="col-md-6">
                    <div class="form-group row">
                         <label for="mobile" class="col-sm-4 col-form-label">Mobile:</label>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" id="mobile" name="mobile"   placeholder="Enter a Bank Name" minlength="10" maxlength="10" onkeypress="return fnAllowNumeric(event)" required>
+                          <input type="text" class="form-control" id="mobile" name="mobile"   placeholder="Enter a Mobile No" minlength="10" maxlength="10" onkeypress="return fnAllowNumeric(event)" required>
                         </div>
                       </div>
                     </div>
@@ -144,7 +144,7 @@
                           <select type="text" class="form-control" id="reporting_authority" name="reporting_authority" required>
                             <option disabled selected value="">Select One</option>
                       @foreach($users as $user)
-                       <option value="{{$user->Emp_Code}}">{{$user->Emp_Name}}</option>
+                       <option value="{{$user->EmpId}}">{{$user->Emp_Name}}</option>
                        @endforeach 
                        </select>
                         </div>
@@ -156,7 +156,7 @@
 
                 <div class="col-md-6">
                    <div class="form-group row">
-                        <label for="date_of_joining" class="col-sm-4 col-form-label">Date&nbsp;Of&nbsp;Joining::</label>
+                        <label for="date_of_joining" class="col-sm-4 col-form-label">Date&nbsp;Of&nbsp;Joining:</label>
                         <div class="col-sm-8">
                           <input type="Date" class="form-control" id="date_of_joining" name="date_of_joining"  value="" placeholder="Enter a DOJ"  required>
                         </div>
@@ -184,7 +184,7 @@
 
                     <div class="col-md-6">
                    <div class="form-group row">
-                        <label for="Is_Active" class="col-sm-4 col-form-label">Is&nbsp;Active::</label>
+                        <label for="Is_Active" class="col-sm-4 col-form-label">Is&nbsp;Active:</label>
                         <div class="col-sm-6">
                          <label><input id="Is_Active" name="Is_Active" type="checkbox" value="Yes" style="zoom:1.5;"></label>
                         </div>
@@ -207,7 +207,7 @@
                         <div class="form-group row">
                         <label for="inputPassword" class="col-sm-2 col-form-label">Variable:</label>
                         <div class="col-sm-4">
-                          <input type="text" class="form-control" id="variable" name="variable"  value="" placeholder="Enter a Variable Name"  required>
+                          <input type="text" class="form-control" id="variable" name="variable"  value="" placeholder="Enter a Variable"  required>
                         </div>
                       </div>
                     </div>
