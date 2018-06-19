@@ -129,3 +129,6 @@ Route::get('pas-data','pas\PasController@pas_data');
  
 });
  
+
+
+ 
