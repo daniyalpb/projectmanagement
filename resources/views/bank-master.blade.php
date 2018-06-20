@@ -18,40 +18,41 @@
               <div class="Absolute-Center is-Responsive">
                 <div id="logo-container"></div>
                 <div class="col-sm-6 col-sm-offset-2">
-             <form class="form-horizontal" name="bank_master" id="bank_master"  method="post">
+
+             <form class="form-horizontal" name="bank_master" id="bank_master" method="post">
             {{csrf_field()}}
           
 
                    <div class="form-group row">
                         <label for="Bank_Name" class="col-sm-2 col-form-label">Bank&nbsp;Name:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-6">
                           <input type="text" class="form-control" id="Bank_Name" name="Bank_Name"  value="" placeholder="Enter a Bank Name"  required>
                         </div>
                       </div>
 
 
-                        <div class="form-group row">
+                    <div class="form-group row">
                         <label for="Product_Name" class="col-sm-2 col-form-label">Address:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-6">
                           <textarea type="text" class="form-control" id="Bank_Address" name="Bank_Address"  value="" placeholder="Enter a Address"  required></textarea>
                         </div>
                       </div>
 
 
 
-                        <div class="form-group row">
+                    <div class="form-group row">
                         <label for="Bank_Code" class="col-sm-2 col-form-label">Bank&nbsp;Code:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-6">
                           <input type="text" class="form-control" id="Bank_Code" name="Bank_Code"  value="" placeholder="Enter a Bank Code"  required>
                         </div>
                       </div>
 
 
 
-                        <div class="form-group row">
+                    <div class="form-group row">
                         <label for="Document1" class="col-sm-2 col-form-label">Select&nbsp;File:</label>
-                        <div class="col-sm-10">
-                          <input type="file" class="form-control" id="Document1" name="Document1"  value="" placeholder="Enter a Product Name"  required>
+                        <div class="col-sm-6">
+                          <input type="file" class="form-control" id="Document1" name="Document1"  value="" placeholder="Enter a Product Name">
                         </div>
                       </div>
 
@@ -59,8 +60,8 @@
 
                         <div class="form-group row">
                         <label for="Document2" class="col-sm-2 col-form-label">Select&nbsp;Logo:</label>
-                        <div class="col-sm-10">
-                          <input type="file" class="form-control" id="Document2" name="Document2"  value="" placeholder="Enter a Product Name"  required>
+                        <div class="col-sm-6">
+                          <input type="file" class="form-control" id="Document2" name="Document2"  value="" placeholder="Enter a Product Name">
                         </div>
                       </div>
 
@@ -69,9 +70,15 @@
 
 
 
+                     <!--  <center>
+                        <input type="button" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
+                        <input type="Reset" name="Button2" value="Reset" id="Button2" class="btn btn-primary">
+                      </center>
+ -->
+
                       <center>
                         <input type="submit" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
-                        <input type="submit" name="Button2" value="Reset" id="Button2" class="btn btn-primary">
+                        <input type="Reset" name="Button2" value="Reset" id="Button2" class="btn btn-primary">
                       </center>
 
                       
@@ -81,6 +88,7 @@
     </div>
   </div>
 </div>
+
 
 
 
@@ -133,8 +141,7 @@
      </div> 
 </div>
 </div>
-</div>
-</div>  
+ 
 
 
 
@@ -197,9 +204,7 @@
                         <label for="Pop_Document1" class="col-sm-2 col-form-label">Select&nbsp;File:</label>
                         <div class="col-sm-10">
                           <input type="file" class="form-control" id="Pop_Document1" name="Pop_Document1"  value="" placeholder="Enter a Product Name">
-                            
-                            <input type="hidden" name="Pop_Documentold" id="Pop_Document1old">
-                          <span id="lblfile"  > </span>
+                          
                         </div>
                       </div>
 
@@ -218,6 +223,7 @@
 
              <center>
               <button type="submit" name="Button" id="Button" class="btn btn-primary">Update</button>
+            </center>
 
                       
         
@@ -229,8 +235,16 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
-      </div>
-    </div>
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+     
  
  
 

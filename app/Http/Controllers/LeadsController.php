@@ -188,6 +188,8 @@ class LeadsController extends Controller
 
     public function leadstatusupdateflow($id)
     {
+
+
         $user= DB::select("call usp_show_lead_data(?)",array($id))[0];
         //$user=DB::select("call usp_show_lead_data($id)");
         $city=DB::select("call usp_get_leadcity_master()");
@@ -195,16 +197,18 @@ class LeadsController extends Controller
         $broker=DB::select("call usp_get_leadbroker_master()");
         $bank=DB::select("call usp_get_leadbank_master()");
         $assign=DB::select("call usp_get_assign_master()");
-        return view('lead-status-update-flow',['city'=>$city,'source'=>$source,'broker'=>$broker,'bank'=>$bank,'assign'=>$assign,'user'=>$user]);
+        $mlstatus=DB::select("call usp_ml_status_master()");
+        $manager=DB::select("call usp_get_lead_bmanager()");
+        return view('lead-status-update-flow',['city'=>$city,'source'=>$source,'broker'=>$broker,'bank'=>$bank,'assign'=>$assign,'user'=>$user,'mlstatus'=>$mlstatus,'manager'=>$manager]);
     }
 
-   /* public function lead_status_update_flow($id)
-    {
+    // public function lead_status_update_flow($id)
+    // {
        
-       // print_r($user);
+    //    // print_r($user);
        
-        return view('lead-status-update-flow',['user'=>$user]);
-    }
-    */
+    //     return view('lead-status-update-flow',['user'=>$user]);
+    // }
+    
 
 }

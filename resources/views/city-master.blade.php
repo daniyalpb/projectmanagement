@@ -51,7 +51,7 @@
 
                       <center>
                         <input type="submit" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
-                        <input type="submit" name="Button2" value="Reset" id="Button2" class="btn btn-primary">
+                        <input type="Reset" name="Button2" value="Reset" id="Button2" class="btn btn-primary">
                       </center>
 
                       

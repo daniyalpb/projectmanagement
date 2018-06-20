@@ -23,7 +23,7 @@
 
                    <div class="form-group row">
                         <label for="p_source_name" class="col-sm-3 col-form-label">Source&nbsp;Name:</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-6">
                           <input type="text" class="form-control" id="p_source_name" name="p_source_name"  value="" placeholder="Enter a Source Name"  required>
                         </div>
                       </div>
@@ -33,7 +33,7 @@
 
                        <div class="form-group row" id="IsActive">
                         <label for="p_is_Active" class="col-sm-3 col-form-label">Is&nbsp;Active:</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-6">
                          <label><input type="checkbox"    id="p_is_Active" name="p_is_Active" value="Yes" style="zoom:1.5;"></label>
                         </div>
                       </div>

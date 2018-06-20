@@ -24,8 +24,8 @@
             <div class="col-md-6">
                    <div class="form-group row">
                         <label for="empcode" class="col-sm-4 col-form-label">Employee Code:</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="empcode" name="empcode" placeholder="Enter a Employee Code"  required>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" id="empcode" name="empcode" placeholder="Employee Code"  required>
                         </div>
                       </div>
                     </div>
@@ -35,8 +35,8 @@
                        <div class="col-md-6">
                    <div class="form-group row">
                         <label for="empname" class="col-sm-4 col-form-label">Employee Name:</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="empname" name="empname"   placeholder="Enter a Employee Name"  required>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" id="empname" name="empname"   placeholder="Employee Name"  required>
                         </div>
                       </div>
                     </div>
@@ -47,13 +47,13 @@
                       <div class="col-md-6">
                    <div class="form-group row">
                         <label for="companyname" class="col-sm-4 col-form-label">Company Name:</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-6">
                           <select type="text" class="form-control" id="companyname" name="companyname"   placeholder="Enter a Company Name"  required>
                           <option disabled selected  value="0">Select One</option>
-          @foreach ($shows as $show)
-          <option value="{{ $show->Company_Id}}">{{ $show->Company_Name}}</option>
-        @endforeach
-         </select>
+                          @foreach ($shows as $show)
+                          <option value="{{ $show->Company_Id}}">{{ $show->Company_Name}}</option>
+                        @endforeach
+                         </select>
                         </div>
                       </div>
                     </div>
@@ -63,8 +63,8 @@
                        <div class="col-md-6">
                    <div class="form-group row">
                         <label for="address" class="col-sm-4 col-form-label">Address:</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="address" name="address"   placeholder="Enter a Address"  required>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" id="address" name="address"   placeholder="Address"  required>
                         </div>
                       </div>
                     </div>
@@ -73,8 +73,8 @@
                          <div class="col-md-6">
                         <div class="form-group row">
                         <label for="email" class="col-sm-4 col-form-label">Email Id:</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="email" name="email"   placeholder="Enter a Email Id" oninput="mail('email')"  required>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" id="email" name="email"   placeholder="Email Id" oninput="mail('email')"  required>
                           <span id="email_id" style="display:none;color: red; font-size: 10px">Please Enter Valid Email Id.</span>
                         </div>
                       </div>
@@ -85,8 +85,8 @@
                     <div class="col-md-6">
                    <div class="form-group row">
                         <label for="dob" class="col-sm-4 col-form-label">Date Of&nbsp;Birth:</label>
-                        <div class="col-sm-8">
-                          <input type="Date" class="form-control" id="dob" name="dob"  placeholder="Enter a DOB"  required>
+                        <div class="col-sm-6">
+                          <input type="Date" class="form-control" id="dob" name="dob"  placeholder="DOB"  required>
                         </div>
                       </div>
                     </div>
@@ -95,8 +95,8 @@
                 <div class="col-md-6">
                    <div class="form-group row">
                         <label for="mobile" class="col-sm-4 col-form-label">Mobile:</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="mobile" name="mobile"   placeholder="Enter a Mobile No" minlength="10" maxlength="10" onkeypress="return fnAllowNumeric(event)" required>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" id="mobile" name="mobile"   placeholder="Mobile No" minlength="10" maxlength="10" onkeypress="return fnAllowNumeric(event)" required>
                         </div>
                       </div>
                     </div>
@@ -106,7 +106,7 @@
                        <div class="col-md-6">
                    <div class="form-group row">
                         <label for="department" class="col-sm-4 col-form-label">Department:</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-6">
                           <select type="text" class="form-control" id="department" name="department" required>
                           <option disabled selected  value="">Select One</option>
                        @foreach ($insert as $insert)
@@ -124,7 +124,7 @@
                   <div class="col-md-6">
                    <div class="form-group row">
                         <label for="designation" class="col-sm-4 col-form-label">Designation:</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-6">
                           <select type="text" class="form-control" id="designation" name="designation" required>
                           <option disabled selected  value="">Select One</option>
                       @foreach ($selects as $select)
@@ -140,7 +140,7 @@
                        <div class="col-md-6">
                    <div class="form-group row">
                         <label for="reporting_authority" class="col-sm-4 col-form-label">Reporting&nbsp;Authority:</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-6">
                           <select type="text" class="form-control" id="reporting_authority" name="reporting_authority" required>
                             <option disabled selected value="">Select One</option>
                       @foreach($users as $user)
@@ -157,8 +157,8 @@
                 <div class="col-md-6">
                    <div class="form-group row">
                         <label for="date_of_joining" class="col-sm-4 col-form-label">Date&nbsp;Of&nbsp;Joining:</label>
-                        <div class="col-sm-8">
-                          <input type="Date" class="form-control" id="date_of_joining" name="date_of_joining"  value="" placeholder="Enter a DOJ"  required>
+                        <div class="col-sm-6">
+                          <input type="Date" class="form-control" id="date_of_joining" name="date_of_joining"  value="" placeholder="DOJ"  required>
                         </div>
                       </div>
                     </div>
@@ -168,7 +168,7 @@
                        <div class="col-md-6">
                    <div class="form-group row">
                         <label for="inputPassword" class="col-sm-4 col-form-label">Band:</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-6">
                           <select  class="form-control" id="band" name="band"  required>
                       <option disabled selected  value="0">Select Band</option>
                       <option value="1">1</option>
@@ -184,18 +184,19 @@
 
                     <div class="col-md-6">
                    <div class="form-group row">
-                        <label for="Is_Active" class="col-sm-4 col-form-label">Is&nbsp;Active:</label>
+                       <label for="inputPassword" class="col-sm-4 col-form-label">Variable:</label>
                         <div class="col-sm-6">
-                         <label><input id="Is_Active" name="Is_Active" type="checkbox" value="Yes" style="zoom:1.5;"></label>
-                        </div>
+                          <input type="text" class="form-control" id="variable" name="variable"  value="" placeholder="Variable"  required>
                       </div>
                     </div>
+                  </div>
+                    
 
                     <div class="col-md-6">
                    <div class="form-group row">
                         <label for="inputPassword" class="col-sm-4 col-form-label">CTC:</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="ctc" name="ctc"  value="" placeholder="Enter a CTC"  required>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" id="ctc" name="ctc"  value="" placeholder="CTC"  required>
                         </div>
                       </div>
                     </div>
@@ -205,12 +206,12 @@
 
                       <div class="col-md-12">
                         <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">Variable:</label>
+                        <label for="Is_Active" class="col-sm-2 col-form-label">Is&nbsp;Active:</label>
                         <div class="col-sm-4">
-                          <input type="text" class="form-control" id="variable" name="variable"  value="" placeholder="Enter a Variable"  required>
+                         <label><input id="Is_Active" name="Is_Active" type="checkbox" value="Yes" style="zoom:1.5;"></label>
                         </div>
                       </div>
-                    </div>
+                    </div> 
 
 
 
