@@ -90,7 +90,7 @@
 
              <div class="col-md-6">
                 <div class="form-group row">
-                  <label for="companyname" class="col-sm-4 col-form-label">Vartical Name:</label>
+                  <label for="companyname" class="col-sm-4 col-form-label">Vertical Name:</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control inp-fld search_vartical" id="companyname" name="companyname">
                   </div>

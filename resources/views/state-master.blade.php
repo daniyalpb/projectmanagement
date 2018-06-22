@@ -22,25 +22,23 @@
           
 
                    <div class="form-group row">
-                        <label for="state_name" class="col-sm-2 col-form-label">State&nbsp;Name:</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="state_name" name="state_name"  value="" placeholder="Enter a State Name"  required>
+                        <label for="state_name" class="col-sm-4 col-form-label">State&nbsp;Name:</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" id="state_name" name="state_name"  value="" placeholder="State Name"  required>
                         </div>
                       </div>
 
 
-
-
                        <div class="form-group row">
-                        <label for="Is_active" class="col-sm-2 col-form-label">Is&nbsp;Active:</label>
-                        <div class="col-sm-10">
-                         <label><input type="checkbox"  id="Is_active" name="Is_active" value="Yes" style="zoom:1.5;"></label>
+                        <label for="Is_active" class="col-sm-4 col-form-label">Is&nbsp;Active:</label>
+                        <div class="col-sm-8">
+                        <input type="checkbox"  id="Is_active" name="Is_active" value="Yes" style="zoom:1.5;">
                         </div>
                       </div>
 
                       <center>
                         <input type="submit" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
-                        <input type="Reset" name="Button2" value="Reset" id="Button2" class="btn btn-primary">
+                        <input type="Reset" value="Reset"  class="btn btn">
                       </center>
 
                       
@@ -83,10 +81,11 @@
     </table>
   </div>
 </div>
-</form>
+</div>
 </div>
 </div>
 
+    
 
 
 <script>

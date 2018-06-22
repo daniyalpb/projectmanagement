@@ -164,8 +164,11 @@
                     <select type="text" class="form-control" id="Lead_Status_id" name="Lead_Status_id" >
 
                     @foreach($mlstatus as $val)
+                    @if($city->City_Id == $user->cityid)
                      <option  value="{{$user->Lead_Status_id}}">{{$user->Lead_Status}}</option>
+                     @else
                     <option value="{{$val->Lead_Status_Id}}">{{$val->Lead_Status}}</option>
+                    @endif
                     @endforeach
                  </select>
                   </div>
@@ -332,11 +335,13 @@
                <label for="broker_id" class="col-sm-4 col-form-label">Broker Name:</label>
                <div class="col-sm-6">
                  <select type="text" class="form-control" id="broker_id" name="broker_id">
-                  <option disabled selected value="0">Select One</option>
-                  <option value="{{$user->broker_id}}">{{$user->Broker_Name}}</option>    
+                  <option>Select One</option>                      
                     @foreach($broker as $val) 
-                          
+                     @if($val->Broker_id == $user->broker_id)
+                    <option selected="true" value="{{$val->Broker_id}}">{{$user->Broker_Name}}</option>
+                    @else                         
                     <option value="{{$val->Broker_id}}">{{$val->Broker_Name}}</option>
+                    @endif
                     @endforeach
                  </select>
                 </div>
@@ -344,15 +349,19 @@
             </div>
 
 
+
+
 <!-- no update --> <div class="col-md-6">
                <div class="form-group row">
                  <label for="Business_M" class="col-sm-4 col-form-label">Business Manager:</label>
                  <div class="col-sm-6">
-                   <select type="text" class="form-control" id="Business_M" name="Business_M" >
-                    
-                    @foreach($manager as $val) 
-                                 
-                    <option value="{{$val->emp_code}}">{{$val->Emp_Name}}</option>
+                   <select type="text" class="form-control" id="Business_M" name="Business_M">
+                    <option disabled selected value="0">Select One</option>
+                    @foreach($manager as $val)                
+                   
+
+                    <option value="{{$val->Emp_Code}}">{{$val->Emp_Name}}</option>
+                   
                     @endforeach
                  </select>
                  </div>   
@@ -365,9 +374,13 @@
                   <label for="emp_code" class="col-sm-4 col-form-label">Assign To*:</label>
                   <div class="col-sm-6">
                     <select type="text" class="form-control" id="emp_code" name="emp_code">                    
-                    
-                    @foreach($assign as $assign)              
+                    <option selected disabled value="0">Select One</option>
+                    @foreach($assign as $assign)
+                    @if($assign->Emp_Code == $user->emp_code)
+                      <option selected="true" value="{{$assign->Emp_Code}}">{{$user->emp_code}}</option>
+                      @else              
                     <option value="{{$assign->Emp_Code}}">{{$assign->Emp_Name}}</option>
+                    @endif
                     @endforeach               
                  </select>
                   </div>
@@ -380,10 +393,10 @@
                <label for="Relationship_M" class="col-sm-4 col-form-label">Relationship Manager:</label>
                <div class="col-sm-6">
                  <select type="text" class="form-control" id="Relationship_M" name="Relationship_M">
-                 
+                 <option disabled selected value="0">Select One</option>
                   @foreach($rmanager as $rmanager)
                
-                  <option value="{{$rmanager->emp_code}}">{{$rmanager->Emp_Name}}</option>
+                  <option value="{{$rmanager->Emp_Code}}">{{$rmanager->Emp_Name}}</option>
                   @endforeach
                 </select>
               </div>
@@ -440,8 +453,12 @@
                   <div class="col-sm-6">
                     <select type="text" class="form-control" id="Bank_Id" name="Bank_Id">
                       <option>Select One</option>
-                      <option selected="true" value="{{$user->Bank_Id}}">{{$user->Bank_Name}}</option>@foreach($bank as $bank)                      
+                      @foreach($bank as $bank)
+                      @if($bank->Bank_Id == $user->Bank_Id)
+                      <option selected="true" value="{{$bank->Bank_Id}}">{{$user->Bank_Name}}</option>
+                      @else
                       <option value="{{$bank->Bank_Id}}">{{$bank->Bank_Name}}</option>
+                      @endif
                       @endforeach
                     </select>
                   </div>

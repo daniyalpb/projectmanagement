@@ -7,6 +7,11 @@
       }
     }
 
+ $(".datepicker_id").datepicker({ dateFormat: "dd-mm-yy",
+          changeMonth: true,
+          changeYear: true,
+    
+        });
 
 
 
@@ -31,7 +36,7 @@
 }
 </script>
 
-
+<!-- 
 <script type="text/javascript">
   function mail(obj,val){
 
@@ -49,7 +54,7 @@
                   }
                     }
 }
-</script>
+</script> -->
 <script type="text/javascript">
   function pancard(obj,val){
     // console.log(obj);

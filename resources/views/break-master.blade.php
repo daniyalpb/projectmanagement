@@ -22,17 +22,17 @@
 
 
                    <div class="form-group row">
-                        <label for="Break_Type" class="col-sm-2 col-form-label">Break&nbsp;Type:</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="Break_Type" name="Break_Type"  value="" placeholder="Enter a Break Type"  required>
+                        <label for="Break_Type" class="col-sm-4 col-form-label">Break&nbsp;Type:</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="Break_Type" name="Break_Type"  value="" placeholder="Break Type"  required>
                         </div>
                       </div>
 
 
 
                       <div class="form-group row">
-                        <label for="Time" class="col-sm-2 col-form-label">Time:</label>
-                        <div class="col-sm-10">
+                        <label for="Time" class="col-sm-4 col-form-label">Time:</label>
+                        <div class="col-sm-9">
                           <select  class="form-control" id="Time" name="Time" >
                     <option disabled selected  value="0">Select&nbsp;Time</option>
                     <option value="1">13:00</option>
@@ -43,7 +43,7 @@
 
                       <center>
                         <input type="submit" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
-                        <input type="submit" name="Button2" value="Reset" id="Button2" class="btn btn-primary">
+                        <input type="reset" class="btn" value="Reset">
                       </center>
 
                       
@@ -72,7 +72,7 @@
          <tr>
                 <th>Break Type</th>
                 <th>Time</th>
-                <th>Is_Active</th>
+                <th>Is Active</th>
                 <th>Created On</th>
             </tr>
 

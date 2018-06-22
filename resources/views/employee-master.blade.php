@@ -23,7 +23,7 @@
 
             <div class="col-md-6">
                    <div class="form-group row">
-                        <label for="empcode" class="col-sm-4 col-form-label">Employee Code:</label>
+                        <label for="empcode" class="col-sm-4 col-form-label">Employee&nbsp;Code:</label>
                         <div class="col-sm-6">
                           <input type="text" class="form-control" id="empcode" name="empcode" placeholder="Employee Code"  required>
                         </div>
@@ -34,7 +34,7 @@
 
                        <div class="col-md-6">
                    <div class="form-group row">
-                        <label for="empname" class="col-sm-4 col-form-label">Employee Name:</label>
+                        <label for="empname" class="col-sm-4 col-form-label">Employee&nbsp;Name:</label>
                         <div class="col-sm-6">
                           <input type="text" class="form-control" id="empname" name="empname"   placeholder="Employee Name"  required>
                         </div>
@@ -46,7 +46,7 @@
 
                       <div class="col-md-6">
                    <div class="form-group row">
-                        <label for="companyname" class="col-sm-4 col-form-label">Company Name:</label>
+                        <label for="companyname" class="col-sm-4 col-form-label">Company&nbsp;Name:</label>
                         <div class="col-sm-6">
                           <select type="text" class="form-control" id="companyname" name="companyname"   placeholder="Enter a Company Name"  required>
                           <option disabled selected  value="0">Select One</option>
@@ -87,6 +87,15 @@
                         <label for="dob" class="col-sm-4 col-form-label">Date Of&nbsp;Birth:</label>
                         <div class="col-sm-6">
                           <input type="text" class="form-control datepicker_id" id="dob" name="dob"  placeholder="DOB"  required>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                   <div class="form-group row">
+                    <label for="dob" class="col-sm-4 col-form-label">Date Of&nbsp;Birth:</label>
+                        <div class="col-sm-6">
+                          <input type="text" name="dob" id="dob" class="form-control datepicker_id" placeholder="Date of Birth" required>
                         </div>
                       </div>
                     </div>
@@ -217,7 +226,7 @@
 
                     <center><div class="col-sm-12">
                    <button type="submit" id="sub" class="btn btn-primary">Submit</button>
-            <button type="reset" value="Reset">Reset</button>
+                  <input type="Reset" value="Reset" class="btn btn">
           </div></center>
         </form>
       </div>
@@ -300,14 +309,6 @@ $('#username').change(function() {
     return false;
       }
 }
-
-
-
-  $(".datepicker_id").datepicker({ dateFormat: "yy-mm-dd",
-          changeMonth: true,
-          changeYear: true,
-    
-        });
 
 </script>
                       

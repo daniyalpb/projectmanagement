@@ -21,44 +21,37 @@
             {{csrf_field()}}
           
 
-                   <div class="form-group row">
-                        <label for="Product_Name" class="col-sm-3 col-form-label">Product&nbsp;Name:</label>
+                    <div class="form-group row">
+                      <label for="Product_Name" class="col-sm-4 col-form-label">Product&nbsp;Name:</label>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" id="Product_Name" name="Product_Name"  value="" placeholder="Enter a Product Name"  required>
+                          <input type="text" class="form-control" id="Product_Name" name="Product_Name"  value="" placeholder="Product Name"  required>
                         </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="Document" class="col-sm-4 col-form-label">Select&nbsp;File:</label>
+                       <div class="col-sm-8">
+                         <input type="file" class="form-control" id="Document" name="Document"  value="" placeholder="Product Name" >
                       </div>
+                    </div>
 
+                    <div class="form-group row">
+                      <label for="Is_Active" class="col-sm-4 col-form-label">Is&nbsp;Active:</label>
+                       <div class="col-sm-8">
+                        <input type="checkbox"  id="Is_Active " name="Is_Active" value="Yes" style="zoom:1.5;">
+                       </div>
+                    </div>
 
-
-
-                       <div class="form-group row">
-                        <label for="Is_Active" class="col-sm-3 col-form-label">Is&nbsp;Active:</label>
-                        <div class="col-sm-8">
-                         <label><input type="checkbox"  id="Is_Active " name="Is_Active" value="Yes" style="zoom:1.5;"></label>
-                        </div>
-                      </div>
-
-
-                       <div class="form-group row">
-                        <label for="Document" class="col-sm-3 col-form-label">Select&nbsp;File:</label>
-                        <div class="col-sm-8">
-                          <input type="file" class="form-control" id="Document" name="Document"  value="" placeholder="Enter a Product Name" >
-                        </div>
-                      </div>
-
-
-                      <center>
+                    <center>
                         <input type="submit" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
-                        <input type="submit" name="Button2" value="Reset" id="Button2" class="btn btn-primary">
-                      </center>
+                        <input type="Reset" value="Reset" class="btn btn">
+                    </center>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-                      
-        
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
 
     <div class="box box-default">
         <div class="box-header with-border">
@@ -96,7 +89,8 @@
       </tbody>
     </table>
   </div>
-</form>
+</div>
+</div>
 </div>
 </div>
 
