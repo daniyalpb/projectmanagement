@@ -67,9 +67,9 @@
      <tr>
 			<th>Sr.No</th>
       <th>Source id</th>
-       <th>Source Name</th>
+      <th>Source Name</th>
       <th>Is Active</th>
-        <th>Edit</th>
+      <th>Edit</th>
      
 
 		</tr>
@@ -90,7 +90,8 @@
     </table>
   </div>
 </div>
-</form>
+
+</div>
 </div>
 </div>
 
@@ -147,6 +148,7 @@
 
              <center>
               <button type="submit" name="Button" id="Button" class="btn btn-primary">Update</button>
+            </center>
 
                       
         
@@ -160,7 +162,8 @@
         </div>
       </div>
     </div>
-
+  </div>
+        
 
 
 

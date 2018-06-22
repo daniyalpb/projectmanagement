@@ -125,15 +125,8 @@ class MastersController extends Controller
     }
     public function employe_master_editlist(Request $req)
 	{
-		 $va=0;
-		if(isset($req->m_is_Active)){
-           $va=1;
-		}else{
-			 $va=0;
-		}
-		
 		 DB::select('call Update_employee_Master(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',array($req->u_EmpId,$req->u_empname,$req->u_empcode,$req->u_companyname,$req->u_email,$req->u_address,$req->u_dob,$req->u_mobile,$req->u_department,$req->u_reporting_authority,$req->u_date_of_joining,$req->u_designation,$req->u_band,$req->u_Is_Active,$req->u_ctc,$req->u_variable));
-		 return Redirect('employe-list');
+		 return Redirect('employee-list');
 	}
 
 

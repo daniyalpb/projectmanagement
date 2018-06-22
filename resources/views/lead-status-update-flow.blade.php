@@ -17,10 +17,10 @@
               <div class="Absolute-Center is-Responsive">
                 <div id="logo-container"></div>
               <!-- a -->
-            <form class="form-horizontal" name="employee_form" id="employee_form"  method="POST">
+            <form class="form-horizontal" name="update_manage_leads" id="update_manage_leads" action="{{url('update_manage_leads')}}"  method="POST">
               {{csrf_field()}}
 
-             <center><h4>Personal Details</h4></center><hr>
+             <center><h4><b>Personal Details</b></h4></center><hr>
              <div class="col-md-6">
              <div class="form-group row">
                   <label for="Lead_id" class="col-sm-4 col-form-label">Lead Id:</label>
@@ -53,9 +53,20 @@
 
             <div class="col-md-6">
                <div class="form-group row">
+                 <label for="address" class="col-sm-4 col-form-label">Address*:</label>
+                 <div class="col-sm-6">
+                   <input type="text" class="form-control" id="address" name="address" value="{{$user->address}}">
+                 </div>
+               </div>
+             </div>
+
+
+
+            <div class="col-md-6">
+               <div class="form-group row">
                  <label for="pan" class="col-sm-4 col-form-label">PAN No:</label>
                  <div class="col-sm-6">
-                   <input type="text" class="form-control" id="pan" name="pan" value="{{$user->pan}}">
+                   <input type="text" class="form-control" id="pan" minlength="10" maxlength="10" name="pan" value="{{$user->pan}}">
                  </div>
                </div>
              </div>
@@ -65,7 +76,7 @@
              <div class="form-group row">
                   <label for="mobile" class="col-sm-4 col-form-label">Mobile No:</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" id="mobile" name="mobile" value="{{$user->mobile}}">
+                    <input type="text" class="form-control" minlength="10" maxlength="10" id="mobile" name="mobile" value="{{$user->mobile}}">
                   </div>
                 </div>
               </div>
@@ -73,9 +84,9 @@
 
             <div class="col-md-6">
                <div class="form-group row">
-               <label for="City" class="col-sm-4 col-form-label">Aadhaar No:</label>
+               <label for="AadharNo" class="col-sm-4 col-form-label">Aadhaar No:</label>
                <div class="col-sm-6">
-                 <input type="text" class="form-control" id="txttdate" name="txttdate" value="">                 
+                 <input type="text" class="form-control" id="AadharNo" name="AadharNo" value="{{$user->AadharNo}}">                 
                 </div>
               </div>
             </div>
@@ -91,6 +102,18 @@
              </div>
 
 
+
+            <div class="col-md-6">
+               <div class="form-group row">
+                 <label for="Pincode" class="col-sm-4 col-form-label">Pincode*:</label>
+                 <div class="col-sm-6">
+                   <input type="text" class="form-control" id="Pincode" name="Pincode" value="{{$user->Pincode}}">
+                 </div>
+               </div>
+             </div>
+
+
+
              <div class="col-md-6">
                <div class="form-group row">
                <label for="Designation" class="col-sm-4 col-form-label">Designation:</label>
@@ -104,20 +127,16 @@
 
             <div class="col-md-6">
                <div class="form-group row">
-                 <label for="City_Name" class="col-sm-4 col-form-label">City:</label>
+                 <label for="cityid" class="col-sm-4 col-form-label">City:</label>
                  <div class="col-sm-6">
-                   <select type="text" class="form-control" id="City_Name" name="City_Name">
-
-
-              
-                                  
-                      
+                   <select type="text" class="form-control" id="cityid" name="cityid">
+                    <option selected disabled value="0">Select One</option>                   
                     @foreach ($city as $city)
-                      
-                    <option selected="true" value="{{$user->cityid}}">{{$user->City_Name}}</option>
-                       
-                    <option value="{{$city->City_Id}}">{{$city->City_Name}}</option>
-                   
+                     @if($city->City_Id == $user->cityid)
+                     <option selected="true" value="{{$user->cityid}}">{{$user->City_Name}}</option>
+                     @else
+                    <option value="{{$city->City_Id}}">{{$city->City_Name}}</option> 
+                    @endif                 
                     @endforeach                   
                  </select>
                  </div>
@@ -128,7 +147,7 @@
 
              <div class="col-md-6">
              <div class="form-group row">
-                  <label for="empcode" class="col-sm-4 col-form-label">Company Name:</label>
+                  <label for="CompanyName" class="col-sm-4 col-form-label">Company Name:</label>
                   <div class="col-sm-6">
                     <input type="CompanyName" class="form-control" id="CompanyName" name="CompanyName" value="{{$user->CompanyName}}">
                   </div>
@@ -136,15 +155,16 @@
               </div>
 
 
-              <center><h4>Followup Details</h4></center><hr>
+              <center><h4><b>Followup Details</b></h4></center><hr>
 
             <div class="col-md-6">
              <div class="form-group row">
-                  <label for="empname" class="col-sm-4 col-form-label">Main&nbsp;Lead&nbsp;Status*:</label>
+                  <label for="Lead_Status_id" class="col-sm-4 col-form-label">Main&nbsp;Lead&nbsp;Status*:</label>
                   <div class="col-sm-6">
-                    <select type="text" class="form-control" id="City" name="City" >
-                    <option value=""></option>
+                    <select type="text" class="form-control" id="Lead_Status_id" name="Lead_Status_id" >
+
                     @foreach($mlstatus as $val)
+                     <option  value="{{$user->Lead_Status_id}}">{{$user->Lead_Status}}</option>
                     <option value="{{$val->Lead_Status_Id}}">{{$val->Lead_Status}}</option>
                     @endforeach
                  </select>
@@ -155,46 +175,84 @@
 
             <div class="col-md-6">
                <div class="form-group row">
-               <label for="City" class="col-sm-4 col-form-label">Demo Given:</label>
+               <label for="demo_given" class="col-sm-4 col-form-label">Demo Given:</label>
                <div class="col-sm-6">
-                <label >Is Demo Given?<input type="checkbox"  id="is_active" name="is_active" value="" style="zoom:1.5;"></label>
+                 @if($user->demo_given != 0)
+                <label >Is Demo Given?<input type="checkbox"  id="demo_given" name="demo_given" value="1" style="zoom:1.5;" checked="true">
+                  @else
+                  <input type="checkbox"  id="demo_given" name="demo_given" value="0" style="zoom:1.5;">
+                    @endif
+                </label>
                 </div>
               </div>
             </div>
 
 
+            
+
+
 
             <div class="col-md-6">
                <div class="form-group row">
-                 <label for="mobile" class="col-sm-4 col-form-label">Sub Lead Status*:</label>
+                 <label for="Lead" class="col-sm-4 col-form-label">Sub Lead Status*:</label>
                  <div class="col-sm-6">
-                   <select type="text" class="form-control search_citynm" id="City" name="City" >
-                    <option>Select One</option>
-                 </select>
+                   <input type="text" class="form-control" id="Lead" name="Lead">
                  </div>
                </div>
              </div>
 
 
             <div class="col-md-6">
-             <div class="form-group row">
-                  <label for="empname" class="col-sm-4 col-form-label">Is Share :</label>
-                  <div class="col-sm-6">
-                    <select type="text" class="form-control" id="txttdate" name="txttdate">
-                      <option value disabled selected="0">select</option>
-                      <option value="1">Yes</option>
-                      <option value="2">No</option>
-                    </select>
-                  </div>
+              <div class="form-group row">
+                <label for="empname" class="col-sm-4 col-form-label">Is Share:</label>
+                <div class="col-sm-6">
+                  @if($user->Is_share==1)
+                  <label for="one">Yes</label>
+                  <input type="radio" id="one" name="Is_share" value="1" checked="checked" />
+                  <label for="two">No</label>
+                   <input type="radio" id="one" name="Is_share" value="2"/> 
+                   @else
+                  <label for="one">Yes</label>
+                   <input type="radio" id="one" name="Is_share" value="1"/>
+                   <label for="two">No</label>
+                   <input type="radio" id="one" name="Is_share" value="2" checked="checked"/> 
+                 
+                  @endif
                 </div>
               </div>
+            </div>
+
+
 
 
             <div class="col-md-6">
+              <div class="form-group row">
+                <label for="empname" class="col-sm-4 col-form-label">Call Type:</label>
+                <div class="col-sm-6">
+                  @if($user->Call_type==1)
+                  <label for="one">Calling</label>
+                  <input type="radio" id="one" name="Call_type" value="1" checked="checked" />
+                  <label for="two">Field Visit</label>
+                   <input type="radio" id="one" name="Call_type" value="2"/> 
+                   @else
+                  <label for="one">Calling</label>
+                   <input type="radio" id="one" name="Call_type" value="1"/>
+                   <label for="two">Field Visit</label>
+                   <input type="radio" id="one" name="Call_type" value="2" checked="checked"/> 
+                 
+                  @endif
+                </div>
+              </div>
+            </div>
+
+
+ 
+
+            <div class="col-md-6">
                <div class="form-group row">
-               <label for="FollowTime" class="col-sm-4 col-form-label">FollowUp Date:</label>
+               <label for="ndate" class="col-sm-4 col-form-label">FollowUp Date:</label>
                <div class="col-sm-6">
-                 <input type="text" class="form-control search_citynm" id="FollowTime" name="FollowTime" value="{{$user->FollowTime}}"> 
+                 <input type="text" class="form-control" id="ndate" name="ndate" value="{{$user->ndate}}"> 
                 </div>
               </div>
             </div>
@@ -212,9 +270,9 @@
 
              <div class="col-md-6">
                <div class="form-group row">
-               <label for="City" class="col-sm-4 col-form-label">Follow Time:</label>
+               <label for="FollowTime" class="col-sm-4 col-form-label">Follow Time:</label>
                <div class="col-sm-6">
-                 <select type="text" class="form-control search_citynm" id="City" name="City" value="">
+                 <select type="text" class="form-control" id="FollowTime" name="FollowTime" value="{{$user->FollowTime}}">
                     <option>Select One</option>
                  </select>
                 </div>
@@ -222,11 +280,11 @@
             </div>
 
 
-            <div class="col-md-6">
+          <!--   <div class="col-md-6">
                <div class="form-group row">
-                 <label for="mobile" class="col-sm-4 col-form-label">Call Type:</label>
+                 <label for="Call_type" class="col-sm-4 col-form-label">Call Type:</label>
                  <div class="col-sm-6">
-                   <select type="text" class="form-control search_Emp_Name" id="mobile" name="mobile">
+                   <select type="text" class="form-control" id="Call_type" name="Call_type">
                     <option selected disabled value="0">select</option>
                     <option value="1">Calling</option>
                     <option value="2">Field Visit</option>
@@ -234,6 +292,12 @@
                  </div>
                </div>
              </div>
+
+ -->
+
+
+
+
 
              <div class="col-md-6">
              <div class="form-group row">
@@ -265,11 +329,13 @@
 
             <div class="col-md-6">
                <div class="form-group row">
-               <label for="City" class="col-sm-4 col-form-label">Broker Name:</label>
+               <label for="broker_id" class="col-sm-4 col-form-label">Broker Name:</label>
                <div class="col-sm-6">
-                 <select type="text" class="form-control search_citynm" id="City" name="City">
-                    <option value="0">Select One</option>
-                    @foreach($broker as $val)
+                 <select type="text" class="form-control" id="broker_id" name="broker_id">
+                  <option disabled selected value="0">Select One</option>
+                  <option value="{{$user->broker_id}}">{{$user->Broker_Name}}</option>    
+                    @foreach($broker as $val) 
+                          
                     <option value="{{$val->Broker_id}}">{{$val->Broker_Name}}</option>
                     @endforeach
                  </select>
@@ -278,13 +344,14 @@
             </div>
 
 
-            <div class="col-md-6">
+<!-- no update --> <div class="col-md-6">
                <div class="form-group row">
-                 <label for="mobile" class="col-sm-4 col-form-label">Business Manager:</label>
+                 <label for="Business_M" class="col-sm-4 col-form-label">Business Manager:</label>
                  <div class="col-sm-6">
-                   <select type="text" class="form-control search_citynm" id="City" name="City">
-                    <option value="0">Select One</option>
-                    @foreach($manager as $val)
+                   <select type="text" class="form-control" id="Business_M" name="Business_M" >
+                    
+                    @foreach($manager as $val) 
+                                 
                     <option value="{{$val->emp_code}}">{{$val->Emp_Name}}</option>
                     @endforeach
                  </select>
@@ -295,38 +362,41 @@
 
             <div class="col-md-6">
              <div class="form-group row">
-                  <label for="empname" class="col-sm-4 col-form-label">Assign To*:</label>
+                  <label for="emp_code" class="col-sm-4 col-form-label">Assign To*:</label>
                   <div class="col-sm-6">
-                    <select type="text" class="form-control search_citynm" id="City" name="City">
-                    <option value="0">Select One</option>
-                    @foreach($assign as $assign)
+                    <select type="text" class="form-control" id="emp_code" name="emp_code">                    
+                    
+                    @foreach($assign as $assign)              
                     <option value="{{$assign->Emp_Code}}">{{$assign->Emp_Name}}</option>
-                    @endforeach
+                    @endforeach               
                  </select>
                   </div>
                 </div>
               </div>
 
 
-            <div class="col-md-6">
+<!-- no update --> <div class="col-md-6">
                <div class="form-group row">
-               <label for="City" class="col-sm-4 col-form-label">Relationship Manager:</label>
+               <label for="Relationship_M" class="col-sm-4 col-form-label">Relationship Manager:</label>
                <div class="col-sm-6">
-                 <select type="text" class="form-control search_citynm" id="City" name="City">
-                    <option>Select One</option>
-                 </select>
-                </div>
+                 <select type="text" class="form-control" id="Relationship_M" name="Relationship_M">
+                 
+                  @foreach($rmanager as $rmanager)
+               
+                  <option value="{{$rmanager->emp_code}}">{{$rmanager->Emp_Name}}</option>
+                  @endforeach
+                </select>
               </div>
             </div>
+          </div>
 
 
-            <div class="col-md-6">
+<!-- no update -->   <div class="col-md-6">
                <div class="form-group row">
-                 <label for="mobile" class="col-sm-4 col-form-label">Business Head:</label>
+                 <label for="bh" class="col-sm-4 col-form-label">Business Head:</label>
                  <div class="col-sm-6">
-                   <select type="text" class="form-control search_citynm" id="City" name="City">
-                    <option>Select One</option>
-                 </select>
+                   <input type="text" class="form-control" id="bh" name="bh">
+               
                  </div>
                </div>
              </div>
@@ -342,16 +412,6 @@
             </div>
 
 
-            <div class="col-md-6">
-               <div class="form-group row">
-                 <label for="mobile" class="col-sm-4 col-form-label">Business Head:</label>
-                 <div class="col-sm-6">
-                   <input type="text" class="form-control search_Emp_Name" id="mobile" name="mobile" value="">
-                 </div>
-               </div>
-             </div>
-
-
              <div class="col-md-6">
                <div class="form-group row">
                  <label for="Remark" class="col-sm-4 col-form-label">Remark:</label>
@@ -361,26 +421,26 @@
                </div>
              </div>
 
-             <div class="col-md-12">
+ <!-- no update --> <div class="col-md-12">
                <div class="form-group row">
-                 <label for="mobile" class="col-sm-2 col-form-label">Disbursed Document :</label>
-                 <div class="col-sm-3">
-                   <input type="text" class="form-control search_Emp_Name" id="mobile" name="mobile" value="">
-                 </div>
+                 <label for="dbm" class="col-sm-2 col-form-label">Disbursed Document :</label>
+                <!--  <div class="col-sm-6">
+                   <input type="text" class="form-control search_Emp_Name" id="dbm" name="dbm" value="">
+                 </div> -->
                </div>
              </div>
 
 
 
-              <center><h4>Bank Details</h4></center><hr>
+              <center><h4><b>Bank Details</b></h4></center><hr>
 
             <div class="col-md-6">
              <div class="form-group row">
-                  <label for="empname" class="col-sm-4 col-form-label">Bank Name:</label>
+                  <label for="Bank_Id" class="col-sm-4 col-form-label">Bank Name:</label>
                   <div class="col-sm-6">
-                    <select type="text" class="form-control" id="txttdate" name="txttdate">
+                    <select type="text" class="form-control" id="Bank_Id" name="Bank_Id">
                       <option>Select One</option>
-                      @foreach($bank as $bank)
+                      <option selected="true" value="{{$user->Bank_Id}}">{{$user->Bank_Name}}</option>@foreach($bank as $bank)                      
                       <option value="{{$bank->Bank_Id}}">{{$bank->Bank_Name}}</option>
                       @endforeach
                     </select>
@@ -403,7 +463,16 @@
                <div class="form-group row">
                  <label for="productid" class="col-sm-4 col-form-label">Product Name*:</label>
                  <div class="col-sm-6">
-                   <input type="text" class="form-control search_Emp_Name" id="productid" name="productid" value="{{$user->productid}}">
+                   <select type="text" class="form-control search_Emp_Name" id="productid" name="productid">
+                    <option selected disabled= value="0">Select One</option>
+                    @foreach($product as $val)
+                    @if($val->Product_Id == $user->productid)
+                    <option selected="true" value="{{$user->productid}}">{{$user->Product_Name}}</option>
+                    @else
+                    <option value="{{$val->Product_Id}}">{{$val->Product_Name}}</option>
+                    @endif
+                    @endforeach
+                  </select>
                  </div>
                </div>
              </div>
@@ -423,7 +492,7 @@
                <div class="form-group row">
                <label for="loan_amt" class="col-sm-4 col-form-label">Loan Amount*:</label>
                <div class="col-sm-6">
-                 <input type="text" class="form-control search_citynm" id="loan_amt" name="loan_amt" value="">
+                 <input type="text" class="form-control" id="loan_amt" name="loan_amt" value="{{$user->loan_amt}}">
                 </div>
               </div>
             </div>
@@ -446,15 +515,20 @@
                  <input type="text" class="form-control" id="Loan_Acc_No" name="Loan_Acc_No" value="{{$user->Loan_Acc_No}}">
                 </div>
               </div>
-            </div>          
+            </div>   
 
-            </div>
-          </div>
-          
-        </form>
-      </div>
-    </div>
-  </div>
+
+
+            <center>
+              <div class="col-sm-12">
+                <button type="submit" id="sub" class="btn btn-primary">Submit</button>
+              </div>
+           </center>
+         </form>
+       </div>
+     </div>
+   </div>
+ </div>
 </div>
-</div>
+
 @endsection

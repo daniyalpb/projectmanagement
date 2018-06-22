@@ -137,28 +137,14 @@ Route::get('registration-report','ActivityController@registrationreport');
 Route::get('campaign-wise-report','ActivityController@campaignwisereport');
 Route::get('credit-card-entry','ActivityController@creditcardentry');
 
- /************
-//  Menu List
-******************/
-Route::get('menu-list','MenuController@menulist');
-Route::post('menu-list-add','MenuController@menulist_add');
-Route::get('menu-mapping','MenuController@menu_mapping');
-//<<<<<<< HEAD
-Route::post('grouprights-add','MenuController@grouprights_add');
-//=======
-Route::post('grouprights-add','MenuController@grouprights_add');
-
-});
-//>>>>>>> e2e06bbd6d7273506087447956dd0c509834ec5b
-
 
 
 
                  //***LeadsController************************
 
 Route::get('manage-leads','LeadsController@manageleads');
-
 Route::get('manage-leads-get/{fdate}/{tdate}','LeadsController@getleaddata');
+Route::post('update_manage_leads','LeadsController@manage_leads');
 
 
 
@@ -192,6 +178,18 @@ Route::get('lead-report','ReportingController@leadreport');
 
 
  /************
+//  Menu List
+******************/
+Route::get('menu-list','MenuController@menulist');
+Route::post('menu-list-add','MenuController@menulist_add');
+Route::get('menu-mapping','MenuController@menu_mapping');
+
+Route::post('grouprights-add','MenuController@grouprights_add');
+
+
+
+
+ /************
 //  Performance Appraisal System 
 ******************/
 Route::get('eap-details','pas\PasController@emp_details');
@@ -205,4 +203,4 @@ Route::get('pas-data','pas\PasController@pas_data');
 
 
 
-
+});

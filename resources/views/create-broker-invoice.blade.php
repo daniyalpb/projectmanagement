@@ -188,8 +188,7 @@
                    <div class="form-group row">
                         <label for="empcode" class="col-sm-4 col-form-label">Disbursed&nbsp;Amt:</label>
                         <div class="col-sm-6">
-                          <input type="text" class="form-control" id="empcode" name="empcode" required>
-                         
+                          <input type="text" class="form-control" id="empcode" name="empcode" required>                     
                     </div>
                   </div>
                 </div>
@@ -203,11 +202,7 @@
                    </div>
                  </div>
                  </div>
-
-
-
-
-               </form>
+              </form>
              </div>
            </div>
          </div>

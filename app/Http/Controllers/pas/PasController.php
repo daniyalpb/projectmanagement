@@ -10,6 +10,16 @@ use Keygen;
 use Mail;
 class PasController extends Controller
 {
+
+
+
+
+
+
+
+
+
+
        public function emp_details(){   
 
 

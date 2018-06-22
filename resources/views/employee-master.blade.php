@@ -86,7 +86,7 @@
                    <div class="form-group row">
                         <label for="dob" class="col-sm-4 col-form-label">Date Of&nbsp;Birth:</label>
                         <div class="col-sm-6">
-                          <input type="Date" class="form-control" id="dob" name="dob"  placeholder="DOB"  required>
+                          <input type="text" class="form-control datepicker_id" id="dob" name="dob"  placeholder="DOB"  required>
                         </div>
                       </div>
                     </div>
@@ -158,7 +158,7 @@
                    <div class="form-group row">
                         <label for="date_of_joining" class="col-sm-4 col-form-label">Date&nbsp;Of&nbsp;Joining:</label>
                         <div class="col-sm-6">
-                          <input type="Date" class="form-control" id="date_of_joining" name="date_of_joining"  value="" placeholder="DOJ"  required>
+                          <input type="text" class="form-control datepicker_id" id="date_of_joining" name="date_of_joining"  value="" placeholder="DOJ"  required>
                         </div>
                       </div>
                     </div>
@@ -300,6 +300,15 @@ $('#username').change(function() {
     return false;
       }
 }
+
+
+
+  $(".datepicker_id").datepicker({ dateFormat: "yy-mm-dd",
+          changeMonth: true,
+          changeYear: true,
+    
+        });
+
 </script>
                       
                       

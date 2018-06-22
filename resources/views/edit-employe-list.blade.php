@@ -172,24 +172,23 @@
 
 
 
-                       <div class="col-md-6">
-                   <div class="form-group row">
+                   <div class="col-md-6">
+                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-4 col-form-label">Band:</label>
                         <div class="col-sm-6">
                           <select  class="form-control" id="u_band" name="u_band" value="{{ $user->Band}}">
                       <option  selected value="0">{{$user->Band}}</option>
                       @foreach($band as $band)
                       <option value="">{{$band->Band}}</option>
-                       @endforeach 
-                    
+                       @endforeach                    
                      </select>
                         </div>
                       </div>
                     </div>
 
 
-                     <div class="col-md-6">
-                    <div class="form-group row">
+                    <div class="col-md-6">
+                       <div class="form-group row">
                         <label for="inputPassword" class="col-sm-4 col-form-label">Variable:</label>
                         <div class="col-sm-6">
                           <input type="text" class="form-control" id="u_variable" name="u_variable"  placeholder="Enter a Variable Name" value="{{ $user->Variable}}">
@@ -214,11 +213,15 @@
                         <div class="form-group row">
                         <label for="u_Is_Active" class="col-sm-2 col-form-label">Is&nbsp;Active::</label>
                         <div class="col-sm-4">
-                        <input type="checkbox" id="u_Is_Active" name="u_Is_Active" value="" style="zoom:1.5;">
+                          @if($user->Is_Active != 0)
+                          <input type="checkbox" id="u_Is_Active" name="u_Is_Active" value="1" style="zoom:1.5;" checked="true">
+                          @else
+                             <input type="checkbox" id="u_Is_Active" name="u_Is_Active" value="0" style="zoom:1.5;">
+                         @endif
                         </div>
                       </div>
                     </div>
-
+                    
                     <center><div class="col-sm-12">
                    <button type="submit" id="sub" class="btn btn-primary">Submit</button>
             <button type="reset" value="Reset">Reset</button>
@@ -232,11 +235,11 @@
 
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   if(Is_Active!=0){
       $("#u_Is_Active").attr("checked", true);
     }else{
       $("#u_Is_Active").attr("checked", false);
     }
-</script>
+</script> -->
 @endsection
