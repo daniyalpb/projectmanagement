@@ -192,7 +192,7 @@ Route::post('grouprights-add','MenuController@grouprights_add');
  /************
 //  Performance Appraisal System 
 ******************/
-Route::get('eap-details','pas\PasController@emp_details');
+Route::get('emp-details','pas\PasController@emp_details');
 Route::get('pas-details','pas\PasController@pms_details');
 Route::post('asp-insert','pas\PasController@pas_insert');
 Route::get('pas-registrar','pas\PasController@pas_registrar'); 
