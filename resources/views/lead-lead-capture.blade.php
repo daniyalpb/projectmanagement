@@ -66,7 +66,7 @@
                   <div class="form-group row">
                     <label for="email" class="col-sm-4 col-form-label">Email&nbsp;Id*:</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control" id="email" name="email" oninput="mail('email')" placeholder="Email Id" required>
+                      <input type="email" class="form-control" id="email" name="email" oninput="mail('email')" placeholder="Email Id" required>
                       <div id="email_id" style="display:none;color:red;font-size: 12px">Please Enter Valid Email Id.</div>                        
                   </div>
                 </div>
@@ -85,7 +85,7 @@
 
            <div class="col-md-6">
                 <div class="form-group row">
-                  <label for="Vertical_Id" class="col-sm-4 col-form-label">Vartical&nbsp;Name*:</label>
+                  <label for="Vertical_Id" class="col-sm-4 col-form-label">Vertical&nbsp;Name*:</label>
                   <div class="col-sm-6">
                     <select type="text" class="form-control" id="Vertical_Id" name="Vertical_Id" required>
                     <option>select</option>   
@@ -136,7 +136,7 @@
                 <div class="form-group row">
                   <label for="dob" class="col-sm-4 col-form-label">Date&nbsp;Of&nbsp;Birth:</label>
                   <div class="col-sm-6">
-                    <input type="Date" class="form-control" id="dob" name="dob" placeholder="Date Of Birth">                      
+                    <input type="text" class="form-control datepicker_id" id="dob" name="dob" placeholder="Date Of Birth">                      
                  
                 </div>
               </div>
@@ -193,7 +193,7 @@
                   <div class="form-group row">
                     <label for="Pincode" class="col-sm-4 col-form-label">Pincode:</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control" id="Pincode" name="Pincode" placeholder="Pincode">                        
+                      <input type="text" class="form-control" id="Pincode" minlength="6" maxlength="6" name="Pincode" placeholder="Pincode" onkeypress="return fnAllowNumeric(event)">                        
                   </div>
                 </div>
               </div>
@@ -202,7 +202,7 @@
                 <div class="form-group row">
                   <label for="ndate" class="col-sm-4 col-form-label">Next&nbsp;Date:</label>
                   <div class="col-sm-6">
-                    <input type="Date" class="form-control" id="ndate" name="ndate" placeholder="Next Date">   
+                    <input type="text" class="form-control datepicker_id" id="ndate" name="ndate" placeholder="Next Date">   
                 </div>
               </div>
             </div>
@@ -325,7 +325,7 @@
 
              <div class="col-md-6">
               <div class="form-group row">
-                <label for="email" class="col-sm-4 col-form-label">Bank:</label>
+                <label for="Bank_Id" class="col-sm-4 col-form-label">Bank:</label>
                 <div class="col-sm-6">
                   <select type="Bank_Id" class="form-control" id="Bank_Id" name="Bank_Id" required>
                     <option disabled selected  value="0">select</option> 
@@ -343,7 +343,7 @@
                 <div class="form-group row">
                   <label for="ExpctDisbsDate" class="col-sm-4 col-form-label">Exp.&nbsp;Disbursal&nbsp;Date:</label>
                   <div class="col-sm-6">
-                    <input type="Date" class="form-control" id="ExpctDisbsDate" name="ExpctDisbsDate" placeholder="Disbursal Date">   
+                    <input type="text" class="form-control datepicker_id" id="ExpctDisbsDate" name="ExpctDisbsDate" placeholder="Disbursal Date">   
                 </div>
               </div>
             </div>
@@ -422,6 +422,9 @@
 </script>
 
 
+
+
+
 <script type="text/javascript">
   function pannumber(obj,val){
     // console.log(obj);
@@ -451,3 +454,22 @@
 
 
  @endsection
+<!-- 
+<script type="text/javascript">
+  function mail(obj,val){
+
+    if(obj=='work_email' ){
+                   var str =$('#work_email').val();
+                   var emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/; 
+                   var res = str.match(emailPattern);
+                   if(res){                    
+                      $('#email').hide();
+
+                  }else{                    
+                    $('#email').show();
+
+                    return false;
+                  }
+                    }
+}
+</script> -->

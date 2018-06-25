@@ -188,6 +188,8 @@ class LeadsController extends Controller
 
     public function leadstatusupdateflow($id)
     {
+
+
         $user= DB::select("call usp_show_lead_data(?)",array($id))[0];
         //$user=DB::select("call usp_show_lead_data($id)");
         $city=DB::select("call usp_get_leadcity_master()");
@@ -195,16 +197,24 @@ class LeadsController extends Controller
         $broker=DB::select("call usp_get_leadbroker_master()");
         $bank=DB::select("call usp_get_leadbank_master()");
         $assign=DB::select("call usp_get_assign_master()");
-        return view('lead-status-update-flow',['city'=>$city,'source'=>$source,'broker'=>$broker,'bank'=>$bank,'assign'=>$assign,'user'=>$user]);
+        $mlstatus=DB::select("call usp_ml_status_master()");
+        $manager=DB::select("call usp_get_lead_bmanager()");
+        $rmanager=DB::select("call usp_get_lead_bmanager()");
+        $product=DB::select("call usp_get_product_master()");
+        return view('lead-status-update-flow',['city'=>$city,'source'=>$source,'broker'=>$broker,'bank'=>$bank,'assign'=>$assign,'user'=>$user,'mlstatus'=>$mlstatus,'manager'=>$manager,'rmanager'=>$rmanager,'product'=>$product]);
     }
 
-   /* public function lead_status_update_flow($id)
+    public function manage_leads(Request $req)
     {
-       
-       // print_r($user);
-       
-        return view('lead-status-update-flow',['user'=>$user]);
+        //print_r($req->all());exit();
+
+         DB::select('call Update_Manage_lead_data(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',array($req->Lead_id,$req->name,$req->Designation,$req->mobile,$req->pan,$req->email,$req->address,$req->dob,$req->cityid,$req->Lead_Status_id,$req->Pincode,$req->ndate,$req->lead_type,$req->profession,$req->productid,$req->emp_code,$req->loan_amt,$req->broker_id,$req->source_id,$req->Remark,$req->Bank_Id,$req->ExpctDisbsDate,$req->demo_given,$req->AadharNo,$req->CompanyName,$req->Is_share,$req->sharePercent,$req->FollowTime,$req->Call_type,$req->lead_assigned,$req->Uploaded_Dt,$req->Bank_RM_Name,$req->Bank_RM_NO,$req->Bank_Login_Id,$req->Loan_Acc_No,$req->Business_M,$req->Relationship_M));
+         return Redirect('manage-leads');
+
     }
-    */
+    
 
 }
+
+
+

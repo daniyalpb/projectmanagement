@@ -9,9 +9,9 @@
     <link type="text/css" rel="stylesheet" href="{{url('css/style.css')}}">
     <link type="text/css" rel="stylesheet" href="{{url('css/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{url('fonts/font-awesome/css/font-awesome.min.css')}}">
-   
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
 
@@ -35,6 +35,7 @@
      <script type="text/javascript"  src="{{url('js/bootstrap.min.js')}}" async  ></script>
      <script type="text/javascript"  src="{{url('js/jquery.dataTables.min.js')}}" defer></script>
      <script type="text/javascript"  src="{{url('js/dataTables.bootstrap4.min.js')}}" defer></script>
+
   </body>
 
 <!--   <script type="text/javascript">

@@ -18,49 +18,50 @@
               <div class="Absolute-Center is-Responsive">
                 <div id="logo-container"></div>
                 <div class="col-sm-6 col-sm-offset-2">
-             <form class="form-horizontal" name="bank_master" id="bank_master"  method="post">
+
+             <form class="form-horizontal" name="bank_master" id="bank_master" method="post">
             {{csrf_field()}}
           
 
                    <div class="form-group row">
-                        <label for="Bank_Name" class="col-sm-2 col-form-label">Bank&nbsp;Name:</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="Bank_Name" name="Bank_Name"  value="" placeholder="Enter a Bank Name"  required>
+                        <label for="Bank_Name" class="col-sm-4 col-form-label">Bank&nbsp;Name:</label>
+                        <div class="col-sm-7">
+                          <input type="text" class="form-control" id="Bank_Name" name="Bank_Name"  value="" placeholder="Bank Name"  required>
                         </div>
                       </div>
 
 
-                        <div class="form-group row">
-                        <label for="Product_Name" class="col-sm-2 col-form-label">Address:</label>
-                        <div class="col-sm-10">
+                    <div class="form-group row">
+                        <label for="Product_Name" class="col-sm-4 col-form-label">Address:</label>
+                        <div class="col-sm-7">
                           <textarea type="text" class="form-control" id="Bank_Address" name="Bank_Address"  value="" placeholder="Enter a Address"  required></textarea>
                         </div>
                       </div>
 
 
 
-                        <div class="form-group row">
-                        <label for="Bank_Code" class="col-sm-2 col-form-label">Bank&nbsp;Code:</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="Bank_Code" name="Bank_Code"  value="" placeholder="Enter a Bank Code"  required>
+                    <div class="form-group row">
+                        <label for="Bank_Code" class="col-sm-4 col-form-label">Bank&nbsp;Code:</label>
+                        <div class="col-sm-7">
+                          <input type="text" class="form-control" id="Bank_Code" name="Bank_Code"  value="" placeholder="Bank Code"  required>
+                        </div>
+                      </div>
+
+
+
+                    <div class="form-group row">
+                        <label for="Document1" class="col-sm-4 col-form-label">Select&nbsp;File:</label>
+                        <div class="col-sm-7">
+                          <input type="file" class="form-control" id="Document1" name="Document1"  value="">
                         </div>
                       </div>
 
 
 
                         <div class="form-group row">
-                        <label for="Document1" class="col-sm-2 col-form-label">Select&nbsp;File:</label>
-                        <div class="col-sm-10">
-                          <input type="file" class="form-control" id="Document1" name="Document1"  value="" placeholder="Enter a Product Name"  required>
-                        </div>
-                      </div>
-
-
-
-                        <div class="form-group row">
-                        <label for="Document2" class="col-sm-2 col-form-label">Select&nbsp;Logo:</label>
-                        <div class="col-sm-10">
-                          <input type="file" class="form-control" id="Document2" name="Document2"  value="" placeholder="Enter a Product Name"  required>
+                        <label for="Document2" class="col-sm-4 col-form-label">Select&nbsp;Logo:</label>
+                        <div class="col-sm-7">
+                          <input type="file" class="form-control" id="Document2" name="Document2"  value="">
                         </div>
                       </div>
 
@@ -68,10 +69,16 @@
 
 
 
+
+                     <!--  <center>
+                        <input type="button" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
+                        <input type="Reset" name="Button2" value="Reset" id="Button2" class="btn btn-primary">
+                      </center>
+ -->
 
                       <center>
                         <input type="submit" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
-                        <input type="submit" name="Button2" value="Reset" id="Button2" class="btn btn-primary">
+                        <input type="Reset" name="Button2" value="Reset" id="Button2" class="btn btn-primary">
                       </center>
 
                       
@@ -81,6 +88,7 @@
     </div>
   </div>
 </div>
+
 
 
 
@@ -133,8 +141,55 @@
      </div> 
 </div>
 </div>
-</div>
-</div>  
+
+
+
+
+
+ 
+
+<script type="text/javascript">
+  function demo(Bank_Name,Bank_Code,Bank_Id,Bank_Address,Document1,Document2){
+    //alert(Designation_Id);
+    // document.getElementById("fba_id").value.empty();
+   document.getElementById('Pop_Bank_Id').value="";
+   document.getElementById('Pop_Bank_Name').value="";
+   document.getElementById('Pop_Bank_Code').value="";
+   document.getElementById('Pop_Bank_Address').value="";
+   //document.getElementById('Pop_Document1').value="";
+   //document.getElementById('Pop_Document2').value="";
+    
+
+   document.getElementById("Pop_Bank_Id").value += Bank_Id;
+   document.getElementById("Pop_Bank_Name").value += Bank_Name;
+   document.getElementById("Pop_Bank_Code").value += Bank_Code;
+   document.getElementById("Pop_Bank_Address").value += Bank_Address;
+   //document.getElementById("Pop_Document1").value += Document1;
+   // document.getElementById("Pop_Document2").value += Document2;
+   
+   if(Document1 != null)
+   {
+      $("#msg").append("File already exists");
+      document.getElementById("Pop_Document1").value += Document1;
+   }
+   else
+   {
+      $("#msg").append("Choose file");
+   }
+
+   if(Document2 != null && Document2 != '')
+   {
+      $("#msg2").append("File already exists");
+      document.getElementById("Pop_Document2").value += Document2;
+   }
+   else
+   {
+       $("#msg2").append("Choose file");
+   }
+  // document.getElementById("Pop_Document2").value += Document2; 
+}
+</script>
+ 
 
 
 
@@ -196,19 +251,19 @@
                         <div class="form-group row">
                         <label for="Pop_Document1" class="col-sm-2 col-form-label">Select&nbsp;File:</label>
                         <div class="col-sm-10">
+                          <lable id="msg"></lable>
                           <input type="file" class="form-control" id="Pop_Document1" name="Pop_Document1"  value="" placeholder="Enter a Product Name">
-                            
-                            <input type="hidden" name="Pop_Documentold" id="Pop_Document1old">
-                          <span id="lblfile"  > </span>
                         </div>
                       </div>
+
 
 
 
                         <div class="form-group row">
                         <label for="Pop_Document2" class="col-sm-2 col-form-label">Select&nbsp;Logo:</label>
                         <div class="col-sm-10">
-                          <input type="file" class="form-control" id="Pop_Document2" name="Pop_Document2"  value="" placeholder="Enter a Product Name">
+                          <lable id="msg2"></lable>
+                          <input type="text" class="form-control" id="Pop_Document2" name="Pop_Document2"  value="" placeholder="Enter a Product Name">
                         </div>
                       </div>
 
@@ -218,6 +273,7 @@
 
              <center>
               <button type="submit" name="Button" id="Button" class="btn btn-primary">Update</button>
+            </center>
 
                       
         
@@ -229,33 +285,17 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
-      </div>
-    </div>
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+     
  
- 
-
-<script type="text/javascript">
-  function demo(Bank_Name,Bank_Code,Bank_Id,Bank_Address,Document1,Document2){
-    //alert(Designation_Id);
-    // document.getElementById("fba_id").value.empty();
-   document.getElementById('Pop_Bank_Id').value="";
-   document.getElementById('Pop_Bank_Name').value="";
-   document.getElementById('Pop_Bank_Code').value="";
-   document.getElementById('Pop_Bank_Address').value="";
-   document.getElementById('Pop_Document1').value="";
-   document.getElementById('Pop_Document2').value="";
-    $('#lblfile').text('');
-
-   document.getElementById("Pop_Bank_Id").value += Bank_Id;
-   document.getElementById("Pop_Bank_Name").value += Bank_Name;
-   document.getElementById("Pop_Bank_Code").value += Bank_Code;
-   document.getElementById("Pop_Bank_Address").value += Bank_Address;
-    document.getElementById("Pop_Document1old").value += Document1;
-   document.getElementById("Pop_Document2").value += Document2;
-   $('#lblfile').text(Document1);
-
-  }
-</script>
 
 <script type="text/javascript">
 $(document).ready(function() {

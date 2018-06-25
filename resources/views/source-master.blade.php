@@ -22,25 +22,25 @@
           
 
                    <div class="form-group row">
-                        <label for="p_source_name" class="col-sm-3 col-form-label">Source&nbsp;Name:</label>
+                        <label for="p_source_name" class="col-sm-4 col-form-label">Source Name:</label>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" id="p_source_name" name="p_source_name"  value="" placeholder="Enter a Source Name"  required>
+                          <input type="text" class="form-control" id="p_source_name" name="p_source_name"  value="" placeholder="Source Name"  required>
                         </div>
                       </div>
 
 
 
 
-                       <div class="form-group row" id="IsActive">
-                        <label for="p_is_Active" class="col-sm-3 col-form-label">Is&nbsp;Active:</label>
+                       <div class="form-group row">
+                        <label for="p_is_Active" class="col-sm-4 col-form-label">Is&nbsp;Active:</label>
                         <div class="col-sm-8">
-                         <label><input type="checkbox"    id="p_is_Active" name="p_is_Active" value="Yes" style="zoom:1.5;"></label>
+                         <input type="checkbox" id="p_is_Active" name="p_is_Active" value="Yes" style="zoom:1.5;">
                         </div>
                       </div>
 
                       <center>
                       <input type="submit" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
-                      <input type="submit" name="Button2" value="Reset" id="Button2" class="btn btn-primary">
+                      <input type="Reset" value="Reset" class="btn btn">
                       </center>
 
                       
@@ -67,9 +67,9 @@
      <tr>
 			<th>Sr.No</th>
       <th>Source id</th>
-       <th>Source Name</th>
+      <th>Source Name</th>
       <th>Is Active</th>
-        <th>Edit</th>
+      <th>Edit</th>
      
 
 		</tr>
@@ -90,7 +90,8 @@
     </table>
   </div>
 </div>
-</form>
+
+</div>
 </div>
 </div>
 
@@ -118,7 +119,7 @@
 
                    <div class="form-group row">
                         <label for="source_id" class="col-sm-2 col-form-label">Source&nbsp;Id:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-8">
                           <input type="text" class="form-control" id="source_id" name="source_id"  value="" placeholder="Enter a Bank Name">
                         </div>
                       </div>
@@ -126,7 +127,7 @@
 
                       <div class="form-group row">
                         <label for="source_name" class="col-sm-2 col-form-label">Sourec&nbsp;Name:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-8">
                           <input type="text" class="form-control" id="source_name" name="source_name"  value="" placeholder="Enter a Bank Name">
                         </div>
                       </div>
@@ -134,7 +135,7 @@
 
                        <div class="form-group row">
                         <label for="Is_Active" class="col-sm-2 col-form-label">Is&nbsp;Active:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-8">
                          <label><input type="checkbox"  id="Is_Active" name="Is_Active"   style="zoom:1.5;"></label>
                         </div>
                       </div>
@@ -147,6 +148,7 @@
 
              <center>
               <button type="submit" name="Button" id="Button" class="btn btn-primary">Update</button>
+            </center>
 
                       
         
@@ -160,7 +162,8 @@
         </div>
       </div>
     </div>
-
+  </div>
+        
 
 
 

@@ -22,7 +22,7 @@ Route::get('logout','LoginController@logout');
 
 Route::group(['middleware' => ['CheckMidd']], function (){
 Route::get('dashboard','DashboardController@dashboard');
-Route::get('employe-master','MastersController@aspxdata');
+Route::get('employee-master','MastersController@aspxdata');
 Route::post('employee-master_submit','MastersController@employee_master_submit');
 Route::post('employe-master','MastersController@employ_master');
 Route::POST('update_empmaster','MastersController@employ_master');
@@ -43,7 +43,7 @@ Route::post('city-master','MastersController@city_master');
 Route::get('designation-master','MastersController@designationmaster');
 Route::POST('update_designation_master','MastersController@designation_master');
 
-Route::get('employe-list','MastersController@employelistmaster');
+Route::get('employee-list','MastersController@employelistmaster');
 Route::get('edit-employe-list','MastersController@edit_employelist_master');
 Route::get('edit-employe-list/{id}','MastersController@table_edit');
 Route::post('update_employe_list','MastersController@employe_master_editlist');
@@ -143,8 +143,8 @@ Route::get('credit-card-entry','ActivityController@creditcardentry');
                  //***LeadsController************************
 
 Route::get('manage-leads','LeadsController@manageleads');
-
 Route::get('manage-leads-get/{fdate}/{tdate}','LeadsController@getleaddata');
+Route::post('update_manage_leads','LeadsController@manage_leads');
 
 
 

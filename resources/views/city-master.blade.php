@@ -22,17 +22,17 @@
           
 
                    <div class="form-group row">
-                        <label for="city_name" class="col-sm-2 col-form-label">City&nbsp;Name:</label>
-                        <div class="col-sm-10">
-                          <input type="city_name" class="form-control" id="city_name" name="city_name"  value="" placeholder="Enter a City Name"  required>
+                        <label for="city_name" class="col-sm-4 col-form-label">City&nbsp;Name:</label>
+                        <div class="col-sm-7">
+                          <input type="city_name" class="form-control" id="city_name" name="city_name"  value="" placeholder="City Name"  required>
                         </div>
                       </div>
 
 
 
                       <div class="form-group row">
-                        <label for="state_id" class="col-sm-2 col-form-label">State:</label>
-                        <div class="col-sm-10">
+                        <label for="state_id" class="col-sm-4 col-form-label">State:</label>
+                        <div class="col-sm-7">
                           <select  class="form-control" id="state_id" name="state_id" >
                     <option disabled selected  value="0">Select One</option>
                        @foreach($users as $user)
@@ -43,15 +43,15 @@
                       </div>
 
                        <div class="form-group row">
-                        <label for="city_name" class="col-sm-2 col-form-label">Is&nbsp;Active:</label>
-                        <div class="col-sm-10">
+                        <label for="city_name" class="col-sm-4 col-form-label">Is&nbsp;Active:</label>
+                        <div class="col-sm-7">
                          <label><input type="checkbox"  id="is_active" name="is_active" value="Yes" style="zoom:1.5;"></label>
                         </div>
                       </div>
 
                       <center>
                         <input type="submit" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
-                        <input type="submit" name="Button2" value="Reset" id="Button2" class="btn btn-primary">
+                        <input type="Reset" value="Reset" class="btn btn">
                       </center>
 
                       
@@ -77,7 +77,7 @@
     <thead>
     <tr>
                 <th>Sr. No</th>
-                <th>City name</th>
+                <th>City Name</th>
                 <th>State Name</th>
               </tr>
             </thead>
