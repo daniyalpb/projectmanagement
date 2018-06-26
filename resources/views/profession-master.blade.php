@@ -22,9 +22,9 @@
           
 
                    <div class="form-group row">
-                        <label for="state_name" class="col-sm-2 col-form-label">Profession Name:</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="Profession_Name" name="Profession_Name"  value="" placeholder="Enter a Profession Name"  required>
+                        <label for="state_name" class="col-sm-4 col-form-label">Profession Name:</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" id="Profession_Name" name="Profession_Name"  value="" placeholder="Profession Name"  required>
                         </div>
                       </div>
 
@@ -32,15 +32,15 @@
 
 
                        <div class="form-group row">
-                        <label for="Is_Active" class="col-sm-2 col-form-label">Is&nbsp;Active:</label>
-                        <div class="col-sm-10">
+                        <label for="Is_Active" class="col-sm-4 col-form-label">Is&nbsp;Active:</label>
+                        <div class="col-sm-8">
                          <label><input type="checkbox"  id="Is_Active" name="Is_Active" value="Yes" style="zoom:1.5;"></label>
                         </div>
                       </div>
 
                       <center>
                         <input type="submit" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
-                        <input type="submit" name="Button2" value="Reset" id="Button2" class="btn btn-primary">
+                        <input type="Reset" value="Reset" class="btn btn">
                       </center>
 
                       

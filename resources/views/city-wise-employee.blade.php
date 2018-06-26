@@ -22,35 +22,35 @@
 
 
                    <div class="form-group row">
-                        <label for="City_Id" class="col-sm-2 col-form-label">City&nbsp;Name:</label>
-                        <div class="col-sm-10">
+                      <label for="City_Id" class="col-sm-4 col-form-label">City&nbsp;Name:</label>
+                        <div class="col-sm-8">
                           <select class="form-control" id="City_Id" name="City_Id" >
-                             <option disabled selected  value="0">Select&nbsp;One</option>                
-                        @foreach($users as $user)
-                      <option value="{{$user->City_Id}}">{{$user->City_Name}}</option>
-                       @endforeach
+                            <option disabled selected  value="0">Select&nbsp;One</option>                
+                            @foreach($users as $user)
+                            <option value="{{$user->City_Id}}">{{$user->City_Name}}</option>
+                            @endforeach
                           </select>
                         </div>
-                      </div>
+                    </div>
 
 
 
-                      <div class="form-group row">
-                        <label for="Emp_Code" class="col-sm-2 col-form-label">Employee:</label>
-                        <div class="col-sm-10">
+                    <div class="form-group row">
+                      <label for="Emp_Code" class="col-sm-4 col-form-label">Employee:</label>
+                        <div class="col-sm-8">
                           <select  class="form-control" id="Emp_Code" name="Emp_Code" >
-                    <option disabled selected  value="0">Select&nbsp;One</option>
-                     @foreach($name as $name)
-                       <option value="{{$name->EmpId}}">{{$name->Emp_Name}}</option>
-                       @endforeach 
-                  </select>
+                            <option disabled selected  value="0">Select&nbsp;One</option>
+                            @foreach($name as $name)
+                            <option value="{{$name->EmpId}}">{{$name->Emp_Name}}</option>
+                            @endforeach 
+                         </select>
                         </div>
-                      </div>
+                    </div>
 
-                      <center>
-                        <input type="submit" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
-                        <input type="submit" name="Button2" value="Reset" id="Button2" class="btn btn-primary">
-                      </center>
+                   <center>
+                     <input type="submit" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
+                     <input type="Reset" value="Reset" class="btn btn">
+                   </center>
 
                       
         

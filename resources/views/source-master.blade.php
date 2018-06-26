@@ -17,14 +17,16 @@
               <div class="Absolute-Center is-Responsive">
                 <div id="logo-container"></div>
                 <div class="col-sm-6 col-sm-offset-2">
-           <form class="form-horizontal" name="source_master" id="source_master"  method="post">
+           <form class="form-horizontal" name="source_master" id="source_master" method="post">
            {{csrf_field()}}
+
+
           
 
                    <div class="form-group row">
                         <label for="p_source_name" class="col-sm-4 col-form-label">Source Name:</label>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" id="p_source_name" name="p_source_name"  value="" placeholder="Source Name"  required>
+                          <input type="text" class="form-control" id="p_source_name" name="p_source_name"   placeholder="Source Name"  required>
                         </div>
                       </div>
 
@@ -38,10 +40,23 @@
                         </div>
                       </div>
 
-                      <center>
-                      <input type="submit" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
-                      <input type="Reset" value="Reset" class="btn btn">
-                      </center>
+                 <!--  <center>
+              
+                        <button type="submit" id="sub" class="btn btn-primary">Submit</button> -->
+                    <!-- <button type="submit" id="sub" class="btn btn-primary">Submit</button> -->
+                     <!--  <input type="submit" name="sub" value="submit" id="sub" class="btn btn-primary"> -->
+                      <!-- <input type="Reset" value="Reset" class="btn btn">
+            
+                  </center>
+ -->
+
+              <center>
+                
+                   <button type="submit" id="sub" class="btn btn-primary">Submit</button>
+                   <input type="Reset" value="reset" class="btn btn">
+               
+              </center>
+
 
                       
         
@@ -70,9 +85,7 @@
       <th>Source Name</th>
       <th>Is Active</th>
       <th>Edit</th>
-     
-
-		</tr>
+    </tr>
   </thead>
   <tbody>
 
@@ -82,9 +95,8 @@
             <td>{{$val->source_id}}</td>
             <td>{{$val->source_name}}</td>
             <td>{{$val->Is_Active}}</td>
-           <td><i class="fa fa-edit" id="GridView1_lblEdit_4" href="javascript:__doPostBack('GridView1$ctl06$lblEdit','' )"  onclick="demo('{{$val->source_id}}','{{$val->source_name}}','{{$val->Is_Active}}')" data-toggle="modal" data-target="#myModal"></i></td>
+            <td><a id="GridView1_lblEdit_4" onclick="demo('{{$val->source_id}}','{{$val->source_name}}','{{$val->Is_Active}}')" data-toggle="modal" data-target="#myModal">Edit</a></td>
           </tr>
-
         @endforeach
       </tbody>
     </table>
@@ -113,7 +125,8 @@
 
 
   
-          <form id="demo_form" name="demo_form" method="POST" action="{{url('update_source_master')}}"> 
+          <form id="demo_form" name="demo_form" method="POST" action="{{url('update-source-master')}}"> 
+
                 {{csrf_field()}} 
           
 
@@ -146,10 +159,11 @@
 
 
 
-             <center>
-              <button type="submit" name="Button" id="Button" class="btn btn-primary">Update</button>
-            </center>
-
+            <center>
+                    <div class="col-sm-12">
+                      <button type="submit" id="submit"  name="submit"  class="btn btn-primary">Submit</button>
+                    </div>
+                </center>
                       
         
         </form>
@@ -165,28 +179,13 @@
   </div>
         
 
-
-
-
-
-
-<!-- <script type="text/javascript">
-$('.Is_Active').attr('checked', true);
-$('.Is_Active').attr('checked', false);
-
-</script>
- -->
-
-
 <script type="text/javascript">
   function demo(source_id,source_name,Is_Active){
-    //alert(Designation_Id);
-    // document.getElementById("fba_id").value.empty();
+  
    document.getElementById('source_id').value="";
    document.getElementById('source_name').value="";
    // document.getElementById('Is_Active').value="";
-   // $("#Is_Active").val(res.query[0].Is_Active);
- 
+   // $("#Is_Active").val(res.query[0].Is_Active); 
 
     document.getElementById("source_id").value += source_id;
     document.getElementById("source_name").value += source_name;
@@ -201,22 +200,34 @@ $('.Is_Active').attr('checked', false);
     // $("#Is_Active").val(res.query[0].Is_Active);
    
   }
-</script>
 
-
-<script>
-$(document).ready(function() {
+      $(document).ready(function() {
     $('#example').DataTable();
 } );
 </script>
 
 
 
-<!-- <script type="text/javascript">
-	if (res.query[0].Is_Active == '1')
-   $('#IsActive').find(':checkbox[name=Is_Active][value="1"]').prop('checked', true);
-  else
-  $('#IsActive').find(':checkbox[name=Is_Active][value="0"]').prop('checked', true);
 
-</script> -->
+<!-- <script type="text/javascript">
+      $(function (){
+        $('form').on('submit', function (e) {
+          e.preventDefault();
+          $.ajax({
+            type: 'post',
+            url: 'update-source-master',
+            data: $('form').serialize(),
+            success: function (msg) {
+              alert('Record updated successfully.');
+                 setTimeout(function(){// wait for 5 secs(2)
+                 location.reload(); // then reload the page.(3)
+            }, 500);
+             }
+          });
+
+
+        });
+
+      });  
+    </script> -->
 @endsection

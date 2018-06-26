@@ -21,18 +21,18 @@
               {{csrf_field()}}
           
 
-            <div class="col-md-6">
+                  <div class="col-md-6">
                    <div class="form-group row">
                         <label for="empcode" class="col-sm-4 col-form-label">Employee&nbsp;Code:</label>
                         <div class="col-sm-6">
                           <input type="text" class="form-control" id="empcode" name="empcode" placeholder="Employee Code"  required>
                         </div>
                       </div>
-                    </div>
+                  </div>
 
 
 
-                       <div class="col-md-6">
+                  <div class="col-md-6">
                    <div class="form-group row">
                         <label for="empname" class="col-sm-4 col-form-label">Employee&nbsp;Name:</label>
                         <div class="col-sm-6">
@@ -44,7 +44,7 @@
 
 
 
-                      <div class="col-md-6">
+                <div class="col-md-6">
                    <div class="form-group row">
                         <label for="companyname" class="col-sm-4 col-form-label">Company&nbsp;Name:</label>
                         <div class="col-sm-6">
@@ -60,8 +60,8 @@
 
 
 
-                       <div class="col-md-6">
-                   <div class="form-group row">
+                    <div class="col-md-6">
+                      <div class="form-group row">
                         <label for="address" class="col-sm-4 col-form-label">Address:</label>
                         <div class="col-sm-6">
                           <input type="text" class="form-control" id="address" name="address"   placeholder="Address"  required>
@@ -70,10 +70,10 @@
                     </div>
 
 
-                         <div class="col-md-6">
-                        <div class="form-group row">
+                    <div class="col-md-6">
+                      <div class="form-group row">
                         <label for="email" class="col-sm-4 col-form-label">Email Id:</label>
-                        <div class="col-sm-6">
+                         <div class="col-sm-6">
                           <input type="text" class="form-control" id="email" name="email"   placeholder="Email Id" oninput="mail('email')"  required>
                           <span id="email_id" style="display:none;color: red; font-size: 10px">Please Enter Valid Email Id.</span>
                         </div>
@@ -82,24 +82,16 @@
 
 
 
-                    <div class="col-md-6">
-                   <div class="form-group row">
-                        <label for="dob" class="col-sm-4 col-form-label">Date Of&nbsp;Birth:</label>
+                   <div class="col-md-6">
+                     <div class="form-group row">
+                        <label for="DOB" class="col-sm-4 col-form-label">Date Of&nbsp;Birth:</label>
                         <div class="col-sm-6">
-                          <input type="text" class="form-control datepicker_id" id="dob" name="dob"  placeholder="DOB"  required>
+                          <input type="text" class="form-control datepicker_id" id="DOB" name="DOB"  placeholder="DOB"  required>
                         </div>
                       </div>
                     </div>
 
-                    <div class="col-md-6">
-                   <div class="form-group row">
-                    <label for="dob" class="col-sm-4 col-form-label">Date Of&nbsp;Birth:</label>
-                        <div class="col-sm-6">
-                          <input type="text" name="dob" id="dob" class="form-control datepicker_id" placeholder="Date of Birth" required>
-                        </div>
-                      </div>
-                    </div>
-
+                    
 
                 <div class="col-md-6">
                    <div class="form-group row">
@@ -167,7 +159,7 @@
                    <div class="form-group row">
                         <label for="date_of_joining" class="col-sm-4 col-form-label">Date&nbsp;Of&nbsp;Joining:</label>
                         <div class="col-sm-6">
-                          <input type="text" class="form-control datepicker_id" id="date_of_joining" name="date_of_joining"  value="" placeholder="DOJ"  required>
+                          <input type="text" class="form-control datepicker_id" id="date_of_joining" name="date_of_joining"  placeholder="DOJ"  required>
                         </div>
                       </div>
                     </div>

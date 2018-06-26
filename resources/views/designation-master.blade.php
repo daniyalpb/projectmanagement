@@ -3,7 +3,7 @@
   <div class="content">
   <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title"></h3>
+          <h3 class="box-title">Designation Master</h3>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
           </div>
@@ -12,7 +12,7 @@
         
 
  <div class="box-body">
-  <center><h3 style="color: #0099FF;">Designation Master</h3></center><hr>
+  <!-- <center><h3 style="color: #0099FF;">Designation Master</h3></center><hr> -->
           <div class="row">  <!-- for center -->
               <div class="Absolute-Center is-Responsive">
                 <div id="logo-container"></div>
@@ -23,8 +23,8 @@
 
                    <div class="form-group row">
                      <input type="hidden" name="Designation_Id"  id="Designation_Id" class="">
-                        <label for="Designation" class="col-sm-2 col-form-label">Designation:</label>
-                        <div class="col-sm-10">
+                        <label for="Designation" class="col-sm-5 col-form-label">Designation:</label>
+                        <div class="col-sm-8">
                           <input type="text" class="form-control" id="Designation" name="Designation"  value="" placeholder="Enter a Designation"  required>
                         </div>
                       </div>
@@ -36,7 +36,7 @@
 
                       <center>
                         <input type="submit" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
-                        <input type="submit" name="Button2" value="Reset" id="Button2" class="btn btn-primary">
+                        <input type="Reset" value="Reset" class="btn btn">
                       </center>
 
                       
@@ -102,7 +102,6 @@ $(document).ready(function() {
     $('#example').DataTable();
 } );
 </script>
-
 @endsection
 
 

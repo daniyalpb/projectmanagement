@@ -218,8 +218,7 @@
                   <label for="one">Yes</label>
                    <input type="radio" id="one" name="Is_share" value="1"/>
                    <label for="two">No</label>
-                   <input type="radio" id="one" name="Is_share" value="2" checked="checked"/> 
-                 
+                   <input type="radio" id="one" name="Is_share" value="2" checked="checked"/>                 
                   @endif
                 </div>
               </div>
@@ -241,8 +240,7 @@
                   <label for="one">Calling</label>
                    <input type="radio" id="one" name="Call_type" value="1"/>
                    <label for="two">Field Visit</label>
-                   <input type="radio" id="one" name="Call_type" value="2" checked="checked"/> 
-                 
+                   <input type="radio" id="one" name="Call_type" value="2" checked="checked"/>                  
                   @endif
                 </div>
               </div>

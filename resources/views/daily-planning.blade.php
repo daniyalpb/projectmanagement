@@ -17,7 +17,8 @@
               <div class="Absolute-Center is-Responsive">
                 <div id="logo-container"></div>
               <!-- a -->
-           <form class="form-horizontal" name="daily_planning" id="daily_planning"  method="post">
+           <form class="form-horizontal" name="daily_planning" id="daily_planning"  method="post"
+            action="{{url('daily-planning-insert')}}">
               {{csrf_field()}}
           
 
@@ -25,7 +26,7 @@
                    <div class="form-group row">
                         <label for="Plan_Date" class="col-sm-2 col-form-label" style="margin-left: 17%;">Select&nbsp;Date:</label>
                         <div class="col-sm-3">
-                          <input type="date" class="form-control" id="Plan_Date" name="Plan_Date" placeholder="Enter a Employee Code" value="<?php echo date('Y-m-d');?>">
+                          <input type="text" class="form-control datepicker_id" id="Plan_Date" name="Plan_Date" placeholder="Enter a Employee Code" value="<?php echo date('Y-m-d');?>" required>
                         </div>
                       </div>
                     </div>
@@ -37,7 +38,7 @@
                    	<label for="StartTime" class="col-sm-2 col-form-label" style="margin-left: 17%;">Start Time:</label>
                         <div class="col-sm-3">
                         	<select type="text" class="form-control" id="StartTime" name="StartTime">
-                		<option value="-1">Select</option>
+                		<option value="">Select</option>
 	                    <option value="09:00:00">09:00:00</option>
 	                    <option value="09:15:00">09:15:00</option>
 	                    <option value="09:30:00">09:30:00</option>
@@ -89,17 +90,17 @@
 	                    <option value="21:00:00">21:00:00</option>
                 	</select>
                 </div>
-                      </div>
-                    </div>
+            </div>
+        </div>
 
 
 
-                       <div class="col-md-12">
+                  <div class="col-md-12">
                    <div class="form-group row">
                         <label for="EndTime" class="col-sm-2 col-form-label" style="margin-left: 17%";>End&nbsp;Time:</label>
                         <div class="col-sm-3">
                           <select type="text" class="form-control" id="EndTime" name="EndTime">
-                          <option value="-1">Select</option>
+                        <option value="">Select</option>
 	                    <option value="09:00:00">09:00:00</option>
 	                    <option value="09:15:00">09:15:00</option>
 	                    <option value="09:30:00">09:30:00</option>
@@ -180,15 +181,19 @@
 
 
 <!-- <a id="GridView1_lblEdit_4" href="javascript:__doPostBack('GridView1$ctl06$lblEdit','' )"    data-toggle="modal" data-target="#myModal">Edit</a> -->
-                    <center><div class="col-sm-12">
+                <center>
+                  <div class="col-sm-12">
                    <button type="submit" id="sub" class="btn btn-primary">Submit</button>
-            <button type="reset" value="Reset">Reset</button>
-          </div></center>
+                   <input type="Reset" value="reset" class="btn btn">
+                 </div>
+              </center>
+
+
         </form>
       </div>
     </div>
   </div>
-</div>
+
 
 
 
@@ -205,7 +210,7 @@
 
          <div class="box-body">
 
-          <div class="container">
+
           	<div class="table-responsive">
           		<table id="example" class="table table-bordered table-striped">
         <thead>
@@ -242,9 +247,10 @@
      </div>
   </div>
  
-</div> 
 
 
+
+</div>
 </div>
 </div>
 
@@ -266,39 +272,39 @@
 
 
   
-<!--           <form id="demo_form" name="demo_form" method="POST" action="{{url('update_daily')}}"> --> 
-	<form>
+          <form id="demo_form" name="demo_form" method="POST" action="{{url('update_daily')}}"> 
+	      
                 {{csrf_field()}} 
 
             
 
 
 
-            <div class="col-md-12">
+            
                    <div class="form-group row">
-                        <label for="Pop_Id" class="col-sm-2 col-form-label" style="margin-left: 17%;">Id</label>
-                        <div class="col-sm-4">
-                          <input type="text" class="form-control" id="Pop_Id" name="Pop_Id" placeholder="Enter a Employee Code" value="<?php echo date('Y-m-d');?>">
+                        <label for="Pop_Id" class="col-sm-3 col-form-label">Id</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="Pop_Id" name="Pop_Id" >
                         </div>
                       </div>
-                    </div>
+                 
 
 
 
-                    <div class="col-md-12">
+                    
                    <div class="form-group row">
-                        <label for="Pop_Plan_Date" class="col-sm-2 col-form-label" style="margin-left: 17%;">Select&nbsp;Date:</label>
-                        <div class="col-sm-4">
-                          <input type="date" class="form-control" id="Pop_Plan_Date" name="Pop_Plan_Date" placeholder="Enter a Employee Code" value="<?php echo date('Y-m-d');?>">
+                        <label for="Pop_Plan_Date" class="col-sm-3 col-form-label">Select&nbsp;Date:</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control datepicker_id" id="Pop_Plan_Date" name="Pop_Plan_Date" placeholder="Enter a Employee Code" value="<?php echo date('Y-m-d');?>">
                         </div>
                       </div>
-                    </div>
+             
 
 
-                      <div class="col-md-12">
+                      
                    <div class="form-group row">
-                        <label for="Pop_StartTime" class="col-sm-2 col-form-label" style="margin-left: 17%;">Start Time:</label>
-                        <div class="col-sm-4">
+                        <label for="Pop_StartTime" class="col-sm-3 col-form-label">Start Time:</label>
+                        <div class="col-sm-9">
                           <select type="text" class="form-control" id="Pop_StartTime" name="Pop_StartTime">
                 		<option value="-1">Select</option>
 	                    <option value="09:00:00">09:00:00</option>
@@ -353,14 +359,14 @@
                 	</select>
                 </div>
                       </div>
-                    </div>
+                 
 
 
 
-                       <div class="col-md-12">
+                      
                    <div class="form-group row">
-                        <label for="Pop_EndTime" class="col-sm-2 col-form-label" style="margin-left: 17%";>End&nbsp;Time:</label>
-                        <div class="col-sm-4">
+                        <label for="Pop_EndTime" class="col-sm-3 col-form-label">End&nbsp;Time:</label>
+                        <div class="col-sm-9">
                           <select type="text" class="form-control" id="Pop_EndTime" name="Pop_EndTime">
                           <option value="-1">Select</option>
 	                    <option value="09:00:00">09:00:00</option>
@@ -415,38 +421,42 @@
                 	</select>
                         </div>
                       </div>
-                    </div>
+                
 
 
 
-                     <div class="col-md-12">
+                  
                    <div class="form-group row">
-                        <label for="Pop_User_Remark" class="col-sm-2 col-form-label" style="margin-left: 17%;">Remark:</label>
-                        <div class="col-sm-5">
+                        <label for="Pop_User_Remark" class="col-sm-3 col-form-label">Remark:</label>
+                        <div class="col-sm-9">
                           <textarea type="text" class="form-control" id="Pop_User_Remark" name="Pop_User_Remark" placeholder="Remark"></textarea>
                         </div>
                       </div>
-                    </div>
+                 
 
 
 
 
-                     <div class="col-md-12">
+                  
                    <div class="form-group row">
-                        <label for="Pop_User_Achieve" class="col-sm-2 col-form-label" style="margin-left: 17%;">Achievement:</label>
-                        <div class="col-sm-5">
+                        <label for="Pop_User_Achieve" class="col-sm-3 col-form-label">Achievement:</label>
+                        <div class="col-sm-9">
                           <textarea type="text" class="form-control" id="Pop_User_Achieve" name="Pop_User_Achieve" placeholder="Achievement"></textarea>
                         </div>
                       </div>
-                    </div>
+                  
 
 
 
 <!-- <a id="GridView1_lblEdit_4" href="javascript:__doPostBack('GridView1$ctl06$lblEdit','' )"    data-toggle="modal" data-target="#myModal">Edit</a> -->
-                    <center><div class="col-sm-12">
-                   <button type="submit" id="submit"  name="submit"  class="btn btn-primary">Submit</button>
-            <!-- <button type="reset" value="Reset">Reset</button> -->
-          </div></center>
+
+
+
+                <center>
+                  	<div class="col-sm-12">
+                      <button type="submit" id="submit"  name="submit"  class="btn btn-primary">Submit</button>
+                    </div>
+                </center>
         </form>
         </div>
         <div class="modal-footer">
@@ -488,7 +498,7 @@ $(document).ready(function() {
   }
 </script>
 
-
+<!-- 
 <script type="text/javascript">
       $(function () {
       	$('form').on('submit', function (e) {
@@ -509,6 +519,6 @@ $(document).ready(function() {
         });
 
       });
-    </script>
+    </script> -->
 
     @endsection

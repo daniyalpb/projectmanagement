@@ -27,8 +27,8 @@ class MastersController extends Controller
 
 	public function employ_master(Request $req)
 	{
-		DB::statement("call Insert_empolyee_master(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",array($req->empname,$req->empcode,$req->companyname,$req->email,$req->address,$req->dob,$req->mobile,$req->department,$req->reporting_authority,$req->date_of_joining,$req->designation,$req->band,$req->Is_Active,$req->ctc,$req->variable));
-		return Redirect('employe-master');
+		DB::statement("call Insert_empolyee_master(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",array($req->empname,$req->empcode,$req->companyname,$req->email,$req->address,$req->DOB,$req->mobile,$req->department,$req->reporting_authority,$req->date_of_joining,$req->designation,$req->band,$req->Is_Active,$req->ctc,$req->variable));
+		return Redirect('employee-master');
 	}
 //**bank-master*-*-----------*********** 
     public function bankmaster()
@@ -44,10 +44,52 @@ class MastersController extends Controller
 	}
 	public function bank_master_edit(Request $req)
 	{
-		//print_r($req->all());exit();
-		 DB::select("call Update_bank_Master(?,?,?,?,?,?)",array($req->Pop_Bank_Id,$req->Pop_Bank_Name,$req->Pop_Bank_Address,$req->Pop_Bank_Code,$req->Pop_Document1,$req->Pop_Document2));
+
+       $filename='';
+       $filename2='';
+	   $destinationPath = public_path('/images');
+       
+         
+       if($req->file_documant1){
+         $filename=$req->file_documant1;
+       }else{
+       	     $filename=$this->files_fn($req->file('Pop_Document1'));
+       } 
+
+
+       if($req->file_documant2){
+         $filename2=$req->file_documant2;
+       }else{
+       	    $filename2 = $this->files_fn($req->file('Pop_Document2'));
+       }    
+ 
+         
+		 
+		 DB::select("call Update_bank_Master(?,?,?,?,?,?)",array($req->Pop_Bank_Id,$req->Pop_Bank_Name,$req->Pop_Bank_Address,$req->Pop_Bank_Code,$filename,$filename2));
 		 return Redirect('bank-master');
+
+		 
+ 
 	}
+
+ 
+
+ public function files_fn($file){
+ 	      $filename='';
+          $destinationPath = public_path('/images');
+         if($file){
+       	    $filename=time().'.'.$file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename);
+            return $filename;
+            }else{
+             return $filename;
+            }
+
+
+
+ }
+
+  
 
      //**break-master** 
 
@@ -104,7 +146,7 @@ class MastersController extends Controller
 	public function employelistmaster()
 	{
 		$smsdata=DB::select("call usp_get_emplistmaster()");
-		return view('employe-list',['smsdata'=>$smsdata])->with('no', 1);
+		return view('employee-list',['smsdata'=>$smsdata])->with('no', 1);
 	}
 //***-*-*-*-*-*-*-*-*-*-*-*edit-employe-list**
 	public function edit_employelist_master()
@@ -289,7 +331,7 @@ class MastersController extends Controller
 	public function message_master_edit(Request $req)
 	{ 
 		 $va=0;
-		if(isset($req->u_Is_Active)){
+		if(isset($req->m_is_Active)){
            $va=1;
 		}else{
 			 $va=0;

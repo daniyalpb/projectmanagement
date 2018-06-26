@@ -12,7 +12,7 @@
         
 
  <div class="box-body">
-<!--   <center><h3 style="color: #0099FF;">Message master</h3></center><hr> -->
+<!--   <center><h3 style="color: #0077FF;">Message master</h3></center><hr> -->
           <div class="row">  <!-- for center -->
               <div class="Absolute-Center is-Responsive">
                 <div id="logo-container"></div>
@@ -22,24 +22,24 @@
           
 
                    <div class="form-group row">
-                        <label for="messageTitle" class="col-sm-3 col-form-label">Message&nbsp;Title:</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="messageTitle" name="messageTitle"  value="" placeholder="Enter a Message"  required>
+                        <label for="messageTitle" class="col-sm-5 col-form-label">Message&nbsp;Title:</label>
+                        <div class="col-sm-7">
+                          <input type="text" class="form-control" id="messageTitle" name="messageTitle"  value="" placeholder="Title Name"  required>
                         </div>
                       </div>
 
 
 
                       <div class="form-group row">
-                        <label for="messageBody" class="col-sm-3 col-form-label">Message&nbsp;Body:</label>
-                        <div class="col-sm-8">
+                        <label for="messageBody" class="col-sm-5 col-form-label">Message&nbsp;Body:</label>
+                        <div class="col-sm-7">
                           <textarea type="text" class="form-control" id="messageBody" name="messageBody" value="" placeholder="Enter a Message"  required></textarea>
                         </div>
                       </div>
 
                       <div class="form-group row">
-                        <label for="is_Active" class="col-sm-3 col-form-label">Is&nbsp;Active:</label>
-                        <div class="col-sm-8">
+                        <label for="is_Active" class="col-sm-5 col-form-label">Is&nbsp;Active:</label>
+                        <div class="col-sm-7">
                          <label><input type="checkbox"  id="is_Active" name="is_Active" value="Yes" style="zoom:1.5;"></label>
                         </div>
                       </div>    
@@ -47,7 +47,7 @@
                     
               <center>
                 <input type="submit" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
-                <input type="Reset" name="Button1" value="Reset" id="Button2" class="btn btn-primary">
+                <input type="Reset" value="Reset" class="btn btn">
               </center>
               
         </form>
@@ -86,7 +86,7 @@
                 <td>{{$val->messageBody}}</td>
                 <td>{{$val->is_Active}}</td>
                 <td>{{$val->Sysdate}}</td>
-                <td><a href="select" data-toggle="modal" data-target="#myModal"  onclick="demo('{{$val->message_id}}','{{$val->messageTitle}}','{{$val->messageBody}}','{{$val->is_Active}}')" >select</a></td>
+                <td><a href="select" data-toggle="modal" data-target="#myModal"  onclick="demo('{{$val->message_id}}','{{$val->messageTitle}}','{{$val->messageBody}}','{{$val->is_Active}}')" >Edit</a></td>
               </tr>
             @endforeach
       </tbody>
@@ -115,7 +115,7 @@
         <div class="modal-body">
 
 
-         <center><h3 style="color: #0099FF;">Edit Bank Master</h3></center>
+         <center><h3 style="color: #0077FF;">Edit Message Master</h3></center>
           <hr>
 
 
@@ -125,8 +125,8 @@
           
 
                    <div class="form-group row">
-                        <label for="m_message_id" class="col-sm-2 col-form-label">Id:</label>
-                        <div class="col-sm-10">
+                        <label for="m_message_id" class="col-sm-3 col-form-label">Id:</label>
+                        <div class="col-sm-9">
                           <input type="text" class="form-control" id="m_message_id" name="m_message_id"  value="" placeholder="Enter a Bank Name"  required>
                         </div>
                       </div>
@@ -134,22 +134,22 @@
 
 
                    <div class="form-group row">
-                        <label for="m_messageTitle" class="col-sm-2 col-form-label">Message&nbsp;Title:</label>
-                        <div class="col-sm-10">
+                        <label for="m_messageTitle" class="col-sm-3 col-form-label">Message&nbsp;Title:</label>
+                        <div class="col-sm-9">
                           <input type="text" class="form-control" id="m_messageTitle" name="m_messageTitle"  value="" placeholder="Enter a Bank Name"  required>
                         </div>
                       </div>
 
                         <div class="form-group row">
-                        <label for="m_messageBody" class="col-sm-2 col-form-label">Message&nbsp;Body:</label>
-                        <div class="col-sm-10">
+                        <label for="m_messageBody" class="col-sm-3 col-form-label">Message&nbsp;Body:</label>
+                        <div class="col-sm-9">
                           <textarea type="text" class="form-control" id="m_messageBody" name="m_messageBody"  value="" placeholder="Enter a Address"  required></textarea>
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="m_is_Active" class="col-sm-3 col-form-label">Is&nbsp;Active:</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-9">
                          <label><input type="checkbox"  id="m_is_Active" name="m_is_Active"  style="zoom:1.5;"></label>
                         </div>
                       </div> 
@@ -182,12 +182,12 @@
    document.getElementById('m_message_id').value="";
    document.getElementById('m_messageTitle').value="";
    document.getElementById('m_messageBody').value="";
-   // document.getElementById('m_is_Active').value="";
+   //document.getElementById('m_is_Active').value="";
  
    document.getElementById("m_message_id").value += message_id;
    document.getElementById("m_messageTitle").value += messageTitle;
    document.getElementById("m_messageBody").value += messageBody;
-   // document.getElementById("m_is_Active").value += is_Active;
+   //document.getElementById("m_is_Active").value += is_Active;
 
 
 

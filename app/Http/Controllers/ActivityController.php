@@ -34,7 +34,7 @@ class ActivityController extends Controller
 	{
 		//print_r($req->all());exit();
 		$data = DB::select("call Update_daily_planinning(?,?,?,?,?,?)",array($req->Pop_Id,$req->Pop_Plan_Date,$req->Pop_StartTime,$req->Pop_EndTime,$req->Pop_User_Remark,$req->Pop_User_Achieve));
-		 return $data;
+		 return Redirect('daily-planning');
 		}
 
 

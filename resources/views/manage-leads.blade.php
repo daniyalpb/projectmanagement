@@ -26,7 +26,7 @@
            <div class="col-md-12">
             <div class="form-group row">
                  <label for="empcode" class="col-sm-2 col-form-label">Lead&nbsp;Date:</label>
-                 <div class="col-sm-4">
+                 <div class="col-sm-3">
                    <select  class="form-control" id="empcode" name="empcode">
                     <option selected disabled="0">select</option>
                     <option value="1">Updated Datewise</option>
@@ -41,8 +41,8 @@
             <div class="col-md-6">
              <div class="form-group row">
                   <label for="empcode" class="col-sm-4 col-form-label">From Date:</label>
-                  <div class="col-sm-8">
-                    <input type="Date" class="form-control" id="txtfdate" name="txtfdate">
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control datepicker_id"" id="txtfdate" name="txtfdate" placeholder="From Date">
                   </div>
                 </div>
               </div>
@@ -51,8 +51,8 @@
             <div class="col-md-6">
              <div class="form-group row">
                   <label for="empname" class="col-sm-4 col-form-label">To Date:</label>
-                  <div class="col-sm-8">
-                    <input type="Date" class="form-control" id="txttdate" name="txttdate">
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control datepicker_id"" id="txttdate" name="txttdate" placeholder="To Date">
                   </div>
                 </div>
               </div>
@@ -61,7 +61,7 @@
             <div class="col-md-6">
                <div class="form-group row">
                <label for="City" class="col-sm-4 col-form-label">City Name:</label>
-               <div class="col-sm-8">
+               <div class="col-sm-6">
                  <input type="text" class="form-control search_citynm" id="City" name="City">
                 </div>
               </div>
@@ -71,7 +71,7 @@
             <div class="col-md-6">
                <div class="form-group row">
                  <label for="mobile" class="col-sm-4 col-form-label">Employee Name :</label>
-                 <div class="col-sm-8">
+                 <div class="col-sm-6">
                    <input type="text" class="form-control search_Emp_Name" id="mobile" name="mobile">
                  </div>
                </div>
@@ -81,7 +81,7 @@
              <div class="col-md-6">
               <div class="form-group row">
                   <label for="companyname" class="col-sm-4 col-form-label">Status:</label>
-                  <div class="col-sm-8">
+                  <div class="col-sm-6">
                   <input type="text" class="form-control inp-fld search_Status" id="companyname" name="companyname">
                </div>
                </div>
@@ -91,7 +91,7 @@
              <div class="col-md-6">
                 <div class="form-group row">
                   <label for="companyname" class="col-sm-4 col-form-label">Vertical Name:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-6">
                       <input type="text" class="form-control inp-fld search_vartical" id="companyname" name="companyname">
                   </div>
                 </div>
@@ -101,7 +101,7 @@
                   <div class="col-md-6">
                    <div class="form-group row">
                         <label for="dob" class="col-sm-4 col-form-label">Source&nbsp;Name:</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-6">
                         <input type="text" class="form-control inp-fld search_Source_Name" id="dob" name="dob">
                         </div>
                       </div>

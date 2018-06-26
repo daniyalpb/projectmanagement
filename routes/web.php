@@ -24,12 +24,12 @@ Route::group(['middleware' => ['CheckMidd']], function (){
 Route::get('dashboard','DashboardController@dashboard');
 Route::get('employee-master','MastersController@aspxdata');
 Route::post('employee-master_submit','MastersController@employee_master_submit');
-Route::post('employe-master','MastersController@employ_master');
+Route::post('employee-master','MastersController@employ_master');
 Route::POST('update_empmaster','MastersController@employ_master');
 
 Route::get('bank-master','MastersController@bankmaster');
 Route::post('bank-master','MastersController@bank_master');
-Route::post('update_bank_master','MastersController@bank_master_edit');
+Route::post('update-bank-master','MastersController@bank_master_edit');
 
 Route::get('break-master','MastersController@breakmaster');
 Route::post('break-master','MastersController@break_master');
@@ -79,7 +79,7 @@ Route::POST('update_bank_payout','MastersController@bank_payout');
 
 Route::get('source-master','MastersController@sourcemaster');
 Route::POST('source-master','MastersController@source_master');
-Route::post('update_source_master','MastersController@source_master_edit');
+Route::post('update-source-master','MastersController@source_master_edit');
 
 Route::get('city-wise-employee','MastersController@citywiseemployee');
 Route::post('city-wise-employee','MastersController@city_wise_employee');
@@ -129,7 +129,7 @@ Route::get('broker-invoice-register','BillingController@brokerinvoiceregister');
          //**ActivityController***********************
 
 Route::get('daily-planning','ActivityController@dailyplanning');
-Route::post('daily-planning','ActivityController@daily_planning');
+Route::post('daily-planning-insert','ActivityController@daily_planning');
 Route::post('update_daily','ActivityController@daily_planning_edit');
 
 Route::get('lead-capture','ActivityController@leadcapture');
