@@ -58,7 +58,12 @@ Route::get('profession-master','MastersController@professionmaster');
 Route::post('profession-master','MastersController@profession_master');
 
 Route::get('role-master','MastersController@rolemaster');
+
 Route::get('associate-master','MastersController@associatemaster');
+Route::POST('associate-master','MastersController@associate_master');
+
+Route::get('associate-list','MastersController@associatelist');
+Route::post('associate-list','MastersController@associate_list');
 
 Route::get('link-entry','MastersController@messagelinkdetail');
 Route::post('link-entry','MastersController@message_link_detail');
@@ -164,6 +169,9 @@ Route::get('PB-payout-master','LeadsController@pbpayoutmaster');
 Route::get('push-sms-entry','LeadsController@pushsmsentry');  
 //Route::get('lead-status-update-flow','LeadsController@leadstatusupdateflow'); 
 Route::get('lead-status-update-flow/{id}','LeadsController@leadstatusupdateflow');
+
+Route::get('lead-assign-telecaller','LeadsController@leadassigntelecaller');
+
 
 
 

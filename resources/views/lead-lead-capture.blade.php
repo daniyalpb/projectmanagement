@@ -41,11 +41,11 @@
                 </div>
 
 
-                 <div class="col-md-6">
+             <div class="col-md-6">
                 <div class="form-group row">
                   <label for="mobile" class="col-sm-4 col-form-label">Mobile.No.:</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile" minlength="10" maxlength="10" onkeypress="return fnAllowNumeric(event)" required>   
+                    <input type="Mobile" class="form-control" id="mobile" name="mobile" placeholder="Mobile" minlength="10" maxlength="10" onkeypress="return fnAllowNumeric(event)" required>   
                 </div>
               </div>
             </div>
@@ -372,32 +372,6 @@
  </div>
 </div>
 
-<script type="text/javascript">
-  function AllowAlphabet(e)
-{
-  isIE = document.all ? 1 : 0
-  keyEntry = !isIE ? e.which : event.keyCode;
-  if (((keyEntry >= '65') && (keyEntry <= '90')) || ((keyEntry >= '97') && (keyEntry <= '122')) || (keyEntry == '46') || (keyEntry == '32') || keyEntry == '45')
-     return true;
-  else
-{
-    // alert('Please Enter Only Character values.');
-    return false;
-      }
-}
-</script>
-
-<script type="text/javascript">
-  function fnAllowNumeric(evt) {
-            evt = (evt) ? evt : window.event;
-            var charCode = (evt.which) ? evt.which : evt.keyCode;
-            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-
-              return false;
-            }
-            return true;
-          }
-</script>
 
 <script type="text/javascript">
   function mail(obj,val){
@@ -443,33 +417,9 @@
                     // $('.credit-submit').hide();
 
                     return false;
-                  }
-                  
-  }
-}
-
-
+                  }                 
+       }
+    }
 </script>
 
-
-
  @endsection
-<!-- 
-<script type="text/javascript">
-  function mail(obj,val){
-
-    if(obj=='work_email' ){
-                   var str =$('#work_email').val();
-                   var emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/; 
-                   var res = str.match(emailPattern);
-                   if(res){                    
-                      $('#email').hide();
-
-                  }else{                    
-                    $('#email').show();
-
-                    return false;
-                  }
-                    }
-}
-</script> -->

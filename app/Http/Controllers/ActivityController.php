@@ -38,7 +38,7 @@ class ActivityController extends Controller
 		}
 
 
-
+													
 
 	public function leadcapture()
 	{

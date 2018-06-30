@@ -212,6 +212,15 @@ class LeadsController extends Controller
          return Redirect('manage-leads');
 
     }
+
+    public function leadassigntelecaller()
+    {
+        $status=DB::select('call usp_get_assign_tele_status()');
+        $source=DB::select('call usp_get_assign_tele_source()');
+        $city=DB::select('call usp_get_assign_tele_city()');
+        $assign=DB::select('call usp_get_assign_tele_assignemp()');
+        return view('lead-assign-telecaller',['status'=>$status,'source'=>$source,'city'=>$city,'assign'=>$assign]);
+    }
     
 
 }

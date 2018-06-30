@@ -47,35 +47,24 @@ class MastersController extends Controller
 
        $filename='';
        $filename2='';
-	   $destinationPath = public_path('/images');
-       
+	   $destinationPath = public_path('/images');     
          
        if($req->file_documant1){
          $filename=$req->file_documant1;
        }else{
        	     $filename=$this->files_fn($req->file('Pop_Document1'));
-       } 
-
-
+       }
        if($req->file_documant2){
          $filename2=$req->file_documant2;
        }else{
        	    $filename2 = $this->files_fn($req->file('Pop_Document2'));
-       }    
- 
-         
-		 
-		 DB::select("call Update_bank_Master(?,?,?,?,?,?)",array($req->Pop_Bank_Id,$req->Pop_Bank_Name,$req->Pop_Bank_Address,$req->Pop_Bank_Code,$filename,$filename2));
+       }
+       DB::select("call Update_bank_Master(?,?,?,?,?,?)",array($req->Pop_Bank_Id,$req->Pop_Bank_Name,$req->Pop_Bank_Address,$req->Pop_Bank_Code,$filename,$filename2));
 		 return Redirect('bank-master');
-
-		 
- 
 	}
-
- 
-
- public function files_fn($file){
- 	      $filename='';
+    public function files_fn($file)
+    {
+    	  $filename='';
           $destinationPath = public_path('/images');
          if($file){
        	    $filename=time().'.'.$file->getClientOriginalExtension();
@@ -84,15 +73,9 @@ class MastersController extends Controller
             }else{
              return $filename;
             }
+    }
 
-
-
- }
-
-  
-
-     //**break-master** 
-
+     //**break-master**
 	public function breakmaster()
 	{
 		$smsdata=DB::select("call usp_get_breakmaster()");
@@ -104,10 +87,7 @@ class MastersController extends Controller
 		 DB::statement("call Insert_break_timemaster(?,?,?)",array($req->Break_Type,$req->Time,$req->Is_Active));
 		return Redirect('break-master');
 	}
-
-     //**state-master** 
-
-
+     //**state-master**
 	public function statemaster()
 	{
 		$smsdata=DB::select("call usp_state_master()");
@@ -146,7 +126,7 @@ class MastersController extends Controller
 	public function employelistmaster()
 	{
 		$smsdata=DB::select("call usp_get_emplistmaster()");
-		return view('employee-list',['smsdata'=>$smsdata])->with('no', 1);
+		return view('employe-list',['smsdata'=>$smsdata])->with('no', 1);
 	}
 //***-*-*-*-*-*-*-*-*-*-*-*edit-employe-list**
 	public function edit_employelist_master()
@@ -170,9 +150,6 @@ class MastersController extends Controller
 		 DB::select('call Update_employee_Master(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',array($req->u_EmpId,$req->u_empname,$req->u_empcode,$req->u_companyname,$req->u_email,$req->u_address,$req->u_dob,$req->u_mobile,$req->u_department,$req->u_reporting_authority,$req->u_date_of_joining,$req->u_designation,$req->u_band,$req->u_Is_Active,$req->u_ctc,$req->u_variable));
 		 return Redirect('employee-list');
 	}
-
-
-
 //**-*-*-*-*-*-*-*-*-*lead status master
     public function leadstatusmaster()
     {
@@ -214,9 +191,38 @@ class MastersController extends Controller
 //**-*-*-*-*--**-*-Associate-Master
 	public function associatemaster()
 	{
+		$assign=DB::select("call usp_get_assing_empmaster()");
 		$smsdata=DB::select("call usp_get_product_master()");
 		$lead=DB::select("call usp_get_leadcity_master()");
-		return view('associate-master',['smsdata'=>$smsdata,'lead'=>$lead])->with('no', 1);
+		return view('associate-master',['smsdata'=>$smsdata,'lead'=>$lead,'assign'=>$assign])->with('no', 1);
+	}
+	public function associate_master(Request $req)
+	{
+		//print_r($req->all());exit();	
+		   DB::statement("call Insert_associate_master (?,?,?,?,?,?,?,?,?)",array($req->Broker_id,$req->Broker_Name,$req->Contact_No,$req->PanNo,$req->email,$req->Emp_Code,$req->city_Id,$req->remark,$req->Is_Active));
+			return Redirect('associate-master');
+
+	}
+	public function associatelist()
+	{
+		$assign=DB::select("call usp_get_assing_associate()");
+	    $associate=DB::select("call usp_get_associate_list()");
+	    $city=DB::select("call usp_get_leadcity_master()");	
+		return view('associate-list',['assign'=>$assign,'associate'=>$associate,'city'=>$city])->with('no', 1);
+	}
+	public function associate_list(Request $req)
+	{ 
+		 $va=0;
+		if(isset($req->m_Is_Active)){
+           $va=1;
+		}else{
+			 $va=0;
+		}
+		//print_r($req->all());exit();
+		DB::statement('call Update_associate_master(?,?,?,?,?,?,?,?,?)',array($req->m_Broker_id,$req->m_Broker_Name,$req->m_Contact_No,$req->m_PAN_No,$req->m_Email_Id,$req->m_Emp_Code,$req->m_city_Id,$req->m_remark,
+			$va));
+
+		return Redirect('associate-list');
 	}
 //**-*-*-*-*-*-*-*-*Link-Entry
 	public function messagelinkdetail()

@@ -1,6 +1,6 @@
 <script type="text/javascript">
  
-    function Numeric(event) {
+    function fnAllowNumeric(event) {
       if ((event.keyCode < 48 || event.keyCode > 57) && event.keyCode != 8) {
           event.keyCode = 0;
           return false;
@@ -36,25 +36,7 @@
 }
 </script>
 
-<!-- 
-<script type="text/javascript">
-  function mail(obj,val){
 
-    if(obj=='work_email' ){
-                   var str =$('#work_email').val();
-                   var emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/; 
-                   var res = str.match(emailPattern);
-                   if(res){                    
-                      $('#email').hide();
-
-                  }else{                    
-                    $('#email').show();
-
-                    return false;
-                  }
-                    }
-}
-</script> -->
 <script type="text/javascript">
   function pancard(obj,val){
     // console.log(obj);
@@ -75,4 +57,31 @@
 
 
 </script>
+
+
+
+<script type="text/javascript">
+          function mail(obj,val){
+         // console.log(obj);
+         if(obj=='email' ){
+                        var str =$('#email').val();
+                        var emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/; 
+                        var res = str.match(emailPattern);
+                        if(res){
+                          // console.log('Pancard is valid one.!!');
+                           $('#email_id').hide();
+     
+                       }else{
+                         // console.log('Oops.Please Enter Valid Pan Number.!!');
+                         $('#email_id').show();
+     
+                         return false;
+                       }
+                       
+       }
+     }
+     </script>
+     
+                      
+
  

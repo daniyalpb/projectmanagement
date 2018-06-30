@@ -97,7 +97,7 @@
                    <div class="form-group row">
                         <label for="mobile" class="col-sm-4 col-form-label">Mobile:</label>
                         <div class="col-sm-6">
-                          <input type="text" class="form-control" id="mobile" name="mobile"   placeholder="Mobile No" minlength="10" maxlength="10" onkeypress="return fnAllowNumeric(event)" required>
+                          <input type="mobile" class="form-control" id="mobile" name="mobile"   placeholder="Mobile No" minlength="10" maxlength="10" onkeypress="return fnAllowNumeric(event)" required>
                         </div>
                       </div>
                     </div>
@@ -255,56 +255,7 @@ $('#username').change(function() {
   
 
 
-<script type="text/javascript">
-          function mail(obj,val){
-         // console.log(obj);
-         if(obj=='email' ){
-                        var str =$('#email').val();
-                        var emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/; 
-                        var res = str.match(emailPattern);
-                        if(res){
-                          // console.log('Pancard is valid one.!!');
-                           $('#email_id').hide();
-     
-                       }else{
-                         // console.log('Oops.Please Enter Valid Pan Number.!!');
-                         $('#email_id').show();
-     
-                         return false;
-                       }
-                       
-       }
-     }
-     </script>
-     <script type="text/javascript">
-  function fnAllowNumeric(evt) {
-            evt = (evt) ? evt : window.event;
-            var charCode = (evt.which) ? evt.which : evt.keyCode;
-            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-
-              return false;
-            }
-            return true;
-          }
-</script>
-
-<script type="text/javascript">
-  function AllowAlphabet(e)
-{
-  isIE = document.all ? 1 : 0
-  keyEntry = !isIE ? e.which : event.keyCode;
-  if (((keyEntry >= '65') && (keyEntry <= '90')) || ((keyEntry >= '97') && (keyEntry <= '122')) || (keyEntry == '46') || (keyEntry == '32') || keyEntry == '45')
-     return true;
-  else
-{
-    // alert('Please Enter Only Character values.');
-    return false;
-      }
-}
-
-</script>
-                      
-                      
+        
 
 
        @endsection

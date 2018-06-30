@@ -302,7 +302,7 @@ var tdate=$('#txttdate').val();
          {   
 
            var data = JSON.parse(leaddata);
-           var str = "<table id='example' class='table table-bordered table-striped'><thead><tr><th>Lead Id</th><th>Lead Create Date</th><th>Customer Name</th><th>Mobile No</th><th>Email Id</th><th>City</th><th>Product Name</th><th>Emp Name</th><th>Company Name</th><th>followup Date</th><th>Last Update Date</th><th>Status</th><th>Source Name</th><th>Campaign Name</th><th>Vertical Name</th><th>Bank Name</th><th>Remark</th><th>Credit Score</th><th>Created By</th><th>Broker Name</th><th>FBA Employee Name</th></tr></thead><tbody>";
+           var str ="<table id='example'class='table table-bordered table-striped'><thead><tr><th>Lead Id</th><th>Lead Create Date</th><th>Customer Name</th><th>Mobile No</th><th>Email Id</th><th>City</th><th>Product Name</th><th>Emp Name</th><th>Company Name</th><th>followup Date</th><th>Last Update Date</th><th>Status</th><th>Source Name</th><th>Campaign Name</th><th>Vertical Name</th><th>Bank Name</th><th>Remark</th><th>Credit Score</th><th>Created By</th><th>Broker Name</th><th>FBA Employee Name</th></tr></thead><tbody>";
        for (var i = 0; i < data.length; i++) 
        {
 
