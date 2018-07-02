@@ -9,11 +9,8 @@
           </div>
         </div>
 
-        
-
- <div class="box-body">
-<!--   <center><h3 style="color: #0077FF;">Message master</h3></center><hr> -->
-          <div class="row">  <!-- for center -->
+        <div class="box-body">
+          <div class="row"> 
               <div class="Absolute-Center is-Responsive">
                 <div id="logo-container"></div>
                 <div class="col-sm-6 col-sm-offset-2">
@@ -65,11 +62,11 @@
         </div>
 
          <div class="box-body">
-<div class="table-responsive">
+          <div class="table-responsive">
   
-   <table id="example" class="table table-bordered table-striped">
-    <thead>
-    <tr>
+             <table id="example" class="table table-bordered table-striped">
+           <thead>
+             <tr>
                 <th>Message Id</th>
                 <th>Message Title</th>
                 <th>Message Body</th>
@@ -160,6 +157,7 @@
 
              <center>
               <button type="submit" name="Button" id="Button" class="btn btn-primary">Update</button>
+            </center>
 
                       
         
@@ -167,12 +165,15 @@
         
 
 
-        </div>
+      
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
 
 
 <script type="text/javascript">
