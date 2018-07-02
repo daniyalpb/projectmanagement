@@ -9,89 +9,65 @@
         </button>
       </div>
     </div>
-
-        
-
- <div class="box-body">
-  <!-- <center><h3 style="color: #0099FF;">Bank Master</h3></center><hr> -->
-          <div class="row">  <!-- for center -->
-              <div class="Absolute-Center is-Responsive">
-                <div id="logo-container"></div>
-                <div class="col-sm-6 col-sm-offset-2">
-
-             <form class="form-horizontal" name="bank_master" id="bank_master" method="post">
-            {{csrf_field()}}
-          
-
-                   <div class="form-group row">
-                        <label for="Bank_Name" class="col-sm-4 col-form-label">Bank&nbsp;Name:</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="Bank_Name" name="Bank_Name"  value="" placeholder="Bank Name"  required>
-                        </div>
-                      </div>
+    <div class="box-body">
+      <div class="row">
+        <div class="Absolute-Center is-Responsive">
+          <div id="logo-container"></div>
+          <div class="col-sm-6 col-sm-offset-2">
+            <form class="form-horizontal" name="bank_master" id="bank_master" method="post">
+              {{csrf_field()}}
 
 
-                    <div class="form-group row">
-                        <label for="Product_Name" class="col-sm-4 col-form-label">Address:</label>
-                        <div class="col-sm-8">
-                          <textarea type="text" class="form-control" id="Bank_Address" name="Bank_Address"  value="" placeholder="Enter a Address"  required></textarea>
-                        </div>
-                      </div>
+              <div class="form-group row">
+                <label for="Bank_Name" class="col-sm-4 col-form-label">Bank&nbsp;Name:</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="Bank_Name" name="Bank_Name"  value="" placeholder="Bank Name"  required>
+                  </div>
+              </div>
 
 
-
-                    <div class="form-group row">
-                        <label for="Bank_Code" class="col-sm-4 col-form-label">Bank&nbsp;Code:</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="Bank_Code" name="Bank_Code"  value="" placeholder="Bank Code"  required>
-                        </div>
-                      </div>
-
+              <div class="form-group row">
+                <label for="Product_Name" class="col-sm-4 col-form-label">Address:</label>
+                  <div class="col-sm-8">
+                    <textarea type="text" class="form-control" id="Bank_Address" name="Bank_Address"  value="" placeholder="Enter a Address"  required></textarea>
+                  </div>
+              </div>
 
 
-                    <div class="form-group row">
-                        <label for="Document1" class="col-sm-4 col-form-label">Select&nbsp;File:</label>
-                        <div class="col-sm-8">
-                          <input type="file" class="form-control" id="Document1" name="Document1"  value="">
-                        </div>
-                      </div>
+              <div class="form-group row">
+                <label for="Bank_Code" class="col-sm-4 col-form-label">Bank&nbsp;Code:</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="Bank_Code" name="Bank_Code"  value="" placeholder="Bank Code"  required>
+                  </div>
+              </div>
 
 
-
-                        <div class="form-group row">
-                        <label for="Document2" class="col-sm-4 col-form-label">Select&nbsp;Logo:</label>
-                        <div class="col-sm-8">
-                          <input type="file" class="form-control" id="Document2" name="Document2"  value="">
-                        </div>
-                      </div>
-
+              <div class="form-group row">
+                <label for="Document1" class="col-sm-4 col-form-label">Select&nbsp;File:</label>
+                <div class="col-sm-8">
+                  <input type="file" class="form-control" id="Document1" name="Document1"  value="">
+                </div>
+              </div>
 
 
+              <div class="form-group row">
+                <label for="Document2" class="col-sm-4 col-form-label">Select&nbsp;Logo:</label>
+                <div class="col-sm-8">
+                  <input type="file" class="form-control" id="Document2" name="Document2"  value="">
+                </div>
+              </div>
 
-
-
-                     <!--  <center>
-                        <input type="button" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
-                        <input type="Reset" name="Button2" value="Reset" id="Button2" class="btn btn-primary">
-                      </center>
- -->
-
-                      <center>
-                        <input type="submit" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
-                        <input type="Reset" value="Reset" id="Button2" class="btn btn">
-                      </center>
-
-                      
-        
-        </form>
+              <center>
+                <input type="submit" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
+                <input type="Reset" value="Reset" id="Button2" class="btn btn">
+              </center>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-
-
-
+<!-- Table -->
     <div class="box box-default">
         <div class="box-header with-border">
           <h3 class="box-title"></h3>
@@ -99,60 +75,51 @@
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
           </div>
         </div>
-
-         <div class="box-body">
+        <div class="box-body">
           <div class="table-responsive">
-  
-   <table id="example" class="table table-bordered table-striped">
-    <thead>
-         <tr>
-            <th>Sr.&nbsp;No.</th>
-            <th>Bank&nbsp;Id</th>
-            <th>Bank&nbsp;Name</th>
-            <th>Bank&nbsp;Address</th>
-            <th>Bank&nbsp;Code</th>
-            <th>Is&nbsp;Active</th>
-            <th>Created&nbsp;Date</th>
-            <th>Document1</th>
-            <th>Document2</th>
-            <th>Edit</th>
-          </tr>
-        </thead>
-
-        <tbody>
-           @foreach($smsdata as $val)
-        <tr>
-            <td>{{ $no++ }}</td>
-            <td>{{$val->Bank_Id}}</td>
-            <td>{{$val->Bank_Name}}</td>
-            <td>{{$val->Bank_Address}}</td>
-            <td>{{$val->Bank_Code}}</td>
-            <td>{{$val->Is_Active}}</td>
-            <td>{{$val->Created_on}}</td>
-
-
-            @if($val->Document1 != NULL && $val->Document1 != '')
-            <td align="center"><a href="{{$val->Document1}}">Download</a></td>
-            @else
-            <td></td>
-            @endif
-
-            @if($val->Document2 != NULL && $val->Document2 != '')
-            <td align="center"><a href="{{$val->Document2}}">Download</a></td>
-            @else
-            <td></td>
-            @endif
-
-            <td><i  class="fa fa-edit" id="GridView1_lblEdit_4" href="javascript:__doPostBack('GridView1$ctl06$lblEdit','' )"  onclick="demo('{{$val->Bank_Name}}','{{$val->Bank_Code}}','{{$val->Bank_Id}}','{{$val->Bank_Address}}','{{$val->Document1}}','{{$val->Document2}}')"  data-toggle="modal" data-target="#myModal"></i></td>
-        
- 
-        </tr>
-          @endforeach
-        </tbody>
-      </table>
-     </div> 
-</div>
-</div>
+            <table id="example" class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>Sr.&nbsp;No.</th>
+                  <th>Bank&nbsp;Id</th>
+                  <th>Bank&nbsp;Name</th>
+                  <th>Bank&nbsp;Address</th>
+                  <th>Bank&nbsp;Code</th>
+                  <th>Is&nbsp;Active</th>
+                  <th>Created&nbsp;Date</th>
+                  <th>Document1</th>
+                  <th>Document2</th>
+                  <th>Edit</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($smsdata as $val)
+                <tr>
+                  <td>{{ $no++ }}</td>
+                  <td>{{$val->Bank_Id}}</td>
+                  <td>{{$val->Bank_Name}}</td>
+                  <td>{{$val->Bank_Address}}</td>
+                  <td>{{$val->Bank_Code}}</td>
+                  <td>{{$val->Is_Active}}</td>
+                  <td>{{$val->Created_on}}</td>
+                  @if($val->Document1 != NULL && $val->Document1 != '')
+                  <td align="center"><a href="{{$val->Document1}}">Download</a></td>
+                  @else
+                  <td></td>
+                  @endif
+                  @if($val->Document2 != NULL && $val->Document2 != '')
+                  <td align="center"><a href="{{$val->Document2}}">Download</a></td>
+                  @else
+                  <td></td>
+                  @endif
+                  <td><i  class="fa fa-edit" id="GridView1_lblEdit_4" href="javascript:__doPostBack('GridView1$ctl06$lblEdit','' )"  onclick="demo('{{$val->Bank_Name}}','{{$val->Bank_Code}}','{{$val->Bank_Id}}','{{$val->Bank_Address}}','{{$val->Document1}}','{{$val->Document2}}')"  data-toggle="modal" data-target="#myModal"></i></td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div> 
+      </div>
+    </div>
 
 
 
@@ -172,13 +139,9 @@
           <h4 class="modal-title"></h4>
         </div>
         <div class="modal-body">
-
-
-         <center><h3 style="color: #0099FF;">Edit Bank Master</h3></center>
+          <center><h3 style="color: #0099FF;">Edit Bank Master</h3></center>
           <hr>
 
-
-  
           <form id="demo_form" name="demo_form" method="POST" action="{{url('update-bank-master')}}"  enctype="multipart/form-data"> 
                 {{csrf_field()}} 
           

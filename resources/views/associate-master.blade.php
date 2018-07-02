@@ -15,7 +15,6 @@
                 <form class="form-horizontal" name="break_master" id="break_master"  method="post">
            {{csrf_field()}}
 
-
                      <div class="col-sm-6">
                         <div class="form-group row">
                          <label for="Broker_Name" class="col-sm-5 col-form-label">Associate&nbsp;Name:</label>
@@ -82,7 +81,6 @@
                         </div>
                       </div>
 
-
                       <div class="col-sm-6">
                         <div class="form-group row">
                           <label for="parentBrokerId" class="col-sm-5 col-form-label">Parent&nbsp;Name:</label>
@@ -94,7 +92,6 @@
                         </div>
                       </div>
 
-
                       <div class="col-sm-6">
                         <div class="form-group row">
                           <label for="remark" class="col-sm-5 col-form-label">Remark:</label>
@@ -103,7 +100,6 @@
                           </div>
                         </div>
                       </div>
-
 
                       <div class="col-sm-12">
                         <div class="form-group row">

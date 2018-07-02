@@ -106,12 +106,6 @@ Route::get('bank_contact_details-new','bank_contact_detailsController@bankdetail
 
 
 
-
-
-
-
-
-
            //**UsersController***********************
 
 Route::get('user-group','UsersController@usergroup');
@@ -151,25 +145,18 @@ Route::get('manage-leads','LeadsController@manageleads');
 Route::get('manage-leads-get/{fdate}/{tdate}','LeadsController@getleaddata');
 Route::post('update_manage_leads','LeadsController@manage_leads');
 
-
-
-
 Route::get('searchajax',array('as'=>'searchajax','uses'=>'LeadsController@autoComplete'));
 Route::get('searchajax-Emp-Name',array('as'=>'searchajax-Emp-Name','uses'=>'LeadsController@autoComplete_employee'));
 Route::get('searchajax-vertical',array('as'=>'searchajax-vertical','uses'=>'LeadsController@autoComplete_vertical'));
 Route::get('searchajax-source-name',array('as'=>'searchajax-source-name','uses'=>'LeadsController@autoComplete_Source'));
 Route::get('searchajax-status',array('as'=>'searchajax-status','uses'=>'LeadsController@autoComplete_Status'));
-
 Route::get('lead-reassign-telecaller','LeadsController@leadreassigntelecaller');
 Route::get('lead-lead-capture','LeadsController@leadleadcapture');
 Route::POST('lead-lead-capture','LeadsController@lead_lead_capture');
-
 Route::get('priority-manage-leads','LeadsController@prioritymanageleads');
 Route::get('PB-payout-master','LeadsController@pbpayoutmaster');
 Route::get('push-sms-entry','LeadsController@pushsmsentry');  
-//Route::get('lead-status-update-flow','LeadsController@leadstatusupdateflow'); 
 Route::get('lead-status-update-flow/{id}','LeadsController@leadstatusupdateflow');
-
 Route::get('lead-assign-telecaller','LeadsController@leadassigntelecaller');
 
 
