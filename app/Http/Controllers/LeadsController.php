@@ -213,6 +213,22 @@ class LeadsController extends Controller
 
     }
 
+
+
+
+        public function  sub_fbastatus($id)
+         {
+
+            $id = $_GET['id'];
+            return $id;
+
+          // $subcities = DB::table("city_alias")
+          //           ->where("city_id",$cityid)->get();
+            //$data = $req->all();
+         //  return json_encode($subcities);
+ 
+       }
+
     public function leadassigntelecaller()
     {
         $status=DB::select('call usp_get_assign_tele_status()');
@@ -221,6 +237,40 @@ class LeadsController extends Controller
         $assign=DB::select('call usp_get_assign_tele_assignemp()');
         return view('lead-assign-telecaller',['status'=>$status,'source'=>$source,'city'=>$city,'assign'=>$assign]);
     }
+
+
+    public function managefbadata()
+    {
+        return view('manage-fba-data');
+    }
+
+
+     public function managefba($fdate,$tdate)
+    {
+         
+        $id=Session::get('Emp_Code');
+        $leaddata=DB::select("call Usp_get_fba_data('$fdate','$tdate','RB40000059')");          
+        return json_encode($leaddata);
+          
+          
+    }
+
+
+    public function editfbadata($id)
+    {
+       $user=DB::select("call usp_show_fba_data(?)",array($id))[0];
+       $fba_m=DB::select("call usp_get_fba_smaster()");
+       return view('edit-fba-data',['user'=>$user,'fba_m'=>$fba_m]);
+    }
+
+    public function edit_fba_data(Request $req)
+    {
+        //print_r($req->all());exit();
+        DB::select('call update_fba_data(?,?,?,?,?,?,?)',array($req->Broker_id,$req->Broker_Name,$req->PAN_No,$req->remark,$req->time,$req->date,$req->FBA_Status));
+        return Redirect('manage-fba-data');
+    }
+
+
     
 
 }

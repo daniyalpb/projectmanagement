@@ -11,9 +11,8 @@
 
         
 
- <div class="box-body">
- <!--  <center><h3 style="color: #0099FF;">Manage Leads</h3></center><hr> -->
-          <div class="row">  <!-- for center -->
+         <div class="box-body">
+            <div class="row">
               <div class="Absolute-Center is-Responsive">
                 <div id="logo-container"></div>
               <!-- a -->
@@ -31,14 +30,14 @@
               </div>
 
 
-            <div class="col-md-6">
-             <div class="form-group row">
+             <div class="col-md-6">
+               <div class="form-group row">
                   <label for="dob" class="col-sm-4 col-form-label">Date Of Birth:</label>
                   <div class="col-sm-6">
                     <input type="text" class="form-control" id="dob" name="dob" value="{{$user->dob}}">
                   </div>
                 </div>
-              </div>
+             </div>
 
 
             <div class="col-md-6">
@@ -161,7 +160,7 @@
              <div class="form-group row">
                   <label for="Lead_Status_id" class="col-sm-4 col-form-label">Main&nbsp;Lead&nbsp;Status*:</label>
                   <div class="col-sm-6">
-                    <select type="text" class="form-control" id="Lead_Status_id" name="Lead_Status_id" >
+                    <select type="text" class="form-control" id="Lead_Status_id" name="Lead_Status_id">
 
                     @foreach($mlstatus as $val)
                     @if($city->City_Id == $user->cityid)
@@ -178,14 +177,14 @@
 
             <div class="col-md-6">
                <div class="form-group row">
-               <label for="demo_given" class="col-sm-4 col-form-label">Demo Given:</label>
+               <label for="demo_given" class="col-sm-4 col-form-label">Demo&nbsp;Given:</label>
                <div class="col-sm-6">
                  @if($user->demo_given != 0)
-                <label >Is Demo Given?<input type="checkbox"  id="demo_given" name="demo_given" value="1" style="zoom:1.5;" checked="true">
+                <input type="checkbox"  id="demo_given" name="demo_given" value="1" style="zoom:1.5;" checked="true"><label >Is Demo Given?</label> 
                   @else
                   <input type="checkbox"  id="demo_given" name="demo_given" value="0" style="zoom:1.5;">
                     @endif
-                </label>
+               
                 </div>
               </div>
             </div>
@@ -197,17 +196,23 @@
 
             <div class="col-md-6">
                <div class="form-group row">
-                 <label for="Lead" class="col-sm-4 col-form-label">Sub Lead Status*:</label>
+                 <label for="Lead" class="col-sm-4 col-form-label">Sub&nbsp;Lead&nbsp;Status*:</label>
                  <div class="col-sm-6">
-                   <input type="text" class="form-control" id="Lead" name="Lead">
+                   <select type="text" class="form-control" id="Lead" name="Lead">
+                    <option value="">Select One</option>
+                  </select>
                  </div>
                </div>
              </div>
+             
+
+
+
 
 
             <div class="col-md-6">
               <div class="form-group row">
-                <label for="empname" class="col-sm-4 col-form-label">Is Share:</label>
+                <label for="empname" class="col-sm-4 col-form-label">Is&nbsp;Share:</label>
                 <div class="col-sm-6">
                   @if($user->Is_share==1)
                   <label for="one">Yes</label>
@@ -229,7 +234,7 @@
 
             <div class="col-md-6">
               <div class="form-group row">
-                <label for="empname" class="col-sm-4 col-form-label">Call Type:</label>
+                <label for="empname" class="col-sm-4 col-form-label">Call&nbsp;Type:</label>
                 <div class="col-sm-6">
                   @if($user->Call_type==1)
                   <label for="one">Calling</label>
@@ -318,7 +323,7 @@
 
               <div class="col-md-6">
              <div class="form-group row">
-                  <label for="ExpctDisbsDate" class="col-sm-4 col-form-label">Exp. disbursal Date:</label>
+                  <label for="ExpctDisbsDate" class="col-sm-4 col-form-label">Exp.&nbsp;disbursal&nbsp;Date:</label>
                   <div class="col-sm-6">
                     <input type="text" class="form-control" id="ExpctDisbsDate" name="ExpctDisbsDate" value="{{$user->ExpctDisbsDate}}">
                   </div>
@@ -351,11 +356,11 @@
 
 <!-- no update --> <div class="col-md-6">
                <div class="form-group row">
-                 <label for="Business_M" class="col-sm-4 col-form-label">Business Manager:</label>
+                 <label for="Business_M" class="col-sm-4 col-form-label">Business&nbsp;Manager:</label>
                  <div class="col-sm-6">
                    <select type="text" class="form-control" id="Business_M" name="Business_M">
                     <option disabled selected value="0">Select One</option>
-                    @foreach($manager as $val)                
+                    @foreach($manager as $val)         
                    
 
                     <option value="{{$val->Emp_Code}}">{{$val->Emp_Name}}</option>
@@ -367,20 +372,20 @@
              </div>
 
 
-            <div class="col-md-6">
-             <div class="form-group row">
+              <div class="col-md-6">
+                <div class="form-group row">
                   <label for="emp_code" class="col-sm-4 col-form-label">Assign To*:</label>
                   <div class="col-sm-6">
-                    <select type="text" class="form-control" id="emp_code" name="emp_code">                    
+                    <select type="text" class="form-control" id="emp_code" name="emp_code">
                     <option selected disabled value="0">Select One</option>
                     @foreach($assign as $assign)
                     @if($assign->Emp_Code == $user->emp_code)
-                      <option selected="true" value="{{$assign->Emp_Code}}">{{$user->emp_code}}</option>
-                      @else              
+                    <option selected="true" value="{{$assign->Emp_Code}}">{{$user->emp_code}}</option>
+                    @else              
                     <option value="{{$assign->Emp_Code}}">{{$assign->Emp_Name}}</option>
                     @endif
                     @endforeach               
-                 </select>
+                    </select>
                   </div>
                 </div>
               </div>
@@ -388,12 +393,11 @@
 
 <!-- no update --> <div class="col-md-6">
                <div class="form-group row">
-               <label for="Relationship_M" class="col-sm-4 col-form-label">Relationship Manager:</label>
+                 <label for="Relationship_M" class="col-sm-4 col-form-label">Relationship&nbsp;Manager:</label>
                <div class="col-sm-6">
                  <select type="text" class="form-control" id="Relationship_M" name="Relationship_M">
                  <option disabled selected value="0">Select One</option>
                   @foreach($rmanager as $rmanager)
-               
                   <option value="{{$rmanager->Emp_Code}}">{{$rmanager->Emp_Name}}</option>
                   @endforeach
                 </select>
@@ -415,7 +419,7 @@
 
              <div class="col-md-6">
                <div class="form-group row">
-               <label for="Uploaded_Dt" class="col-sm-4 col-form-label">Upload Disbursed:</label>
+               <label for="Uploaded_Dt" class="col-sm-4 col-form-label">Upload&nbsp;Disbursed:</label>
                <div class="col-sm-6">
                  <input type="file" class="form-control" id="Uploaded_Dt" name="Uploaded_Dt" value="{{$user->Uploaded_Dt}}">
                 </div>
@@ -432,14 +436,17 @@
                </div>
              </div>
 
- <!-- no update --> <div class="col-md-12">
+ <!-- no update --> <!-- <div class="col-md-12">
                <div class="form-group row">
                  <label for="dbm" class="col-sm-2 col-form-label">Disbursed Document :</label>
-                <!--  <div class="col-sm-6">
+                 <div class="col-sm-6">
                    <input type="text" class="form-control search_Emp_Name" id="dbm" name="dbm" value="">
-                 </div> -->
+                 </div>
                </div>
              </div>
+ -->
+
+
 
 
 
@@ -466,7 +473,7 @@
 
             <div class="col-md-6">
                <div class="form-group row">
-               <label for="Bank_RM_Name" class="col-sm-4 col-form-label">Bank RM Name:</label>
+               <label for="Bank_RM_Name" class="col-sm-4 col-form-label">Bank&nbsp;RM Name:</label>
                <div class="col-sm-6">
                  <input type="text" class="form-control" id="Bank_RM_Name" name="Bank_RM_Name" value="{{$user->Bank_RM_Name}}">
                 </div>
@@ -545,5 +552,42 @@
    </div>
  </div>
 </div>
+
+
+
+<!-- <script type="text/javascript">
+  $(document).ready(function(){
+    $('#Lead_Status_id').change(function(){
+      alert($(this).val());
+      var jsonString = JSON.stringify($(this).val());
+      $.ajax({
+        type: "POST",
+        url: "edit-fba-data",
+        data: {data: jsonString},
+        success: function(result) {
+            //window.console.log('Successful');
+             alert(result);
+        }
+    });
+  });
+});
+</script> -->
+
+<script>
+    $(function(){
+       $('#Lead_Status_id').change(function() {
+        var id = $('#Lead_Status_id').val();
+            $.ajax({
+                url: 'edit-fba-data-new/{id}',
+                type: '`',
+                data: {"_token": "{{ csrf_token() }}","id": id },
+                success: function(response)
+                {
+                   // $('#something').html(response);
+                }
+            });
+       });
+    });    
+</script>
 
 @endsection

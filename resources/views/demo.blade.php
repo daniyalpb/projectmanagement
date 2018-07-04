@@ -561,7 +561,6 @@
     border: 1px solid #ccc;
     border-radius: 4px;
 </style>
-
 <script language="javascript">
 function DisplayRB_BankDetails()
 {
@@ -612,9 +611,11 @@ $(document).on('change','#Debtor',function(){
                       $("#clientname").append(arr);
                 }
             });
-   });  
-</script>
+   });
 
+
+  
+</script>
 <script type="text/javascript">
   $(document).on('change','#clientname',function(){
   var client_name=$('#clientname').val();

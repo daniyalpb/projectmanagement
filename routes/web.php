@@ -121,9 +121,18 @@ Route::get('monthly-target','UsersController@monthlytarget');
 
            //**BillingController***********************
 
+// Route::get('create-invoice','BillingController@createinvoice');
+// Route::get('create-broker-invoice','BillingController@brokerinvoice');
+// Route::get('broker-invoice-register','BillingController@brokerinvoiceregister');
+
+
 Route::get('create-invoice','BillingController@createinvoice');
 Route::get('create-broker-invoice','BillingController@brokerinvoice');
 Route::get('broker-invoice-register','BillingController@brokerinvoiceregister');
+Route::post('Bank-Details','BillingController@getbankdetails');
+Route::post('GST-No','BillingController@getstategstno');
+Route::post('clientlist','BillingController@ClientList');
+Route::post('lead-id','BillingController@Leadid');
 
          //**ActivityController***********************
 
@@ -158,6 +167,13 @@ Route::get('PB-payout-master','LeadsController@pbpayoutmaster');
 Route::get('push-sms-entry','LeadsController@pushsmsentry');  
 Route::get('lead-status-update-flow/{id}','LeadsController@leadstatusupdateflow');
 Route::get('lead-assign-telecaller','LeadsController@leadassigntelecaller');
+
+Route::get('manage-fba-data','LeadsController@managefbadata');
+Route::get('manage-fba-get/{fdate}/{tdate}','LeadsController@managefba');
+Route::get('edit-fba-data/{id}','LeadsController@editfbadata');
+Route::POST('edit_fba_data','LeadsController@edit_fba_data');
+
+Route::get('edit-fba-data-new/{id}','LeadsController@sub_fbastatus');
 
 
 
