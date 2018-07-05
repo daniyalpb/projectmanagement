@@ -21,7 +21,7 @@
                 <div class="form-group row">
                   <label for="empcode" class="col-sm-4 col-form-label">From Date:</label>
                   <div class="col-sm-8">
-                    <input type="Date" class="form-control datepicker_id" id="empcode" name="empcode" value="<?php echo date('Y-m-d');?>">
+                    <input type="text" class="form-control datepicker_id" id="empcode" name="empcode" value="<?php echo date('Y-m-d');?>">
                   </div>
                 </div>
               </div>
@@ -31,7 +31,7 @@
                   <label for="empname" class="col-sm-4 col-form-label">To
                   Date:</label>
                   <div class="col-sm-8">
-                    <input type="Date" class="form-control datepicker_id" id="empname"
+                    <input type="text" class="form-control datepicker_id" id="empname"
                     name="empname" value="<?php echo date('Y-m-d');?>">
                  </div>
                </div>

@@ -188,7 +188,21 @@
                 </div>
               </div>
             </div>
-
+<!-- 
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label for="empname" class="col-sm-4 col-form-label">Demo&nbsp;Given:</label>
+                <div class="form-control border-none">
+                  <div class="col-md-6" >
+                    <div class="form-control">
+                    <input type="checkbox" name="demo_given" id="demo_given" class="radiob" checked="" value="1"> <label for="one">Is Demo Given?</label>&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
+                  
+                   </div>
+                 </div>
+               </div>
+             </div>
+ -->
 
             
 
@@ -228,6 +242,35 @@
                 </div>
               </div>
             </div>
+
+<!-- 
+             <div class="col-md-6">
+              <div class="form-group ">
+                <label for="empname" class="col-sm-4 col-form-label">Is&nbsp;Share:</label>
+                  <div class="col-md-6" >
+                    <div class="form-control">
+                    <input type="radio" name="Is_share" id="152"  checked="" value="1"> <label for="one">Yes</label>
+                    <input type="radio" name="Is_share" id="153"  value="2"> <label for="two">No</label>
+                   </div>
+                 </div>
+               </div>
+             </div>
+ -->
+
+            <!--  <div class="col-md-6">
+              <div class="form-group row">
+                <label for="empname" class="col-sm-4 col-form-label">Call&nbsp;Type:</label>
+                
+                  <div class="col-md-6" >
+                    <div class="form-control">
+                    <input type="radio" name="marital_status" id="152" class="radiob" checked="" value="1"> <label for="one">Calling</label>&nbsp;&nbsp;
+                  
+                    <input type="radio" name="marital_status" id="153" class="radiob" value="2"> <label for="two">Field Visit</label>&nbsp;&nbsp;
+                   </div>
+                 </div>
+               </div>
+             </div>
+ -->
 
 
 
@@ -572,6 +615,26 @@
   });
 });
 </script> -->
+
+
+<script type="text/javascript">
+  $('#Lead_Status_id').on('change',function(e){
+    console.log(e);
+    var id = e.target.value;
+        $.ajax({
+                url: 'edit-fba-data-new/{id}',
+                type: 'GET`',
+
+      $.get('/ajax-subcat?cat_id='+ cat_id, function(data){
+      $('#Lead').empty();
+      $.each(data, function(index,subctobj){
+        $('#Lead').append('<option value"'+subcatobj.name+'</option>');
+      });
+
+    });
+  });
+</script>
+
 
 <script>
     $(function(){

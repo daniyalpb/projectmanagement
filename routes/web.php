@@ -18,8 +18,6 @@ Route::get('/','LoginController@checklogin');
 Route::post('login','LoginController@login');
 Route::get('logout','LoginController@logout');
 
-
-
 Route::group(['middleware' => ['CheckMidd']], function (){
 Route::get('dashboard','DashboardController@dashboard');
 Route::get('employee-master','MastersController@aspxdata');
@@ -97,17 +95,9 @@ Route::get('bank-contact-details','MastersController@bankcontactdetails');
 Route::POST('bank-contact-details','MastersController@bank_contact_details');
 
 Route::get('bank_contact_details-new','bank_contact_detailsController@bankdetails');
-
-
-
-
-
-
-
-
-
+           /****************
            //**UsersController***********************
-
+           ****************/
 Route::get('user-group','UsersController@usergroup');
 Route::get('user-master','UsersController@usermaster');
 Route::get('user-rights','UsersController@userrights');
@@ -118,14 +108,9 @@ Route::get('menu-master','UsersController@menumaster');
 
 Route::get('group-rights','UsersController@grouprights');
 Route::get('monthly-target','UsersController@monthlytarget');
-
+           /****************
            //**BillingController***********************
-
-// Route::get('create-invoice','BillingController@createinvoice');
-// Route::get('create-broker-invoice','BillingController@brokerinvoice');
-// Route::get('broker-invoice-register','BillingController@brokerinvoiceregister');
-
-
+            ****************/
 Route::get('create-invoice','BillingController@createinvoice');
 Route::get('create-broker-invoice','BillingController@brokerinvoice');
 Route::get('broker-invoice-register','BillingController@brokerinvoiceregister');
@@ -133,9 +118,9 @@ Route::post('Bank-Details','BillingController@getbankdetails');
 Route::post('GST-No','BillingController@getstategstno');
 Route::post('clientlist','BillingController@ClientList');
 Route::post('lead-id','BillingController@Leadid');
-
+          /****************
          //**ActivityController***********************
-
+          ****************/
 Route::get('daily-planning','ActivityController@dailyplanning');
 Route::post('daily-planning-insert','ActivityController@daily_planning');
 Route::post('update_daily','ActivityController@daily_planning_edit');
@@ -143,22 +128,20 @@ Route::post('update_daily','ActivityController@daily_planning_edit');
 Route::get('lead-capture','ActivityController@leadcapture');
 Route::get('registration-report','ActivityController@registrationreport');
 Route::get('campaign-wise-report','ActivityController@campaignwisereport');
-Route::get('credit-card-entry','ActivityController@creditcardentry');
+Route::get('credit-card-entry','ActivityController@creditcardentry'); 
 
 
-
-
+                  //****************
                  //***LeadsController************************
-
+                 //****************
 Route::get('manage-leads','LeadsController@manageleads');
 Route::get('manage-leads-get/{fdate}/{tdate}','LeadsController@getleaddata');
 Route::post('update_manage_leads','LeadsController@manage_leads');
-
 Route::get('searchajax',array('as'=>'searchajax','uses'=>'LeadsController@autoComplete'));
-Route::get('searchajax-Emp-Name',array('as'=>'searchajax-Emp-Name','uses'=>'LeadsController@autoComplete_employee'));
-Route::get('searchajax-vertical',array('as'=>'searchajax-vertical','uses'=>'LeadsController@autoComplete_vertical'));
-Route::get('searchajax-source-name',array('as'=>'searchajax-source-name','uses'=>'LeadsController@autoComplete_Source'));
-Route::get('searchajax-status',array('as'=>'searchajax-status','uses'=>'LeadsController@autoComplete_Status'));
+Route::get('searchajax-Emp-Name',array('as'=>'searchajax-Emp-Name','uses'=>'                            LeadsController@autoComplete_employee'));
+Route::get('searchajax-vertical',array('as'=>'searchajax-vertical','uses'=>'                            LeadsController@autoComplete_vertical'));
+Route::get('searchajax-source-name',array('as'=>'searchajax-source-name','uses'=>'                            LeadsController@autoComplete_Source'));
+Route::get('searchajax-status',array('as'=>'searchajax-status','uses'=>'                                LeadsController@autoComplete_Status'));
 Route::get('lead-reassign-telecaller','LeadsController@leadreassigntelecaller');
 Route::get('lead-lead-capture','LeadsController@leadleadcapture');
 Route::POST('lead-lead-capture','LeadsController@lead_lead_capture');
@@ -177,8 +160,9 @@ Route::get('edit-fba-data-new/{id}','LeadsController@sub_fbastatus');
 
 
 
-
+         /****************
          //*** ReportingController***********************
+         ****************/
 
 Route::get('lead-assign-report','ReportingController@leadassignreport');
 Route::get('call-tracking-report','ReportingController@calltrackingreport');
@@ -207,9 +191,13 @@ Route::get('emp-details','pas\PasController@emp_details');
 Route::get('pas-details','pas\PasController@pms_details');
 Route::post('asp-insert','pas\PasController@pas_insert');
 Route::get('pas-registrar','pas\PasController@pas_registrar'); 
-Route::get('pas-data','pas\PasController@pas_data'); 
+Route::get('pas-data','pas\PasController@pas_data');
 
-
+       /*********************
+       //**DashBordController********
+       ***************/
+Route::get('dashboard-report','DashBordController@dashboardreport'); 
+Route::get('dashboard-report/{fdate}/{tdate}','DashBordController@reportdashboard');      
 
 
 

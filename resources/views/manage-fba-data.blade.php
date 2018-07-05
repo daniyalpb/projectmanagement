@@ -42,9 +42,8 @@
               </center> -->
               </form>
               <center>
-          <div class="col-sm-12">
-                
-                <a class="btn btn-primary" id="btnshowlead">show lead</a>
+            <div class="col-sm-12">
+              <a class="btn btn-primary" id="btnshowlead">show lead</a>
               </div>
             </center>
       
@@ -83,15 +82,15 @@ var tdate=$('#txttdate').val();
   $.ajax({  
          type: "GET",  
          url:'manage-fba-get/'+fdate+'/'+tdate,
-         success: function(leaddata)
+         success: function(fbalead)
          {   
-           alert(leaddata);
-           var data = JSON.parse(leaddata);
-           var str ="<table id='example'class='table table-bordered table-striped'><thead><tr><th>Edit</th><th>View History</th><th>FBA Name</th><th>FBA City Name</th><th>Emp Name</th><th>Contact No.</th><th>Email Id</th><th>PAN No.</th><th>FBA Status</th><th>Remark</th></tr></thead><tbody>";
+           alert(fbalead);
+           var data = JSON.parse(fbalead);
+           var str ="<table id='example'class='table table-bordered table-striped'><thead><tr><th>Edit</th><th>View&nbsp;History</th><th>FBA&nbsp;Name</th><th>FBA&nbsp;City&nbsp;Name</th><th>Emp&nbsp;Name</th><th>Contact&nbsp;No.</th><th>Email&nbsp;Id</th><th>PAN&nbsp;No.</th><th>FBA&nbsp;Status</th><th>Remark</th></tr></thead><tbody>";
        for (var i = 0; i < data.length; i++) 
        {
 
-         str = str + "<tr><td><a href='edit-fba-data/"+data[i].Broker_id+"'>"+data[i].Lead_id+"</a><td><a href='Select/"+data[i].Lead_id+"'>"+data[i].Lead_id+"</a></td><td>"+data[i].Broker_Name+"</td><td>"+data[i].City_Name+"</td><td>"+data[i].Emp_Code+"</td><td>"+data[i].Contact_No+"</td><td>"+data[i].Email_Id+"</td><td>"+data[i].PAN_No+"</td><td>"+data[i].FBA_Status+"</td><td>"+data[i].remark+"</td></tr>";
+         str = str + "<tr><td><a href='edit-fba-data/"+data[i].Broker_id+"'>Edit</a><td><a href='Select/"+data[i].Lead_id+"'>Select</a></td><td>"+data[i].Broker_Name+"</td><td>"+data[i].City_Name+"</td><td>"+data[i].Emp_Code+"</td><td>"+data[i].Contact_No+"</td><td>"+data[i].Email_Id+"</td><td>"+data[i].PAN_No+"</td><td>"+data[i].FBA_Status+"</td><td>"+data[i].remark+"</td></tr>";
        }
          str = str + "</tbody></table>";
            $('#divhistory').html(str);

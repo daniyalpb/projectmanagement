@@ -175,6 +175,8 @@ class LeadsController extends Controller
         return view('push-sms-entry',['smsdata'=>$smsdata])->with('no', 1);
     } 
 
+
+
     public function getleaddata($fdate,$tdate)
     {
          
@@ -213,19 +215,11 @@ class LeadsController extends Controller
 
     }
 
-
-
-
         public function  sub_fbastatus($id)
          {
 
             $id = $_GET['id'];
             return $id;
-
-          // $subcities = DB::table("city_alias")
-          //           ->where("city_id",$cityid)->get();
-            //$data = $req->all();
-         //  return json_encode($subcities);
  
        }
 
@@ -249,8 +243,8 @@ class LeadsController extends Controller
     {
          
         $id=Session::get('Emp_Code');
-        $leaddata=DB::select("call Usp_get_fba_data('$fdate','$tdate','RB40000059')");          
-        return json_encode($leaddata);
+        $fbalead=DB::select("call Usp_get_fba_data('$fdate','$tdate','RB40000059')");          
+        return json_encode($fbalead);
           
           
     }

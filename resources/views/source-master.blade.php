@@ -95,8 +95,10 @@
             <td>{{$val->source_id}}</td>
             <td>{{$val->source_name}}</td>
             <td>{{$val->Is_Active}}</td>
-            <td><a id="GridView1_lblEdit_4" onclick="demo('{{$val->source_id}}','{{$val->source_name}}','{{$val->Is_Active}}')" data-toggle="modal" data-target="#myModal">Edit</a></td>
+            <td><i class="fa fa-edit" id="GridView1_lblEdit_4" href="javascript:__doPostBack('GridView1$ctl06$lblEdit','' )" onclick="demo('{{$val->source_id}}','{{$val->source_name}}','{{$val->Is_Active}}')" data-toggle="modal" data-target="#myModal"></i></td>
           </tr>
+
+
         @endforeach
       </tbody>
     </table>

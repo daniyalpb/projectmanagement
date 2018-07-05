@@ -72,7 +72,7 @@
                 <th>Message Body</th>
                 <th>Is Active</th>
                 <th>Created Date</th>
-                <th>Action</th>
+                <th>Edit</th>
               </tr>
             </thead>
             <tbody>
@@ -83,7 +83,9 @@
                 <td>{{$val->messageBody}}</td>
                 <td>{{$val->is_Active}}</td>
                 <td>{{$val->Sysdate}}</td>
-                <td><a href="select" data-toggle="modal" data-target="#myModal"  onclick="demo('{{$val->message_id}}','{{$val->messageTitle}}','{{$val->messageBody}}','{{$val->is_Active}}')" >Edit</a></td>
+                <td><i class="fa fa-edit" id="GridView1_lblEdit_4" href="javascript:__doPostBack('GridView1$ctl06$lblEdit','' )" data-toggle="modal" data-target="#myModal"  onclick="demo('{{$val->message_id}}','{{$val->messageTitle}}','{{$val->messageBody}}','{{$val->is_Active}}')" ></i></td>
+
+                
               </tr>
             @endforeach
       </tbody>

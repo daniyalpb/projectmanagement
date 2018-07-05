@@ -33,7 +33,7 @@
               </div>
 
               <div class="form-group row">
-                <label for="FBA_Status" class="col-sm-4 col-form-label">Fba&nbsp;Status:</label>
+                <label for="FBA_Status" class="col-sm-4 col-form-label">FBA&nbsp;Status:</label>
                   <div class="col-sm-8">
                     <select type="text" class="form-control" id="FBA_Status" name="FBA_Status"> 
                   <option >Select One</option>
@@ -60,7 +60,7 @@
 
 
               <div class="form-group row">
-                <label for="Document1" class="col-sm-4 col-form-label">FollowUp&nbsp;Date:</label>
+                <label for="Document1" class="col-sm-4 col-form-label">Follow&nbsp;Up Date:</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control datepicker_id" id="date" name="date" value="{{$user->date}}">
                 </div>
@@ -68,7 +68,7 @@
 
 
               <div class="form-group row">
-                <label for="time" class="col-sm-4 col-form-label">FollowUp&nbsp;time:</label>
+                <label for="time" class="col-sm-4 col-form-label">Follow&nbsp;Up Time:</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control" id="time" name="time"  value="{{$user->time}}">
                 </div>
@@ -82,7 +82,7 @@
               </div>
 
               <center>
-                <input type="submit" name="Button1" value="Submit" id="Button1" class="btn btn-primary">
+                <input type="submit" name="Button1" value="Update" id="Button1" class="btn btn-primary">
               </center>
             </form>
           </div>

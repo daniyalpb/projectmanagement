@@ -20,10 +20,6 @@
             <form class="form-horizontal" name="break_master" id="break_master"  method="post">
            {{csrf_field()}}
 
-
-
-
-
             <div class="col-md-6">
                    <div class="form-group row">
                         <label for="Bank_Id" class="col-sm-5 col-form-label">Select&nbsp;Bank:</label>
@@ -116,7 +112,7 @@
 
 
 
-              <div class="col-md-6">
+                <div class="col-md-6">
                    <div class="form-group row">
                         <label for="Processing_Per" class="col-sm-5 col-form-label">Processing(%):</label>
                         <div class="col-sm-10">
@@ -134,13 +130,15 @@
                
                    </div>
                  </div>
-                 </div>
+                </div>
 
 
-                   <center><div class="col-sm-12">
-                   <button type="submit" id="sub" class="btn btn-primary">Submit</button>
-            <button type="reset" value="Reset">Reset</button>
-          </div></center>
+                  <center>
+                    <div class="col-sm-12">
+                    <button type="submit" id="sub" class="btn btn-primary">Submit</button>
+                    <button type="Reset" class="btn" value="Reset">Reset</button>
+                   </div>
+                 </center>
 
 
 
@@ -178,7 +176,9 @@
             <td>{{ $no++ }}</td>
             <td>{{$val->Bank_Name}}</td>
             <td>{{$val->Product_Name}}</td>
-<td><a class="btn btn-primary" href="edit-bank-payout-master/{{ $val->Id }}" class="btn btn -success">Edit</a></td>
+
+
+<td><a class="fa fa-edit" id="GridView1_lblEdit_4" href="edit-bank-payout-master/{{ $val->Id }}"  ></a></td>
                  </tr>
              @endforeach        
            </tbody>
