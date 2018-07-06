@@ -21,7 +21,7 @@
                    <div class="form-group row">
                       <label for="empcode" class="col-sm-4 col-form-label">From&nbsp;Date:</label>
                        <div class="col-md-6">
-                         <input type="date" class="form-control" id="LeadType" name="LeadType" value="<?php echo date('Y-m-d');?>">
+                         <input type="text" class="form-control datepicker_id" id="LeadType" name="LeadType" value="<?php echo date('Y-m-d');?>">
                      </div>
                   </div>
                 </div>
@@ -30,7 +30,7 @@
                    <div class="form-group row">
                       <label for="empname" class="col-sm-4 col-form-label" >To&nbsp;Date:</label>
                        <div class="col-sm-6">
-                       <input type="date" class="form-control"   id="companyname" name="companyname" value="<?php echo date('Y-m-d');?>">
+                       <input type="text" class="form-control datepicker_id"   id="companyname" name="companyname" value="<?php echo date('Y-m-d');?>">
                      </div>
                   </div>
                </div>

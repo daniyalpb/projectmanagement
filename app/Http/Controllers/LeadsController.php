@@ -218,9 +218,8 @@ class LeadsController extends Controller
         public function  sub_fbastatus($id)
          {
 
-            $id = $_GET['id'];
-            return $id;
- 
+            $data = DB::select('call usp_get_sub_leadstatus(?)',array($id)); 
+            return json_encode($data);
        }
 
     public function leadassigntelecaller()

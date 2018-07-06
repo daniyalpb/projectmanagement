@@ -26,7 +26,7 @@
                    	<div class="form-group row">
                         <label for="empcode" class="col-sm-2 col-form-label">Select Date:</label>
                         <div class="col-sm-4">
-                          <input type="Date" class="form-control" id="empcode" name="empcode" value="<?php echo date('Y-m-d');?>">
+                          <input type="text" class="form-control datepicker_id" id="empcode" name="empcode" value="<?php echo date('Y-m-d');?>">
                         </div>
                       </div>
                   </div>

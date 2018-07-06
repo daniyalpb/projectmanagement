@@ -404,11 +404,14 @@
                  <div class="col-sm-6">
                    <select type="text" class="form-control" id="Business_M" name="Business_M">
                     <option disabled selected value="0">Select One</option>
-                    @foreach($manager as $val)         
-                   
+                    @foreach($manager as $val)    
 
-                    <option value="{{$val->Emp_Code}}">{{$val->Emp_Name}}</option>
+                    @if($val->Emp_Code == $user->Business_M)     
                    
+                    <option selected="true" value="{{$val->Emp_Code}}">{{$val->Emp_Name}}</option>
+                    @else
+                    <option value="{{$val->Emp_Code}}">{{$val->Emp_Name}}</option>
+                   @endif
                     @endforeach
                  </select>
                  </div>   
@@ -424,7 +427,7 @@
                     <option selected disabled value="0">Select One</option>
                     @foreach($assign as $assign)
                     @if($assign->Emp_Code == $user->emp_code)
-                    <option selected="true" value="{{$assign->Emp_Code}}">{{$user->emp_code}}</option>
+                    <option selected="true" value="{{$assign->Emp_Code}}">{{$assign->Emp_Name}}</option>
                     @else              
                     <option value="{{$assign->Emp_Code}}">{{$assign->Emp_Name}}</option>
                     @endif
@@ -441,9 +444,16 @@
                <div class="col-sm-6">
                  <select type="text" class="form-control" id="Relationship_M" name="Relationship_M">
                  <option disabled selected value="0">Select One</option>
-                  @foreach($rmanager as $rmanager)
-                  <option value="{{$rmanager->Emp_Code}}">{{$rmanager->Emp_Name}}</option>
-                  @endforeach
+
+                  @foreach($manager as $val)    
+
+                    @if($val->Emp_Code == $user->Business_M)     
+                   
+                    <option selected="true" value="{{$val->Emp_Code}}">{{$val->Emp_Name}}</option>
+                    @else
+                    <option value="{{$val->Emp_Code}}">{{$val->Emp_Name}}</option>
+                   @endif
+                    @endforeach
                 </select>
               </div>
             </div>
@@ -533,7 +543,7 @@
                     <option selected disabled= value="0">Select One</option>
                     @foreach($product as $val)
                     @if($val->Product_Id == $user->productid)
-                    <option selected="true" value="{{$user->productid}}">{{$user->Product_Name}}</option>
+                    <option selected="true" value="{{$user->productid}}">{{$val->Product_Name}}</option>
                     @else
                     <option value="{{$val->Product_Id}}">{{$val->Product_Name}}</option>
                     @endif
@@ -619,7 +629,7 @@
 </script> -->
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $('#Lead_Status_id').on('change',function(e){
     console.log(e);
     var id = e.target.value;
@@ -635,20 +645,30 @@
 
     });
   });
-</script>
+</script> -->
 
 
 <script>
     $(function(){
        $('#Lead_Status_id').change(function() {
         var id = $('#Lead_Status_id').val();
+
+        alert(id);
             $.ajax({
-                url: 'edit-fba-data-new/{id}',
-                type: '`',
-                data: {"_token": "{{ csrf_token() }}","id": id },
+                url: 'http://localhost:8000/edit-fba-data-new/'+id,
+                type: 'GET',
+                data: "",
                 success: function(response)
                 {
-                   // $('#something').html(response);
+                   console.log(response);
+
+                   var d = JSON.parse(response);
+                   $('#Lead').empty();
+                   for(var i=0;i<d.length;i++)
+                 {
+                  $('#Lead').append("<option value="+d[i].Lead_Status_Id+">"+d[i].Lead_Status+"</option>");
+                 }
+
                 }
             });
        });
