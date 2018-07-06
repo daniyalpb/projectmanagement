@@ -22,7 +22,7 @@
                    <div class="form-group row">
                         <label for="txtfdate" class="col-sm-3 col-form-label">From&nbsp;Date:</label>
                         <div class="col-sm-6">
-                          <input type="text" class="form-control datepicker_id" id="txtfdate" name="txtfdate" value="<?php echo date('Y-m-d');?>">                         
+                          <input type="text" class="form-control datepicker_id" id="txtfdate" name="txtfdate" value="<?php echo date('Y-m-01');?>">                
                         </div>
                   </div>
                 </div>
@@ -32,7 +32,7 @@
                   <div class="form-group row">
                     <label for="txttdate" class="col-sm-3 col-form-label">To&nbsp;Date:</label>
                     <div class="col-sm-6">
-                     <input type="text" class="form-control datepicker_id" id="txttdate" name="txttdate" value="<?php echo date('Y-m-d');?>">                     
+                     <input type="text" class="form-control datepicker_id" id="txttdate" name="txttdate" value="<?php echo date('Y-m-t');?>">                     
                    </div>
                  </div>
                  </div>

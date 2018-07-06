@@ -19,7 +19,7 @@
             <form class="form-horizontal" name="update_manage_leads" id="update_manage_leads" action="{{url('update_manage_leads')}}"  method="POST">
               {{csrf_field()}}
 
-             <center><h4><b>Personal Details</b></h4></center><hr>
+             <center><h3><b>Personal Details</b></h3></center><hr>
              <div class="col-md-6">
              <div class="form-group row">
                   <label for="Lead_id" class="col-sm-4 col-form-label">Lead Id:</label>
@@ -154,7 +154,7 @@
               </div>
 
 
-              <center><h4><b>Followup Details</b></h4></center><hr>
+              <center><h3><b>Followup Details</b></h3></center><hr>
 
             <div class="col-md-6">
              <div class="form-group row">
@@ -175,7 +175,7 @@
               </div>
 
 
-            <div class="col-md-6">
+           <!--  <div class="col-md-6">
                <div class="form-group row">
                <label for="demo_given" class="col-sm-4 col-form-label">Demo&nbsp;Given:</label>
                <div class="col-sm-6">
@@ -187,12 +187,12 @@
                
                 </div>
               </div>
-            </div>
-<!-- 
+            </div> -->
+
             <div class="col-md-6">
               <div class="form-group row">
                 <label for="empname" class="col-sm-4 col-form-label">Demo&nbsp;Given:</label>
-                <div class="form-control border-none">
+                <!-- <div class="form-control border-none"> -->
                   <div class="col-md-6" >
                     <div class="form-control">
                     <input type="checkbox" name="demo_given" id="demo_given" class="radiob" checked="" value="1"> <label for="one">Is Demo Given?</label>&nbsp;&nbsp;
@@ -202,7 +202,8 @@
                  </div>
                </div>
              </div>
- -->
+         <!--   </div> -->
+
 
             
 
@@ -223,7 +224,7 @@
 
 
 
-
+<!-- 
             <div class="col-md-6">
               <div class="form-group row">
                 <label for="empname" class="col-sm-4 col-form-label">Is&nbsp;Share:</label>
@@ -241,9 +242,9 @@
                   @endif
                 </div>
               </div>
-            </div>
+            </div> -->
 
-<!-- 
+
              <div class="col-md-6">
               <div class="form-group ">
                 <label for="empname" class="col-sm-4 col-form-label">Is&nbsp;Share:</label>
@@ -255,9 +256,9 @@
                  </div>
                </div>
              </div>
- -->
 
-            <!--  <div class="col-md-6">
+
+             <div class="col-md-6">
               <div class="form-group row">
                 <label for="empname" class="col-sm-4 col-form-label">Call&nbsp;Type:</label>
                 
@@ -270,10 +271,10 @@
                  </div>
                </div>
              </div>
- -->
 
 
 
+<!-- 
 
             <div class="col-md-6">
               <div class="form-group row">
@@ -292,7 +293,7 @@
                   @endif
                 </div>
               </div>
-            </div>
+            </div> -->
 
 
  
@@ -470,10 +471,10 @@
             </div>
 
 
-             <div class="col-md-6">
+             <div class="col-md-12">
                <div class="form-group row">
-                 <label for="Remark" class="col-sm-4 col-form-label">Remark:</label>
-                 <div class="col-sm-6">
+                 <label for="Remark" class="col-sm-2 col-form-label">Remark:</label>
+                 <div class="col-sm-3">
                    <input type="text" class="form-control" id="Remark" name="Remark" value="{{$user->Remark}}">
                  </div>
                </div>
@@ -493,7 +494,7 @@
 
 
 
-              <center><h4><b>Bank Details</b></h4></center><hr>
+              <center><h3><b>Bank Details</b></h3></center><hr>
 
             <div class="col-md-6">
              <div class="form-group row">
@@ -584,11 +585,12 @@
 
 
 
-            <center>
+           <center>
               <div class="col-sm-12">
                 <button type="submit" id="sub" class="btn btn-primary">Submit</button>
-              </div>
+              </div>              
            </center>
+
          </form>
        </div>
      </div>

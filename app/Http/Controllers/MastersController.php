@@ -290,7 +290,9 @@ class MastersController extends Controller
 		return Redirect('source-master');
 	}
 	public function source_master_edit(Request $req)
+
 	{ 
+		// print_r($req->all());exit();
          $va=0;
 		if(isset($req->Is_Active)){
            $va=1;
@@ -298,7 +300,8 @@ class MastersController extends Controller
 			 $va=0;
 			}
 		 
-		 DB::select("call Update_source_master(?,?,?)",array($req->source_id,$req->source_name,$va));
+		 $query=DB::select("call Update_source_master(?,?,?)",array($req->source_id,$req->source_name,$va));
+		print_r($query);exit();
 		 return Redirect('source-master');
 		}
 //******bank-product-web
