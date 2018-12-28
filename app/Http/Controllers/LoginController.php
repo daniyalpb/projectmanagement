@@ -9,6 +9,7 @@ use Excel;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Response;
 use Validator;
+use App\CustomValidation;
 use Redirect;
 class LoginController extends Controller
 {
@@ -17,7 +18,7 @@ class LoginController extends Controller
   public function checklogin(Request $request){
 
   
-if(!$request->session()->exists('empcode')){
+if(!$request->session()->exists('id')){
                return view('login');
        }else{
                 return redirect('/dashboard');
@@ -47,12 +48,16 @@ if(!$request->session()->exists('empcode')){
              if($query){
              	$val=$query[0];
 				$request->session()->flush();
-				$request->session()->put('userid',$val->userid);
-				$request->session()->put('username',$val->username);
-				$request->session()->put('empcode',$val->empcode);
-				$request->session()->put('groupid',$val->groupid);
-				$request->session()->put('Is_Active',$val->Is_Active);
-				$request->session()->put('email',$val->email);
+		        $request->session()->put('id',$val->id);
+		        $request->session()->put('name',$val->name);
+		        $request->session()->put('password',$val->password); 
+		        $request->session()->put('email',$val->email);
+				// $request->session()->put('userid',$val->userid);
+				// $request->session()->put('username',$val->username);
+				// $request->session()->put('empcode',$val->empcode);
+				// $request->session()->put('groupid',$val->groupid);
+				// $request->session()->put('Is_Active',$val->Is_Active);
+				// $request->session()->put('email',$val->email);
 				                         
                return redirect()->intended('dashboard');
                }else{   Session::flash('msg', "Invalid email or password. Please Try again! ");

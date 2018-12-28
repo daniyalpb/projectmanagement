@@ -22,12 +22,12 @@
 
     <form action="{{url('login')}}" method="post">{{csrf_field()}}
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" name="email" placeholder="Email" value="RB40000003">
+        <input type="text" class="form-control" name="email" name="email" placeholder="Email" value="vivek@gmail.com">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           @if ($errors->has('email'))<label class="control-label" for="inputError" > {{ $errors->first('email') }}</label>  @endif
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" name="password" placeholder="Password" value="SwBjADgAOQBEAGsA">
+        <input type="password" class="form-control" name="password" placeholder="Password" value="">
          @if ($errors->has('password')) <label class="control-label" for="inputError">{{ $errors->first('password') }} </label> @endif
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
@@ -40,13 +40,28 @@
           </div>
         </div> -->
         <!-- /.col -->
+      <h7 style="color:green ">Unabled TO  Acees your Account?</h7>
+          <p> To request an accounts Please contact Your site Adminstrator.</p>
+          <p>By logging in, you agree To the</p><h6 style="color:green  font-size: 12px;
+    margin-left: 53%;
+    margin-top: -8%;">Privacy Policy.</h6>
         <div class="col-xs-4">
           <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+
+            <a href="forgot-password" target="_blank" class="btn btn-link ">forgot Password</a>
+        </div>
+
+        <div class="col-xs-4">
+            <a href="http://localhost:8000/registration"  target="_blank" class="btn btn-link"> if you are not Register </a>
         </div>
          @if (Session::has('msg')) <label class="control-label" for="inputError">{{ Session::get('msg') }} </label>@endif
         <!-- /.col -->
       </div>
     </form>
+
+
+    <!-- <button type="submit" href="forgot-password" class="btn btn-primary ">forgot pass</button> -->
+  
 
    <!--  <div class="social-auth-links text-center">
       <p>- OR -</p>

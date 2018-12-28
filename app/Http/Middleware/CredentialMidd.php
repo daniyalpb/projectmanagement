@@ -15,7 +15,7 @@ class CredentialMidd
      */
     public function handle($request, Closure $next)
     {
-        if(!$request->session()->exists('empcode')){
+        if(!$request->session()->exists('id')){
            
            return redirect('/');
          }else{

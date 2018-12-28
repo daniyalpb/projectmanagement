@@ -7,12 +7,20 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
+           <li class="active treeview"><a href="registration"><i>REGISTRATION</i></a></li>
+           <li class="active treeview"><a href="project-master"><i>PROJECT MASTER</i></a></li>
+           <li class="active treeview"><a href="task-description"><i>TASK DISCRIPTION</i></a></li>
+           <li class="active treeview"><a href="project-master-view"><i>VIEW PROJECT TASK</i></a></li>
+            <li class="active treeview"><a href="assign-task"><i>ASSIGN TASK</i></a></li>
+
             </span>
           </a>
           
-            <ul class="treeview-menu">
-            <?php echo $cl->user_right_group_menu();?> 
-           </ul>
+          <!--   <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>
+           </ul> -->
+
+           
         </li>
        
      <!--   
@@ -23,6 +31,6 @@
 
 
       </ul>
-    </section>
+    </aside>
     <!-- /.sidebar -->
-  </aside>
+
