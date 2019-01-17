@@ -33,7 +33,10 @@
                      <td>{{$val->last_login_date}}</td>
                      <td>{{$val->Created_Date}}</td>
                      <td>{{$val->mobile}}</td>
-                       <td><a href="user-login-details/{{$val->id}}" class="btn btn-success a-btn-slide-text">
+
+
+
+                     <td><a href="user-master-view/{{$val->id}}" class="btn btn-success a-btn-slide-text">
         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
         <span><strong>Edit</strong></span>            
     </a></td>

@@ -92,4 +92,14 @@ public function project_insert(CustomValidation $validator,Request $req){
     }
 
     
+
+
+public function projectsmove(){
+    $data=DB::select("call usp_get_project_master_details()");
+
+ return view('project-move',['data'=>$data])->with('no',1);
+
+}
+
+
 }

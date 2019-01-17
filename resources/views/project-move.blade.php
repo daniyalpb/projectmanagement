@@ -1,6 +1,5 @@
 @extends('include.master')
 @section('content')
-)
 @if(Session::has('message'))
 <div class="alert alert-success alert-dismissible">
 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -8,43 +7,39 @@
 </div>
 @endif
 <div class="container-fluid white-bg">
-<div class="col-md-12"><h3 class="mrg-btm">Module Master</h3></div>
+<div class="col-md-12"><h3 class="mrg-btm">Sub Task Master</h3></div>
 <div class="col-md-12">
 
 
-<form method="post" id="fromraiserticket"  name="fromraiserticket" enctype="multipart/form-data" >
+<form method="post" id="formsubTaskmaster"  name="formsubTaskmaster" enctype="multipart/form-data" >
 {{ csrf_field() }}
 
 
- <div class="form-group">
-  <div class="col-xs-4">
-  <select name="project_name"  class="form-control"  id="project_id">
-  <option value="0">Project Name</option>
-  @foreach($data as $val)
-  <option value="{{$val->project_name}}">{{$val->project_name}}</option>
-  @endforeach
-  </select>
-  </div>
-  </div> 
+
+   <div class="button-group">
+   <div class="col-md-4 col-xs-12">
+    <input  data-toggle="dropdown"   class="form-control" aria-expanded="true"  placeholder="project Name">
+    <ul class="dropdown-menu" id="projectid" style="min-width: 24rem;   height: 250px; overflow: auto; margin-left: 1vw; width: 24vw;" >
+    <input type="text" id="project" onkeyup="ProjectFunction()" placeholder="Search for Projects.." title="Type in a name">
+    @foreach($data as $val)
+    <li style="font-size: 17px;"><a href="#" class="small" data-value="option1" tabIndex="-1"><input type="checkbox" name="rto_id[]" id="rto_id" value="{{$val->project_name}}" style="margin: 4px 7px 0;" />{{$val->project_name}}</a></li>
+    @endforeach
+      </ul>
+     </div>
+    </div>
 
 
 
- 
+
+
 <div class="col-md-4  col-xs-12">
  <div class="form-group">
-<input class="form-control" name="Module_Name" id="Module_Name"  required="yes" placeholder="ModuleName"  >
+<input class="form-control" name="Subtask_Name" id="Subtask_Name"  required="yes" placeholder="Task Name"  >
 
  </div>
  </div>
-j
-<!-- 
-<div class="col-md-4  col-xs-12">
- <div class="form-group">
- <input class="form-control" name="Id" id="Id" placeholder="ProjectId" >
 
-</div>
-</div>
- -->
+
 
  <div class="col-md-4  col-xs-12">
  <div class="form-group">
@@ -55,12 +50,42 @@ j
   </div>
 
 
+
+
+
+
+
+
+
+ <div class="form-group">
+  <div class="col-xs-4">
+  <select name="Status"  class="form-control"  id="Status">
+  <option value="0">Status</option>
+    <option id="WIP"  value="WIP"> Open</option>
+
+  <option id="WIP"  value="WIP"> Working in progress</option>
+    <option id="done"  value="Complete ">Complete</option>
+   <option id="indev"  value="InDev ">In Devlopement</option>
+  </select>
+  </div>
+  </div> 
+
+
+
+
 <div class="col-md-4  col-xs-12" style="width:50% height:20%" >
  <div class="form-group">
  <textarea class="form-control" name="Description" id="Description" placeholder="Description...." ></textarea>
 </div>
 </div>
 
+
+
+<div class="col-md-4  col-xs-12" >
+ <div class="form-group">
+ <input class="form-control" name="Remark" id="Remark" placeholder="Remark...." >
+</div>
+</div>
 
 
 
@@ -103,10 +128,10 @@ j
     //alert('oke');
     $(".error_class").empty();
     $(".success_class").empty();
-var formdata = new FormData($("#fromraiserticket")[0]);
+var formdata = new FormData($("#formsubTaskmaster")[0]);
     $.ajax({  
            type: "POST",  
-           url: "{{URL::to('module-master-insert')}}",
+           url: "{{URL::to('subtask-master-insert')}}",
             //data : $('#project_m').serialize(),
             data : formdata,
            processData: false,
@@ -131,6 +156,29 @@ var formdata = new FormData($("#fromraiserticket")[0]);
             }
         }); 
   });
+
+
+  function ProjectFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("project");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("projectid");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
 </script>
+
+
+
+
+
 
 @endsection

@@ -119,13 +119,15 @@
         $(".success_class").empty();
           $.ajax({  
            type: "POST",  
-           url: "{{URL::to('openissues')}}",
+           url: "{{URL::to('openissues-update')}}",
            data : $('#employee_master_form').serialize(),
            success: function(msg){
+           alert('Data Updated Successfully ');
+
             var response = JSON.parse(msg);
                     if(response.status == "success"){
                       $("#success_response").html(response.messege);
-                      window.location = "http://localhost:8000/employee-table";
+                      window.location = "http://localhost:8000/openissues";
                     }
                   }
                 });

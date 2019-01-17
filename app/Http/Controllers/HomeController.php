@@ -6,6 +6,8 @@ use Session;
 use Cache;
 use App\CustomValidation;
 
+use App\TagList;
+use Validator;
 class HomeController extends Controller
 {
   
@@ -15,9 +17,12 @@ class HomeController extends Controller
       $status=DB::select("call sp_status_view()");
       $reporterdata=DB::select("call usp_load_reporter()");
       $reporterassign=DB::select("call usp_load_assignee()");
+
       $homes=DB::select("call sp_view_project_details()");
       $taguser=DB::select("call sp_assign_task()");
-      return view('home',['data'=>$data,'query'=>$query,'status'=>$status,'reporterdata'=>$reporterdata,'taguser'=>$taguser,'reporterassign'=>$reporterassign,'homes'=>$homes])->with('no',1);
+      $task=DB::select("call sp_load_task_master()");
+
+      return view('home',['data'=>$data,'query'=>$query,'status'=>$status,'reporterdata'=>$reporterdata,'taguser'=>$taguser,'reporterassign'=>$reporterassign,'homes'=>$homes,'task'=>$task])->with('no',1);
      }
 
 
@@ -56,5 +61,60 @@ public function inserthomemaster(CustomValidation $validator,Request $req){
     }
 }
 
+
+
+public function about_us(){
+  return view('about-us');
 }
+
+
+ public function addMore()
+    {
+        return view("addMore"); 
+    }
+
+
+
+
+    public function addMorePost(Request $req){
+           
+           foreach ($req->name as $key => $value) {
+       
+
+    $query= DB::select('call sp_insert_new_task_master(?,?,?,?)',[$req->name[$key],$req->Task_Name[$key],$req->Module_Name[$key],$req->SubTask[$key]]);
+}
+
+
+
+}
+
+
+
+
+ public function myform()
+    {
+        $states = DB::table("demo_state")->lists("name","id");
+        return view('myform',compact('states'));
+    }
+
+
+    /**
+     * Get Ajax Request and restun Data
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function myformAjax($id)
+    {
+        $cities = DB::table("demo_cities")
+                    ->where("state_id",$id)
+                    ->lists("name","id");
+        return json_encode($cities);
+    }
+
+
+
+
+
+}
+
 

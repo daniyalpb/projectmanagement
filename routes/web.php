@@ -57,7 +57,7 @@ Route::post('/create-issue-form','CreateIssueController@insert_create_issue');
 Route::get('/module-master','ModuleController@modulemaster');
 Route::post('/module-master-insert','ModuleController@insertmodulemaster');
 Route::get('/module-master-view','ModuleController@modulemasterview');
-Route::get('/task-master','TaskMasterController@taskmaster');
+
 Route::get('/task-master-view','TaskMasterController@taskmasterview');
 Route::post('/task-master-insert','TaskMasterController@inserttaskmaster');
 
@@ -92,6 +92,7 @@ Route::get('/home-master-view','HomeController@homemasterview');
 Route::get('/openissues','OpenIssueController@open_issue');
 
 Route::get('/openissues-view/{id}','OpenIssueController@open_issueview');
+Route::post('/openissues-update','OpenIssueController@open_issueupdate');
 
 Route::get('/open-issues','OpenIssueController@openis');
 
@@ -107,18 +108,72 @@ Route::get('/view-all-bug','OpenIssueController@view_all_bug');
 Route::get('/unrelesed','OpenIssueController@task_unrelesed');
 Route::get('/google-line-chart', 'GoogleChartController@googleLineChart');
 Route::get('/report','GoogleChartController@chart');
-Route::get('/user-details-view','UserController@userdetails_view');
-Route::get('/user-login-details/{id}','UserController@userdetail_update');
-Route::get('/user-details','UserController@userlogin_view');
-Route::get('/user-details-update','UserController@user_update');
-Route::post('/user-details-insert','UserController@user_detail_insert');
 
-   // print_r($req->all());
+Route::get('/user-master','UserMasterController@user_master');
+Route::get('/user-master-view/{id}','UserMasterController@user_master_view');
+Route::post('/user-master-update','UserMasterController@user_master_update');
+Route::get('/about-us','HomeController@about_us');
+
+Route::get("addmore","HomeController@addMore");
+Route::post("addmore","HomeController@addMorePost");
+//Route::get("save-project-name/{pro_name}/{id}","TaskMasterController@add_task");
+Route::get("cascading-demo","SendSMSController@cascading_demo");
+
+Route::get('dashboard.myform',array('as'=>'myform','uses'=>'HomeController@myform'));
+Route::get('dashboard.myform/ajax/{id}',array('as'=>'myform.ajax','uses'=>'HomeController@myformAjax'));
+
+// avitest
+ Route::get('send-sms','SendSMSController@sendsmsrea');
+ Route::get('send-sms-state','SendSMSController@sendsmsren');
+ Route::post('send-sms-city','SendSMSController@sendsmscity');
+Route::post('send-sms-save','SendSMSController@send_sms_save');
+Route::post('send-sms-detail','SendSMSController@getfbalist');
+Route::get('send-sms/{id}',array('as'=>'sendsms.ajax','uses'=>'SendSMSController@sendsmscity'));
+//Route::get('send-sms','SendSMSController@ViewSendSMSDetails');
+ Route::get('send-sms-zone','SendSMSController@getsmszone');
+
+
+// aviend
+
+// Route::get('/task-master','TaskMasterController@taskmaster');
+// Route::post('/task-master','TaskMasterController@taskmasterpost');
+// Route::get("addmore","HomeController@addMore");
+// Route::post("addmore","HomeController@addMorePost");
+
+
+
+Route::get('task-master',array('as'=>'task-master','uses'=>'TaskMasterController@task_master'));
+Route::get('task-master/ajax/{Id}',array('as'=>'task-master.ajax','uses'=>'TaskMasterController@task_masterajax'));
+
+
+Route::get('task-master/{module_id}','TaskMasterController@taskmasterAjaxnew');
+
+Route::post('task-master','TaskMasterController@projects');
+Route::post('save-project-name','TaskMasterController@add_task');
+//Route::get('save-project-name/{pro_name}/{ProjectId}','TaskMasterController@add_task');
+
+Route::post('save-project-module','TaskMasterController@add_module');
+//Route::get('save-project-module/{Module_Name}','TaskMasterController@add_module');
+Route::post('save-project-task','TaskMasterController@add_tasknew');
+
+
+
+Route::post('task-master','TaskMasterController@projects');
+//Route::get('task-master','TaskMasterController@view_project_details');
+
+// project move
+
+Route::get('project-move','ProjectController@projectsmove');
+
+
+
+//view_project_details
+
+
 
 
 
 Route::get('/header','HomeControlle@issueheader');
-
 Route::get('/menu-group','MenuController@menugroup');
 Route::get('/menu-list','MenuController@menulist');
 Route::post('/menu-list-form','MenuController@menu_list');

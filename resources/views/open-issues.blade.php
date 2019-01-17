@@ -23,7 +23,6 @@
                     <th>Assignee</th>
                     <th>Issues</th> 
                     <th>Description</th>   
-                      
                     <th>Environment</th>                            
                   </tr>
                 </thead>
@@ -51,7 +50,6 @@
                       @endif
                     <td>{{$val->Description}}</td>
                     <td>{{$val->Environment}}</td>
-
                   </tr>
                   @endforeach
                 </tbody>

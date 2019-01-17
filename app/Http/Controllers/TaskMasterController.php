@@ -1,56 +1,61 @@
 <?php
-
 namespace App\Http\Controllers;
-
+use App\Http\Requests;
 use Illuminate\Http\Request;
 use DB;
-use Session;
-use Cache;
-use App\CustomValidation;
 
-class TaskMasterController extends Controller
-{
-    public function taskmaster(){
- $data=DB::select("call sp_assign_project");
-    return view('task-master',['data'=>$data])->with('no',1);
+class TaskMasterController extends Controller{
+  public function task_master()
+  {
+    $query=DB::select("call sp_load_task_details()");
+        $taskcategory=DB::select("call sp_load_task_category()");
 
-    }
-
-
-
-
-public function inserttaskmaster(CustomValidation $validator,Request $req){
-
-//print_r($req->all());exit();
-    $data = array();
-    $error = array();
-
-    $parameters['REQUEST'] = $req->all();
-    $parameters['VALIDATIONS'] = array(
-        'REQUIRED_VALIDATIONS'=>array('Task_Name'=>'Please Enter Task Name')
+     $states = DB::table("project_master")->select("project_name","id")->get();
+        return view('task-master',['states'=>$states,'query'=>$query,'taskcategory'=>$taskcategory]);
+        }
+       public function task_masterajax($id)
+       {
+      $cities = DB::table("Module_Master")
+       ->where("ProjectId",$id)
+       ->select("Module_Name","id")->get();
+      return json_encode($cities);
         
-    );
 
-    extract($validator->validate_required($parameters));
 
-    if(count($error) === 0){
-
-    $user = Session::get('Id');
-    $query=DB::insert('call sp_insert_module_master(?,?,?,?)',array($req->Name,$req->Description,$req->CreateDate,$req->Task_Name));
-    $success_msg = array('status'=>'success',"messege"=>"Your File Successfully Insert","redirectUrl"=>"task-master");
-            echo json_encode($success_msg);
-
-    } 
-    else{
-        echo json_encode($error);
     }
+    public function taskmasterAjaxnew($module_id)
+    {
+    $task = DB::table("task_master")
+    ->where("ProjectId",$module_id)
+    ->select("Task_Name","module_id")->get();
+    return json_encode($task);
+    }
+
+
+   public function projects(Request $req){
+   $projectnew=DB::select('call sp_insert_project_master(?,?,?,?,?,?)',array($req->state,$req->city,$req->task,$req->SubTask,$req->remark,$req->task_category));
+   return $projectnew;
+   }
+
+
+  public  function add_task(Request $req){
+
+  //print_r($req->all());exit();
+ $project=DB::select('call sp_insert_project(?,?)',array($req->savepname,$req->projectids));
+ return $project;
+ }
+
+
+public  function add_module(Request $req){
+  //print_r($req->all());exit();
+ $module=DB::select('call sp_insert_module(?,?)',array($req->savepname1,$req->state_ID));
+ return $module;
 }
 
 
-public function taskmasterview(){
-
- $data=DB::select('call sp_load_task_master');
- return view('task-master-view',['data'=>$data]);
+public  function add_tasknew(Request $req){
+//print_r($req->all());exit();
+ $task=DB::select('call sp_insert_task(?,?,?)',array($req->savepname2,$req->Task_ids,$req->city));
+ return $task;
 }
 }
-    

@@ -117,10 +117,6 @@
         </div>
     </div>
 </div>
-</div>
-</div>
-
-
 
 
 
@@ -134,7 +130,7 @@
        
 
 
-                 <table class="table table-bordered">
+                 <table class="table   table-bordered" style="margin-left:20%">
                 <thead>
                   <tr>
                    <!--  <th>Sr.No</th>  -->
@@ -181,6 +177,14 @@
 
 
 
+</div>
+</div>
+
+
+
+
+
+
 
 
 
@@ -195,8 +199,14 @@
     padding-right: 15px;
     margin-left: 16%;
 }
-</style>
+table.dataTable {
+    clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+}
 
+</style>
 
 
 

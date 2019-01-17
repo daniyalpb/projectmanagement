@@ -1,5 +1,3 @@
-
-
 @extends('include.master')
 @section('content')
 <html>

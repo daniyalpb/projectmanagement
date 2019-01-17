@@ -27,7 +27,7 @@
 
 
 
-
+<!-- 
 
             <li class="dropdown user user-menu">
             <img src="../images/download.png">
@@ -42,16 +42,12 @@
 
              </ul>
           </li>
-
-
-
-
+ -->
 
 
           <li class="dropdown user user-menu">
-               <a href="{{url('release-details')}}">Realese</a>
-
-             <ul class="dropdown-menu">
+            <a href="{{url('release-details')}}">Relese</a>
+           <ul class="dropdown-menu">
                <li class="user-footer"> 
                <a href="{{url('release-details')}}" class="btn btn-default btn-flat">Realese</a>
                 </li>
@@ -110,6 +106,9 @@
 
 
 
+
+
+
  <li class="dropdown user user-menu" >
                <a href="{{url('bug-activity')}}" >Create</a>
 
@@ -122,15 +121,43 @@
              </ul>
               </li>
 
-<li class="dropdown user user-menu">
+ <li class="dropdown user user-menu">
              <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Session::get('name')}}<b class="caret"></b></a>
              <ul class="dropdown-menu">
-               <li class="user-footer"> 
-                  <a href="{{url('logout')}}" class="btn btn-default btn-flat">Log out</a>
+             <li class="user-footer"> 
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Session::get('name')}}<b></b></a>
+              <a href="{{url('logout')}}" >Manage Setting</a>
+              <a href="{{url('logout')}}" >View Profile</a>
+              <a href="{{url('logout')}}" >Log out</a>
+               <a href="{{url('openissues')}}" >Issues Navigator</a>
+              
+
+
+                </li>
+              </ul>
+     </li>
+
+
+
+<!--         <li class="dropdown user user-menu">
+            <img src="../images/downloadavi.png">
+           <ul class="dropdown-menu">
+            <li class="user-footer"> 
+                                             
+              <img src="../images/downloadavi.png" />
+
                 </li>
 
-</ul>
+
+
+             </ul>
           </li>
+
+
+ -->
+
+
+
 
 
 
@@ -248,4 +275,11 @@ body {
     border: 1px solid #ccc;  
   }
 }
+
+/*@media (min-width: 768px){
+.navbar-nav>li {
+    float: left;
+    margin-left: -17px;
+}
+}*/
 </style>

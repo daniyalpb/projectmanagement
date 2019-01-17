@@ -10,10 +10,6 @@ use DB;
 
 class GoogleChartController extends InitialController{
 
-
-
-
-
 public function googleLineChart(){
     return view('google-line-chart');
 }

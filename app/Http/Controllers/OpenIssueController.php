@@ -68,5 +68,14 @@ public function task_unrelesed(){
 
 
 
+public function open_issueupdate(Request $req){
+    $bugupdate=DB::select("call usp_update_bug_details(?,?,?,?,?,?)",array($req->u_EmpId,$req->Project_Name,$req->Team,$req->Reporter,$req->Assignee,$req->Issues));
+   return $bugupdate;
+
+}
+
+
+
+
 }
 

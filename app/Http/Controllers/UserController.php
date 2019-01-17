@@ -11,29 +11,12 @@ use App\CustomValidation;
 class UserController  extends Controller
 {
     public function userlogin_details(){
-        return view('user-login-details');
+
+
+   $data=DB::select('call sp_user_login_details()');
+  return view('user-details',['data'=>$data])->with('no',1);      
     }
-
-
- public function userdetail_update($id){
-            $user=DB::select("call sp_user_detail_view($id)");
-        return view('user-login-details',['user'=>$user]);
-        
-    }
-
-
-
-
-
-     
-
-
-    public function userlogin_view(Request $req){
-            $data=DB::select('call sp_user_login_details()');
-        return view('user-details',['data'=>$data])->with('no',1);      
-    }
-
-
+    
 
 
 public function user_detail_insert(CustomValidation $validator,Request $req){
@@ -66,31 +49,44 @@ public function user_detail_insert(CustomValidation $validator,Request $req){
     }
   
     }
-  
 
 
 
-    
 
-       public function user_update(Request $req){
-        //print_r($req->all());
-        //exit();
-        if($req->is_active == '0'){
-            $is_active = 1;
-        }else{
-            $is_active = null;
-        }
-        $ipaddress = $_SERVER['REMOTE_ADDR'];
-        $user = Session::get('id');
-        $user=DB::update("call sp_update_user_master(?,?,?,?,?)",array($req->name,$req->email,$req->mobile,$req->last_login_date,$req->Created_Date));
-        // return Redirect('employee-master-view');
-         $success_msg = array('name'=>'success',"messege"=>"Your File Successfully Updated");
-        echo json_encode($success_msg);
+   public function userdetail_update(Request $req){
+        $user=DB::select('call sp_user_detail_view(?)',array($req->id));
+   return view('user-login-details',['user'=>$user]);
+        
     }
 
 
 
 
+// public function task_history_update(Request $req){
+//        // return $req->all();
+//       // print_r($req->all());
+//       // exit();
+  
+//        $user=DB::update('call sp_update_task_master(?,?,?,?)',array($req->u_EmpId,$req->projectname,$req->Status,$req->Devloper,));
+//       return $user; 
+//      //     $success_msg = array('status'=>'success',"messege"=>"Your File Successfully Updated");
+//      //        echo json_encode($success_msg);
+              
+//     }
 
-}
+
+
+
+   
+    public function user_master_update(Request $req){
+        // print_r($req->all());
+        // exit();
+   
+     $user=DB::update("call sp_update_user_master(?,?,?,?,?,?)",array($req->id,$req->name,$req->email, $req->mobile,$req->last_login_date,$req->Created_Date));
+       //  return Redirect('user-details');
+        //  $success_msg = array('name'=>'success',"messege"=>"Your File Successfully Updated");
+        // echo json_encode($success_msg);
+      return$user;
+      }
+      }
 
